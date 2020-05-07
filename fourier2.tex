@@ -1,0 +1,21 @@
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\begin{axis}[
+x=1cm,y=1cm,
+axis lines=middle,
+ymajorgrids=true,
+xmajorgrids=true,
+xmin=-6.952681299116911,
+xmax=6.426600129374963,
+ymin=-4.677320631353662,
+ymax=6.308274190855899,
+xtick={-6,-5,...,6},
+ytick={-4,-3,...,6},]
+\clip(-6.952681299116911,-4.677320631353662) rectangle (6.426600129374963,6.308274190855899);
+\draw[line width=2pt,color=qqwuqq,smooth,samples=100,domain=-6.952681299116911:6.426600129374963] plot(\x,{1+(\x)});
+\draw[line width=2pt,color=qqqqff,smooth,samples=100,domain=-6.952681299116911:6.426600129374963] plot(\x,{1+2*((-1)^(1+1)/1*sin(((\x))*180/pi)+(-1)^(2+1)/2*sin((2*(\x))*180/pi)+(-1)^(3+1)/3*sin((3*(\x))*180/pi)+(-1)^(4+1)/4*sin((4*(\x))*180/pi)+(-1)^(5+1)/5*sin((5*(\x))*180/pi)+(-1)^(6+1)/6*sin((6*(\x))*180/pi)+(-1)^(7+1)/7*sin((7*(\x))*180/pi)+(-1)^(8+1)/8*sin((8*(\x))*180/pi)+(-1)^(9+1)/9*sin((9*(\x))*180/pi)+(-1)^(10+1)/10*sin((10*(\x))*180/pi)+(-1)^(11+1)/11*sin((11*(\x))*180/pi)+(-1)^(12+1)/12*sin((12*(\x))*180/pi)+(-1)^(13+1)/13*sin((13*(\x))*180/pi)+(-1)^(14+1)/14*sin((14*(\x))*180/pi))});
+\begin{scriptsize}
+\draw[color=qqwuqq] (-5.430867297771864,-4.415758849872481) node {$f$};
+\draw[color=qqqqff] (-6.810011236490813,0.3716143626921475) node {$g$};
+\end{scriptsize}
+\end{axis}
+\end{tikzpicture}

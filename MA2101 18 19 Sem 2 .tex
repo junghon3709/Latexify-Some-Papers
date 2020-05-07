@@ -1,0 +1,220 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, tikz, graphics, biblatex, geometry, enumitem, float, mathrsfs}
+\DeclareMathOperator{\pro}{Proj}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+\newcommand{\matr}[1]{\mathbf{#1}}
+
+\newcommand{\grstep}[2][\relax]{%
+   \ensuremath{\mathrel{
+       {\mathop{\longrightarrow}\limits^{#2\mathstrut}_{
+                                     \begin{subarray}{l} #1 \end{subarray}}}}}}
+\newcommand{\swap}{\leftrightarrow}
+
+\title{MA2101 18/19 Sem 2}
+\author{Yip Jung Hon A0199560R}
+
+\usepackage{lipsum}
+
+\begin{document}
+\maketitle
+\subsection*{Question 1}
+since $R(T) \leq \dim(V)$, one has $T(u_1) \cdots T(u_n)$ are sufficient vectors to span $R(T)$. We just need to show linear independence. Suppose there exists some non-trivial linear dependence.
+
+\begin{equation*}
+    \sum_{i=i}^n c_i T(u_i) = 0
+\end{equation*}
+This is a contradiction since $T$ is injective.
+
+\subsection*{Question 2}
+\begin{align*}
+  \left[\begin{array}{rrr}
+1 & -1 & x^2 \\
+1 & -1 & x \\
+0 & 1 & 2
+\end{array}\right] \grstep{R_1-R_2}{}  \left[\begin{array}{rrr}
+0 & 0 & x^2-x \\
+1 & -1 & x \\
+0 & 1 & 2
+\end{array}\right]
+\end{align*}
+We just want $x^2-x \neq 0$. For that, we may choose $x=2$ since $2^2-2 \neq 0$ (mod 3). 
+
+Sub $x=2$ in the above matrix.
+\begin{align*}
+    \left[\begin{array}{rrr|r}
+1 & -1 & 1 & 0\\
+1 & -1 & 2 & 0\\
+0 & 1 & 2 & 2 
+\end{array}\right] \grstep{RREF}{} \left[\begin{array}{rrr|r}
+1 & 0 & 0 & 2\\
+0 & 1 & 0 & 2\\
+0 & 0 & 1 & 0 
+\end{array}\right]
+\end{align*}
+Hence $[v]_B=\left[\begin{array}{r}
+2 \\
+2 \\
+0  
+\end{array}\right] $.
+
+\subsection*{Question 3}
+$m_T(x)=(x-1)^4(x-2)^3$ tells us that the largest Jordan block with $1$'s down the diagonal is $4$, and the largest Jordan block with $2$'s down the diagonal is $3$. $c_T(x)=(x-1)^7(x-2)^3$ tells us that there is \textbf{only 1} Jordan block with $2$'s down the diagonal, and that all Jordan blocks comprising of $1$'s down the diagonal will take up a $7 \times 7$ array of the matrix. From now on, we switch to the notation used in the textbook, where $\matr J_n(\lambda)$ has $\lambda$ denoting the entries down the diagonal, and $n$ denotes the size of the Jordan block.
+
+Here are all the non-similar forms:
+\begin{align*}
+&A=\left(\begin{array}{rrr}
+\matr J_4(1) &  &  \\
+ & \matr J_3(1) &  \\
+&  & \matr J_3(2)
+\end{array}\right) \ \ B=\left(\begin{array}{rrrr}
+\matr J_4(1) &  &  &  \\
+ & \matr J_2(1) &  &  \\
+ &  & \matr J_1(1) &  \\
+ &  &  & \matr J_3(2)
+\end{array}\right) \\ &C=\left(\begin{array}{rrrrr}
+\matr J_4(1) &  &  &  &  \\
+ & \matr J_1(1) &  &  &  \\
+ &  & \matr J_1(1)&  &  \\
+ &  &  & \matr J_1(1) &  \\
+ &  &  &  & \matr J_3(2)
+\end{array}\right)
+\end{align*}
+For the eigenvalue $1$, the $\matr J_3(2)$ block does not 'contribute' any dimensions to the nullspace at all. $\dim(E_1)$ is \textbf{equal to the number of Jordan blocks associated to eigenvalue 1}.  
+
+For $A$, $\dim \ker (T-I)=2$, since there are 2 Jordan blocks associated to eigenvalue 1. When raised to the second power, $(T-I)^2$ will have all Jordan blocks $\geq$ size $2$ contributing $2$ dimensions to the $\dim \ker (T-I)^2$. On the other hand, Jordan blocks $<2$ cannot contribute a dimension greater than their size to $\dim \ker (T-I)^2$, so they still only contribute $1$ dimension. We have that $\dim \ker (T-I)^2=4$.
+
+For $B$, $\dim \ker (T-I)=3$, and $\dim \ker (T-I)^2=5$. $\matr J_4(1)$ contributes 2 dimensions, $\matr J_2(1)$ contributes 2 dimensions, but $\matr J_1(1)$ is only able to contribute $1$ dimension.
+
+For $C$, $\dim \ker (T-I)=4$. $\dim \ker (T-I)^2=5$. All $\matr J_1(1)$ blocks contribute $1$ dimension each, and $\matr J_4(1)$ contributes $2$ dimensions.
+
+\pagebreak
+\subsection*{Question 4}
+
+Consider $E=\{1, x, x^2\}$, the standard basis for $\mathcal P_2(\mathbb{R})$.
+
+$T(1)=1-x-x^2=\left[\begin{array}{r}
+ 1   \\
+ -1  \\
+-1
+\end{array}\right]_E$. $T(x)=1-x-3x^2=\left[\begin{array}{r}
+ 1   \\
+ -1  \\
+-3
+\end{array}\right]_E$. $T(x^2)=2x^2= \left[\begin{array}{r}
+ 0   \\
+ 0  \\
+2
+\end{array}\right]_E$.
+\begin{align*}
+    T= \left[\begin{array}{rrr}
+1 & 1 & 0 \\
+-1 & -1 & 0 \\
+-1 & -3 & 2
+\end{array}\right]
+\end{align*}
+with $c_T(x)=x^3-2x^2$. $\lambda=0, 2$.
+
+$T-2I = \left[\begin{array}{rrr}
+-1 & 1 & 0 \\
+-1 & -3 & 0 \\
+-1 & -3 & 0
+\end{array}\right] \grstep{RREF}{} \left[\begin{array}{rrr}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0
+\end{array}\right]$.
+
+Basis for $E_2 = \left\{\left[\begin{array}{r}
+0 \\
+0 \\
+1
+\end{array}\right]\right\}$. 
+
+$T = \left[\begin{array}{rrr}
+1 & 1 & 0 \\
+-1 & -1 & 0 \\
+-1 & -3 & 2
+\end{array}\right] \grstep{RREF}{} \left[\begin{array}{rrr}
+1 & 0 & 1 \\
+0 & 1 & -1 \\
+0 & 0 & 0
+\end{array}\right]$.
+
+Basis for $E_2 = \left\{\left[\begin{array}{r}
+-1 \\
+1 \\
+1
+\end{array}\right]\right\}$. 
+
+By brute force, one has that $m_T(x)=x^3 - 2x^2$. This tells us that the Jordan blocks are $J_2(0)$ \& $J_1(2)$. Since the Jordan block associated with eigenvalue $0$ is of size $2$, this tells us we want to find a $v$ such that $(T-0I)(v) = \left[\begin{array}{r}
+-1 \\
+1 \\
+1
+\end{array}\right]$.
+
+$\left[\begin{array}{rrr|r}
+1 & 1 & 0 & -1 \\
+-1 & -1 & 0 & 1 \\
+-1 & -3 & 2 & 1
+\end{array}\right] \grstep{RREF}{} \left[\begin{array}{rrr|r}
+1 & 0 & 1 & -1 \\
+0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right]$.
+
+Hence, one has: $Q= \left[\begin{array}{rrr}
+-1 & -1 & 0 \\
+1 & 0 & 0 \\
+1 & 0 & 1
+\end{array}\right]$ to put the matrix in Jordan form, where the Jordan form is:
+$\matr J= \left[\begin{array}{rrr}
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 2
+\end{array}\right].
+$
+
+So we need the ordered basis $Q^{-1} = \left[\begin{array}{rrr}
+0 & 1 & 0 \\
+-1 & -1 & 0 \\
+0 & -1 & 1
+\end{array}\right]$.
+
+It corresponds to the basis $\mathscr B = \{-x, 1-x-x^2, x^2\}$.
+
+\subsection*{Question 5}
+We want to find the second degree Lagrange polynomial, $p(x)$ such that $\int_{-1}^1 p(x) p(x) = 1$, but $\int_{-1}^1 p(x) = 0$ and $\int_{-1}^1 xp(x) = 0$. Let $p(x)=ax^2+bx+c$. Since $p(1)=1, a+b+c=1$. Further, $\int_{-1}^1 ax^2+bx+c = 0 \implies \frac{2}{3}a+2c=0$. Lastly, $\int_{-1}^1 ax^3+bx^2+cx = 0 \implies \frac{2b}{3}=0 \implies b=0$.
+
+Solving the equations, $a=\frac{3}{2}, c=-\frac{1}{2}$. The orthogonal basis is $\{1,x,\frac{3}{2}x^2-\frac{1}{2}\}$.
+
+However, $\int_{-1}^1 p(x) p(x) = \frac{2}{5}$. We also need to normalise $1$ and $x$. 
+
+Doing so, we get that the orthonormal basis $\mathscr B = \{\frac{1}{\sqrt{2}}, \sqrt{\frac{3}{2}}x, \sqrt{\frac{5}{2}}(\frac{3}{2}x^2 - \frac{1}{2})\}$.
+
+Let $q(x)= -1+3x-15x^2+5x^3$. 
+\begin{align*}
+    \pro_{\mathscr{B}}(q(x)) &= \left \langle q(x), \frac{1}{\sqrt{2}} \right \rangle \frac{1}{\sqrt{2}}  + \left \langle q(x), \sqrt{\frac{3}{2}}x \right \rangle  \sqrt{\frac{3}{2}}x + \left \langle q(x),\sqrt{\frac{5}{2}}\left(\frac{3}{2}x^2 - \frac{1}{2}\right) \right \rangle \sqrt{\frac{5}{2}}\left(\frac{3}{2}x^2 - \frac{1}{2}\right) \\
+    &= -1+6x-15x^2
+\end{align*}
+
+\subsection*{Question 6}
+Over the standard inner product on finite dimensional $\mathbb{C}$, $T^*$ is the conjugate transpose. 
+$$T^* = \left[\begin{array}{rrr}
+1 & 0 & -i \\
+1 & -2 & i + 1 \\
+0 & 1 & -i
+\end{array}\right]
+$$
+
+Let $w \in W^{\bot}$, Then $\langle w,u \rangle=0$ for all $u \in W$. Since $W$ is $S$ invariant, one has $\langle w, S(u) \rangle=0$ for all $u \in W$, implying that $\langle S^*(w), u \rangle=0$ for all $u \in W$. So $W^{\bot}$ is $S^*$-invariant. However, since $S$ is self-adjoint, $W^{\bot}$ is also $S$-invariant.
+
+\subsection*{Question 7}
+we want to show: $E_{\lambda}(T) = \ker (T|_{W_1}- \lambda I) \oplus \ker(T|_{W_2} -\lambda I)$. Firstly, we show their sum is direct. Let $x \in \ker (T|_{W_1}- \lambda I) \cap \ker(T|_{W_2} -\lambda I)$. So $T|_{W_1}(x) = \lambda x \in W_1$. Similarly, $T|_{W_2}(x) = \lambda x \in W_2$. Since it is given that $W_1$ and $W_2$ is a direct sum, $\lambda x =0$. If $\lambda \neq 0$, we are done, since $x=0$. If $\lambda =0$, then $x \in \ker (T|_{W_1}- \lambda I) \implies x \in \ker (W - \lambda I) \cap W_1$. Similarly, $x \in \ker (W - \lambda I) \cap W_2$. This means $x \in \ker (W - \lambda I) \cap W_1 \cap \ker (W - \lambda I) \cap W_2$. Since $W_1 \oplus W_2$, we must have $x=0$.
+
+Clearly, $E_{\lambda}(T) \supseteq \ker (T|_{W_1}- \lambda I) \oplus \ker(T|_{W_2} -\lambda I)$. It suffices to prove the other set inequality. Let $v \in E_{\lambda}(T)$. Since $v \in V = W_1 \oplus W_2$, $v$ can be decomposed into $v=w_1+w_2$ uniquely, with $w_i \in W_i$ for $i=1,2$. Since $W_1$ and $W_2$ are $T$-invariant, $T(w_1+w_2)=T(w_1)+T(w_2)$, with $T(w_i) \in W_i$. 
+
+
+This gives us that $T|_{W_1}(w_1)=\lambda w_1$. $w_1$ is an eigenvector associated with $\lambda$ for $T|_{W_1}$. The same can be said for $w_2$. So $w_i \in \ker(T|_{W_i}-\lambda I)$ for $i=1,2$. Hence every vector $v \in E_{\lambda}(T)$ can be written as a direct sum of $\ker(T|_{W_1}-\lambda I)$ and $\ker(T|_{W_2}-\lambda I)$.
+\end{document}
