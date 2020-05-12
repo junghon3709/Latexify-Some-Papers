@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper}
+\geometry{a4paper, left=25.4mm,top=25.4mm, right=25.4mm, bottom=25.4mm}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage{enumerate}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath, amsthm,amssymb}
+\begin{document}
+    {\LARGE{MA2108 AY19/20 Semester 1 Exam Suggested Solutions}}
+    \vspace{0.2in}
+    
+    Author: Chong Jing Quan \hfill Reviewer: Pan Jing Bin
+    
+    \par\noindent\rule{\textwidth}{0.4pt}
+\section*{Question 1}
+\begin{enumerate}[(a)]
+    \item \begin{enumerate}[(i)]
+        \item We prove this by induction. The case for $n=1$ is clear. Suppose the inequality holds for $n=k\geq1.$ We want to show that the inequality holds for $n=k+1.$ Indeed, we have $$x_{k+1}=\sqrt{x_k+6}\geq\sqrt{0+6}>0$$ and $$x_{k+1}=\sqrt{x_k+6}\leq\sqrt{3+6}=3,$$ which completes the induction step.
+        \item We claim that the sequence converges to 3. Observe that $$|x_{n+1}-3|=|\sqrt{x_k+6}-3|=\left|\frac{x_k-3}{\sqrt{x_k+6}+3}\right|<\frac{1}{3}|x_k-3|.$$ Thus, the sequence contracts and so $\displaystyle\lim_{k\to\infty}x_k=3.$
+    \end{enumerate}
+    \item The answer is $\limsup y_n=1$ and $\liminf y_n=-1.$ Note that
+    $$\limsup y_n=\limsup \left(\frac{\cos n}{n}+\sin\frac{n\pi}{6}\right)\leq\limsup\left(\frac{\cos n}{n}\right)+\limsup\left(\sin\frac{n\pi}{6}\right)=0+1=1.$$
+    On the other hand, observe that $$\sup\left\{\frac{\cos n}{n}+\sin\left(\frac{n\pi}{6}\right),n\geq k\right\}\geq \sup\left\{\frac{\cos(6n+3)}{6n+3}+\sin\left(\frac{(6n+3)\pi}{6}\right),n\geq k\right\}.$$
+    Since $\displaystyle\lim_{n\to\infty}\left(\frac{\cos(6n+3)}{6n+3}+\sin\left(\frac{(6n+3)\pi}{6}\right)\right)=1,$ it follows that $\limsup y_n\geq1.$ Thus, $\limsup y_n=1.$ The proof is similar for $\liminf y_n=-1.$
+    \item Since for each positive integer $k,$ we have $M_k:=\sup \{a_n, n\geq k\}\geq a_m$ and $m_k:=\inf \{b_n, n\geq k\}\leq b_m$ whenever $m\geq k,$ we have $\dfrac{a_m}{b_m}\leq \dfrac{M_k}{m_k}.$ Since the inequality works for any positive integer $m\geq k,$ we get $$\sup\left\{\dfrac{a_m}{b_m},m\geq k\right\}\leq \dfrac{M_k}{m_k}.$$ Taking limit on both sides gives $$\lim_{k\to\infty}\sup\left\{\dfrac{a_m}{b_m},m\geq k\right\}=\limsup\frac{a_k}{b_k}\leq \lim_{k\to\infty}\dfrac{M_k}{m_k}=\dfrac{\lim_{k\to\infty}M_k}{\lim_{k\to\infty}m_k}=\frac{\limsup a_k}{\liminf b_k}$$ since $(a_n)$ and $(b_n)$ are bounded sequences.
+\end{enumerate}
+\section*{Question 2}
+\begin{enumerate}[(a)]
+    \item We have 
+    \begin{eqnarray*}
+    \sum_{n=1}^{\infty}\frac{2n+1}{n^2(n+1)^2}&=&\lim_{N\to\infty}\sum_{n=1}^{N}\frac{2n+1}{n^2(n+1)^2}\\
+    &=&\lim_{N\to\infty}\sum_{n=1}^{N}\frac{(n+1)^2-n^2}{n^2(n+1)^2}\\
+    &=&\lim_{N\to\infty}\sum_{n=1}^{N}\left(\frac{1}{n^2}-\frac{1}{(n+1)^2}\right)\\
+    &=&\lim_{N\to\infty}\left(1-\frac{1}{(N+1)^2}\right)\ =\ 1.
+    \end{eqnarray*}
+    \item \begin{enumerate}[(i)]
+        \item We first show that $\dfrac{3n^3-2n^2+n+1}{5n^4-3n^3+2}>\dfrac{1}{5n}$ for positive integers $n.$ 
+        Since for each positive integer $n$, we have $n^3>\dfrac{2}{3}$ and $n^2\geq 1,$ this implies that $$
+        \frac{3n^3-2n^2+n+1}{5n^4-3n^3+2}=\frac{\frac{3}{n}-\frac{2}{n^2}+\frac{1}{n^3}+\frac{1}{n^4}}{5-\frac{3}{n}+\frac{2}{n^4}}
+        >\frac{\frac{3}{n}-\frac{2}{n^2}}{5}
+        \geq\frac{1}{5n}.
+        $$
+        Since $\displaystyle\sum^{\infty}_{n=1}\frac{1}{n}$ diverges, the sum $\displaystyle\sum^{\infty}_{n=1}\dfrac{3n^3-2n^2+n+1}{5n^4-3n^3+2}$ diverges as well.
+        \item The series converges by root test. We have $$\lim_{n\to\infty}\sqrt[n]{\frac{n^2}{10^n}\left(1+\frac{1}{2n}\right)^{4n^2}}=\lim_{n\to\infty}\frac{1}{10}n^{\frac{2}{n}}\left(1+\frac{1}{2n}\right)^{4n}.$$
+        Since $\displaystyle\lim_{n\to\infty}n^{\frac{2}{n}}=1$ and $\displaystyle\lim_{n\to\infty}\left(1+\frac{1}{2n}\right)^{4n}=e^2<9,$ the required limit is less than 1 and so the series converges.
+    \end{enumerate}
+    \item Write $0\leq b_n-a_n\leq c_n-a_n.$ Since $\displaystyle\sum^{\infty}_{n=1}(c_n-a_n)$ converges (absolutely), the series $\displaystyle\sum^{\infty}_{n=1}(b_n-a_n)$ converges (absolutely) by comparison test. Hence, the series $\displaystyle\sum^{\infty}_{n=1}b_n=\displaystyle\sum^{\infty}_{n=1}(b_n-a_n)+\displaystyle\sum^{\infty}_{n=1}a_n$ converges too.
+\end{enumerate}
+\section*{Question 3}
+\begin{enumerate}[(a)]
+    \item Let $\varepsilon>0$ be given. Pick $\delta=\min\left\{\dfrac{1}{4},\dfrac{\varepsilon}{24}\right\}$ so that $0<|x+2|<\delta\implies \left|\dfrac{2x-3}{2x+3}-7\right|<\varepsilon.$ Indeed, we have $$\left|\frac{2x-3}{2x+3}-7\right|=\left|\frac{-12x-24}{2x+3}\right|=12|x+2|\left|\frac{1}{2x+3}\right|<12\times2|x+2|<24\times\frac{\varepsilon}{24}=\varepsilon.$$ The conclusion follows.
+    \item The function is only continuous at $x=2.$ Let $\varepsilon>0$ be given. Take $\delta=\dfrac{\varepsilon}{3}$ so that $0<|x-2|<\delta\implies|f(x)-5|<\varepsilon.$ Indeed, we have $$ |f(x)-5|\leq \sup\{|(3x-1)-5|,|(2x+1)-5|\}=3|x-2|<3\times\frac{\varepsilon}{3}=\varepsilon.$$ Thus, the function is continuous at $x=2.$
+    
+    For $x\neq2,$ consider two cases. If $x$ is rational, then $f(x)=3x-1.$ Consider a sequence of irrational numbers $(x_n)^{\infty}_{n=1}$ that converges to $x.$ Then, $f(x_k)=2x_k+1$ for each positive integer $k.$ Since $x\neq 2,$ the limit \\ $\displaystyle\lim_{k\to\infty}(2x_k+1)=2x+1$ does not equal to $f(x)=3x-1.$ Thus, the function is not continuous at rational values other than 2. The case for $x$ is irrational can be handled similarly.
+    \item \begin{enumerate}[(i)]
+        \item Since $\displaystyle\lim_{n\to\infty}\frac{g(2x)}{g(x)}=1,$ for a given $\varepsilon,$ there exists a positive real number $N$ so that $\left|\dfrac{g(2x)}{g(x)}-1\right|<\varepsilon$ for all $x>N.$ Since $2^{n-1}x\geq x$ for positive integers $n,$ we have $\left|\dfrac{g(2^nx)}{g(2^{n-1}x)}-1\right|<\varepsilon$ and we are done.
+        \item Notice that for $\alpha>2,$ we can write $\alpha=2^k\beta$ for some positive integer $k$ and real number $1\leq\beta<2.$ As such, we have $$\lim_{x\to\infty}\frac{g(\alpha x)}{g(x)}=\lim_{x\to\infty}\frac{g(2^k\beta x)}{g(x)}=\lim_{x\to\infty}\left(\frac{g(2^k\beta x)}{g(2^{k-1}\beta x)}\frac{g(2^{k-1}\beta x)}{g(2^{k-2}\beta x)}\cdots \frac{g(2\beta x)}{g(\beta x)}\frac{g(\beta x)}{g(x)}\right).$$
+        A modification of the proof for part (i) yields $\displaystyle\lim_{x\to\infty}\frac{g(2^k\beta x)}{g(2^{k-1}\beta x)}=1.$ On the other hand, since $g$ is increasing, we have $g(x)\leq g(\beta x)<g(2x)$ and so $1\leq \dfrac{g(\beta x)}{g(x)}<\dfrac{g(2x)}{g(x)}.$ By squeeze theorem, the limit is $\displaystyle\lim_{x\to\infty}\frac{g(\beta x)}{g(x)}=1.$ Hence, we conclude that $$\lim_{x\to\infty}\frac{g(\alpha x)}{g(x)}=1.$$
+    \end{enumerate}
+\end{enumerate}
+\section*{Question 4}
+\begin{enumerate}[(a)]
+    \item By Extreme Value Theorem, $f$ attains its supremum at $x_1\in[0,1]$ and $g$ attains its supremum at $x_2\in[0,1].$ If $x_1=x_2,$ there is nothing to prove.
+    
+    Suppose $f(x_1)>f(x_2)$ and $g(x_1)<g(x_2),$ i.e. $f$ and $g$ attains maximum at different points. Then, we see that $f(x_1)-g(x_1)=g(x_2)-g(x_1)>0$ and $f(x_2)-g(x_2)=f(x_2)-f(x_1)<0.$ Thus, by Intermediate Value Theorem, there exists $x_0\in[0,1]$ so that $f(x_0)=g(x_0).$
+    \item Without loss of generality, assume $x\geq 0.$ Since $f$ is uniformly continuous, there exists $\delta>0$ so that $|x-y|<2\delta\implies|h(x)-h(y)|<1.$ Thus, if $|x|=k\delta+r$ for some positive integer $k$ and $0\leq r<\delta$ by triangle inequality, we get 
+    \begin{eqnarray*}
+    |h(x)-h(0)|&=&|h(x)-h(x-\delta)+h(x-\delta)-h(x-2\delta)+\cdots+h(r)-h(0)|\\
+    &\leq&|h(x)-h(x-\delta)|+|h(x-\delta)-h(x-2\delta)|+\cdots+|h(r)-h(0)|\\
+    &\leq&k+1.
+    \end{eqnarray*}
+    Thus, $|h(x)|\leq |h(x)-h(0)|+|h(0)|\leq k+1+|h(0)|.$ Since $|x|=k\delta+r\geq k\delta,$ it follows that $$|h(x)|\leq \dfrac{|x|}{\delta}+1+|h(0)|.$$ The proof is complete.
+\end{enumerate}
+\end{document}

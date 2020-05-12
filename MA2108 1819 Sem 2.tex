@@ -15,7 +15,7 @@
     {\LARGE{MA2108 AY18/19 Semester 2 Exam Suggested Solutions}}
     \vspace{0.2in}
     
-    Author: Chong Jing Quan \hfill Reviewer: ????
+    Authors: Chong Jing Quan, Pan Jing Bin \hfill Reviewer: ????
     
     \par\noindent\rule{\textwidth}{0.4pt}
 \section*{Question 1}
@@ -70,7 +70,7 @@
     -2x+24&4<x\leq8\\
     8&x>8.
     \end{cases}$$
-    It is easy to see that $f$ is continuous, $f(x)>0$ for all $x\in\mathbb{R}$ and $f(1)\cdot f(8)=f(2)\cdot f(4).$ However, there do not exist $c\in[1,2]$ so that $(f(2c))^2=f(c)\cdot f(4c)$ since $$(f(2c))^2=f(c)\cdot f(4c)\implies (7c-12)^2=(-2c+6)(-2c+24)\implies c=0\text{ or }c=\frac{12}{5}.$$
+    It is easy to see that $f$ is continuous, $f(x)>0$ for all $x\in\mathbb{R}$ and $f(1)\cdot f(8)=f(2)\cdot f(4).$ However, there is no $c\in[1,2]$ so that $(f(2c))^2=f(c)\cdot f(4c)$ since $$(f(2c))^2=f(c)\cdot f(4c)\implies (7c-12)^2=(-2c+6)(-2c+24)\implies c=0\text{ or }c=\frac{12}{5}.$$
     
     \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
 \begin{axis}[
@@ -99,7 +99,31 @@ ytick={0.0,2.0,...,18.0},]
 \end{enumerate}
 \section*{Question 4}
 \begin{enumerate}[(a)]
-    \item Firstly, note that $f(x) = f(\frac{x+2}{3})$ for all $x$ and denote $g(a) = \frac{a+2}{3}$. Let $f(1) = a$. Suppose there exists $y$ so that $y \neq 1$ and $f(y) \neq a$. WLOG $y>1$. By continuity, there exists $\delta$ such that $|x-1| < \delta \implies |f(x)-f(1)| < \frac{f(a)-f(1)}{2}$. Let $|a-1| = A$. Then, $|g(a)-1| = \frac{A}{3}$ and more generally, $|g^n(a)-1| = \frac{A}{3^n}$, which obviously limits to zero as $n$ approaches infinity. However, by the condition of the problem, $|f(g^n(a))-f(1)|$ is a nonzero constant for all $n$, contradicting the continuity at 1.% Solution added by Jessen
+    \item Suppose $X:=\{x_{g(n)}\}^{\infty}_{n=1}$ and $Y:=\{y_{g(n)}\}^{\infty}_{n=1}$ are two subsequences so that $z=\displaystyle\lim_{n\to\infty}\frac{x_{g(n)}}{y_{g(n)}}.$
+    
+    Since $X$ and $Y$ are both bounded sequences, by Bolzano-Weierstrass theorem, there exists subsequences $\{x_{f(n)}\}^{\infty}_{n=1}$ and $\{y_{h(n)}\}^{\infty}_{n=1}$ of $X$ and $Y$ respectively so that $\displaystyle\lim_{n\to\infty}x_{f(n)}=x$ and $\displaystyle\lim_{n\to\infty}y_{h(n)}=y.$ In particular, there is no subsequence of $Y$ that converges to 0. Suppose there is one such sequence. Then, for a given $\varepsilon_1>0,$ there exists a positive integer $N$ so that $|y_{k(n)}|<\varepsilon_1$ for all $n\geq N.$ Hence, $\left|\dfrac{x_{k(n)}}{y_{k(n)}}\right|>\dfrac{1}{\varepsilon_1},$ which contradicts the fact that $\left|\dfrac{x_{k(n)}}{y_{k(n)}}\right|$ is bounded. Now, it is easy to check that $\dfrac{x}{y}=z.$
+    %\item Firstly, note that $f(x) = f(\frac{x+2}{3})$ for all $x$ and denote $g(a) = \frac{a+2}{3}$. Let $f(1) = a$. Suppose there exists $y$ so that $y \neq 1$ and $f(y) \neq a$. WLOG $y>1$. By continuity, there exists $\delta$ such that $|x-1| < \delta \implies |f(x)-f(1)| < \frac{f(a)-f(1)}{2}$. Let $|a-1| = A$. Then, $|g(a)-1| = \frac{A}{3}$ and more generally, $|g^n(a)-1| = \frac{A}{3^n}$, which obviously limits to zero as $n$ approaches infinity. However, by the condition of the problem, $|f(g^n(a))-f(1)|$ is a nonzero constant for all $n$, contradicting the continuity at 1.% Solution added by Jessen
     \item The statement is true. Let $\varepsilon>0$ be given. Then, there exists $\delta_1$ so that $|x-y|<\delta_1\implies |g(x)-g(y)|<\varepsilon.$ On the other hand, since $f$ is continuous on $[0,1],$ $f$ is uniformly continuous on $[0,1].$ Then, there exists $\delta_2$ so that $|x-y|<\delta_2\implies |f(x)-f(y)|<\delta_1.$ Consequently, $|x-y|<\delta_2\implies |h(x)-h(y)|=|g\circ f(x)-g\circ f(y)|<\varepsilon.$
+\end{enumerate}
+\section*{Question 5}
+\begin{enumerate}[(a)]
+    \item \begin{enumerate}[(i)]
+        \item The limit is $12\cos 5.$ Clearly, $$\lim_{x\to 5^-}\cos x=\lim_{x\to 5^+}\cos x=\lim_{x\to 5}\cos x=\cos 5.$$
+        Now, we examine the limit $L:=\displaystyle\lim_{x\to 5}\left(\lfloor2x\rfloor+\left\lfloor\dfrac{75}{x^2}\right\rfloor\right).$ Observe that $$\lim_{x\to 5^-}\left(\lfloor2x\rfloor+\left\lfloor\dfrac{75}{x^2}\right\rfloor\right)=\lim_{x\to 5^-}\lfloor2x\rfloor+\lim_{x\to 5^-}\left\lfloor\dfrac{75}{x^2}\right\rfloor=9+3=12$$
+        and $$\lim_{x\to 5^+}\left(\lfloor2x\rfloor+\left\lfloor\dfrac{75}{x^2}\right\rfloor\right)=\lim_{x\to 5^+}\lfloor2x\rfloor+\lim_{x\to 5^+}\left\lfloor\dfrac{75}{x^2}\right\rfloor=10+2=12.$$
+        Hence, $L=12.$ Thus, the final limit is $12\cos5.$
+        \item We show that the limit $\displaystyle\lim_{x\to3}\sin\left(\frac{x}{3-x}\right)$ does not exist. Let $L$ be the limit and let $\varepsilon=1$. Suppose $L\geq 0.$ Then, for each positive integer $n,$ we see that if $x=\dfrac{\frac{9\pi}{2}+6n\pi}{1+\frac{3\pi}{2}+2n\pi},$ then $\sin\left(\dfrac{x}{3-x}\right)=-1.$ In fact, for any $\delta>0,$ there exists a positive integer $N$ so that $|x-3|=\dfrac{3}{1+\frac{3\pi}{2}+2n\pi}<\delta$ for all $n\geq N.$ Thus, we get $\displaystyle\left|\sin\left(\frac{x}{3-x}\right)-a\right|\geq1=\varepsilon.$  The proof is similar for $L<0.$
+        
+        Suppose the limit $\displaystyle\lim_{x\to3}(x+1)\sin\left(\frac{x}{3-x}\right)$ exists. Then, we see that $\displaystyle\lim_{x\to3}(x+1)\sin\left(\frac{x}{3-x}\right)\cdot\frac{1}{x+1}=\displaystyle\lim_{x\to3}\sin\left(\frac{x}{3-x}\right)$ also exists since $\displaystyle\lim_{x\to3}\frac{1}{x+1}$ exists. This is a contradiction and we are done.
+    \end{enumerate}
+    \item We prove that $\displaystyle\lim_{x\to\infty}f(x)=\sup\{f(x):x\in[1,\infty)\}.$
+\end{enumerate}
+\section*{Question 6}
+\begin{enumerate}[(a)]
+        \item Let $\varepsilon>0$ be given. Then choose $\delta=\min\left\{\dfrac{1}{4},2\varepsilon\right\}$ so that $0<|x-2|<\delta\implies\left|\dfrac{x^2-6}{2x-5}-2\right|<\varepsilon.$ We have
+        $$\left|\dfrac{x^2-6}{2x-5}-2\right|=\left|\frac{x^2-4x+4}{2x-5}\right|=
+        \left|\frac{(x-2)^2}{2x-5}\right|=|x-2|\left|\frac{x-2}{2x-5}\right|<\frac{1}{2}|x-2|<\frac{1}{2}\times2\varepsilon=\varepsilon.$$
+        The result follows.
+        \item WHAT THIS?
 \end{enumerate}
 \end{document}

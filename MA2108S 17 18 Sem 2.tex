@@ -10,6 +10,8 @@
        {\mathop{\longrightarrow}\limits^{#2\mathstrut}_{
                                      \begin{subarray}{l} #1 \end{subarray}}}}}}
 \newcommand{\swap}{\leftrightarrow}
+\usepackage[colorlinks=true,linkcolor=blue, citecolor=blue, allcolors=blue ]{hyperref}
+\urlstyle{tt}
 
 \title{MA2108S 17/18 Sem 2}
 \author{Yip Jung Hon A0199560R}
@@ -114,7 +116,46 @@ Then for all $n+1>N$, one has,
 \end{equation*}
 and hence $|f(1)-f(x_{n+1})|=|1-x_n|<\epsilon$, giving us that $(x_n) \to 1$.
 
+\subsection*{Question 4}
+We want to show: does not exist $x$ such that $f(x)=x$ $\implies$ exists $\epsilon$ such that $d(f(x), x) \geq \epsilon$ for all $x$. We can do it by contradiction.
 
+Suppose that for all $\epsilon$, there exists $x$ such that $d(f(x), x)<\epsilon$. Then we can take our successive $\epsilon$'s to be $\frac{1}{2}, \frac{1}{2^2}, \frac{1}{2^3} \cdots$ and we have an $x_n$ fulfilling this condition for all $n \in \mathbb{N}$,
+\begin{equation}
+    d(f(x_n), x_n) < \frac{1}{2^n}. \label{eq1}
+\end{equation}
+Consider the sequence of $x_n$'s. We shall denote the sequence $(x_n)$. By compactness, $(x_n)$ contains a Cauchy subsequence that converges to a point $x \in M:=(X,d)$. Let this subsequence be $(x'_n)$. So there exists an $N_1$ such that $n \geq N_1 \implies d(x'_n, x) < \frac{\epsilon}{2}$.
+By continunity, $(f(x'_n)) \to f(x)$.
 
+If we can show that $(f(x'_n)) \to x$, then we automatically have $x=f(x)$ since the limit that a sequence converges to is unique if it exists.
+
+From (\ref{eq1}), we may find an $N_2$ sufficiently big such that $n \geq N_2 \implies d(f(x_n), x_n) < \frac{1}{2^n}< \frac{\epsilon}{2}$. Take $N=\max\{N_1, N_2 \}$. Then $n \geq N$ implies:
+\begin{equation*}
+    d(f(x'_n), x) \leq d(f(x'_n), x'_n) + d(x, x'_n) < \epsilon.
+\end{equation*}
+We have an $x \in M$ such that $f(x)=x$, contradiction.
+
+\subsection*{Question 5}
+There are many proofs that convexity implies continunity here: \url{https://math.stackexchange.com/questions/258511/proof-of-every-convex-function-is-continuous}, though none as elegant as the following proof (taken from the same page).
+
+Suppose $f$ is discontinuous at $x$. Then there exists some $y$ such that $0<y<x$, since $(0,1)$ is open. Then there exists an $\epsilon$ such that for all $\delta$, 
+\begin{equation*}
+    |f(x \pm \delta)-f(x)| \geq \epsilon.
+\end{equation*}
+Let $(\lambda_n)$ be any monotone increasing sequence that converges to $1$. For each $\lambda_n$, 
+\begin{equation}
+    f(\lambda_nx+(1-\lambda_n)y)\geq f(x)+\epsilon. \label{eq2}
+\end{equation}
+The case whereby $f(y \pm \delta) -f(y) \leq -\epsilon$ does not matter because we may just swap the terms. We may do multiply -1, $f(y) -f(y \pm \delta) \geq \epsilon$. We might as well just set $y=x \mp \delta$ to obtain $
+f(x \mp \delta)-f(x) \geq \epsilon$. Again, $\delta$ may be set to $\lambda_nx+(1-\lambda_n)y$.
+
+The inequality in the question gives us:
+\begin{equation}
+    f(\lambda_nx+(1-\lambda_n)y)\leq \lambda_nf(x)+(1-\lambda_n)f(y). \label{eq3}
+\end{equation}
+Multiplying $-1$ to (\ref{eq2}) and adding it to (\ref{eq3}) gives us,
+\begin{equation*}
+    0\leq (\lambda_n-1)f(x)+(1-\lambda_n)f(y)-\epsilon.
+\end{equation*}
+Taking the $\lim_{n \to \infty}$ gives us $0 \geq -\epsilon \implies \epsilon=0$, contradiction.
 
 \end{document}
