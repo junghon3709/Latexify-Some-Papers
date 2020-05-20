@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{fixltx2e}
+\title{1516SEM2-MA2101S Answers}
+\author{Written by: Pan Jing Bin}
+\date{Audited by: Chong Jing Quan}
+
+\begin{document}
+
+\maketitle
+\subsection*{Question 1}
+(a) First note that since $A^{Re},A^{Im},B$ and $C$ are matrices with real coefficients, $A^{Re}B,CA^{Re},A^{Im}B, CA^{Im} \in M_{n\times n}(\mathbb{R})$.\begin{align*}
+AB=CA &\iff (A^{Re} + iA^{Im})B = C(A^{Re} + iA^{Im})\\ &\iff A^{Re}B + iA^{Im}B = CA^{Re} + iCA^{Im}\\ &\iff A^{Re}B = CA^{Re} \land A^{Im}B = CA^{Im}. - \text{(By comparing real and imaginary parts)}
+\end{align*}
+(b) Since $A$ is invertible, $\det(A^{Re} + iA^{Im}) \neq 0.$ Thus $p(i) \neq 0$ so $p(x)$ is not the zero polynomial.\\\\
+$p(x)$ is a non-zero polynomial of degree $n$ so it can have at most $n$ roots. $\exists c\in \mathbb{R}$ such that $p(c) \neq 0.$ Then $\det(A^{Re} + cA^{Im}) \neq 0$ so $A^{Re} + cA^{Im}$ is invertible.\\\\
+(c) To prove 'only if':\\\\
+Since $P\in M_{n\times n}(\mathbb{R}), P \in M_{n\times n}(\mathbb{C}).$ Simply choose $Q = P$ and we have $QBQ^{-1} = C$.\\\\
+To prove 'if':\\\\
+$QBQ^{-1} = C \to QB = CQ.$ By (a), $Q^{Re}B = CQ^{Re} \land Q^{Im}B = CQ^{Im}.$\\\\
+By (b), $\exists d\in\mathbb{R}$ such that $Q^{Re} + dQ^{Im}$ is an invertible matrix with real coefficients. By combining (a) and (b):\\\\
+$Q^{Re}B + dQ^{Im}B = CQ^{Re} + dCQ^{Im} \to (Q^{Re} + dQ^{Im})B = C(Q^{Re}+dQ^{Im})$.\\\\
+Thus $(Q^{Re} + dQ^{Im})B(Q^{Re} + dQ^{Im})^{-1} = C.$ Choose $P = Q^{Re} + dQ^{Im}$ and the proof is complete.\\\\
+\subsection*{Question 2}
+Let $K$ be a basis for $V$ and let $A$ and $B$ be the standard matrix of $\alpha$ and $\beta$ with respect to basis $K$. (Since $V$ is finite dimensional)\\\\
+(a)(i) False. Counterexample:\begin{center}
+$A = \begin{pmatrix}
+0 & 1\\
+1 & 1\end{pmatrix} ,  B = \begin{pmatrix}
+0 & -1\\
+0 & -1\end{pmatrix} , A+B = \begin{pmatrix}
+0 & 0\\
+1 & 0\end{pmatrix}.$
+\end{center}Then $c_A(x) = x^2-x-1 = (x-\frac{1+\sqrt{5}}{2})(x-\frac{1-\sqrt{5}}{2}),\ c_B(x) = x(x-1). \\$ Since $c_A(x)$ and $c_B(x)$ have no repeated factors, $A$ and $B$ are diagonalisable. Notice that $(A+B)^T$ is a $J_2(0) $ Jordan block, which is not diagonalisable. Thus $A+B$ is not diagonalisable.\\\\
+(ii) False. Counterexample:\begin{center}
+$A = \begin{pmatrix}
+1 & 1\\
+1 & 0\end{pmatrix} ,  B = \begin{pmatrix}
+0 & 0\\
+0 & 1\end{pmatrix} , AB = \begin{pmatrix}
+0 & 1\\
+0 & 0\end{pmatrix}.$
+\end{center}\\\\
+$c_A(x) = x^2-x-1 = (x-\frac{1+\sqrt{5}}{2})(x-\frac{1-\sqrt{5}}{2})$. Since $c_A(x)$ have no repeated factors, $A$ is diagonalisable. $B$ is obviously diagonalisable since it is a diagonal matrix. AB is obviously not diagonalisable since it is a $J_2(0)$ Jordan block.\\\\
+(iii) True. Consider $f(x) = x^2 - x = x(x-1).$ Since $f(\alpha) = 0_V,\ m_\alpha(x)|f(x)$ by definition of minimal polynomial. But $f(x)$ has no repeated factors so $m_\alpha(x)$ has no repeated factors as well. Thus $\alpha$ is diagonalisable.\\\\
+(b) Let $\lambda_1,\lambda_2,...\lambda_n$ be the eigenvalues of $\alpha^2$.\begin{center}
+ $m_{\alpha^2}(x) = (x-\lambda_1)(x-\lambda_2)...(x-\lambda_n).$\end{center}\\\\
+Then $(\alpha^2 - \lambda_1)(\alpha^2 - \lambda_2)...(\alpha^2 - \lambda_n) = 0_V$. Since $F$ is algebraically closed, $\sqrt{\lambda_i}$ exist $\forall \ 1\leq i \leq n$.\\\\
+$(\alpha+\sqrt{\lambda_1})(\alpha-\sqrt{\lambda_1})(\alpha+\sqrt{\lambda_2})(\alpha-\sqrt{\lambda_2})...(\alpha-\sqrt{\lambda_n}) = 0_V.$ By definition of minimal polynomial, $m_\alpha(x)|(x+\sqrt{\lambda_1})(x-\sqrt{\lambda_1})(x+\sqrt{\lambda_2})(x-\sqrt{\lambda_2})...(x-\sqrt{\lambda_n})$. Since $\alpha$ is bijective, $\lambda_i \neq 0\ \forall \ 1\leq i\leq n$. Thus $m_\alpha(x)$ has no repeated factors so it is diagonalisable. \\\\
+\subsection*{Question 3}\\\\
+(a) Remark: The statement is trivial when $V$ is a one-dimensional vector space. Thus we only consider the case where $\dim(V) > 1$. Assume that $\exists z \in V$ such that $\beta(z) \neq \lambda z \ \forall \ \lambda \in \mathbb{R}$. Write $\beta(z) = p + \lambda z$ for some $\lambda \in \mathbb{R}$ and $p$ is orthogonal to $z$. Note that since $z$ is not an eigenvalue of $\beta,p\neq 0_V.$\\\\
+Then $\phi(p,z) = 0 \to \phi(\alpha(p),\alpha(z)) = 0 \to \phi(p,\beta(z)) = 0 \to \phi(p,p + \lambda z) = 0$.\\\\ But $\phi(p,p+\lambda z) = \phi(p,p) + \phi(p,\lambda z) = \phi(p,p) > 0$ since $\phi$ is positive definite. Thus there is a contradiction so the assumption is wrong and every nonzero vector $v\in V$ is an eigenvector of $\beta$.\\\\
+(a)(ii) Claim 1: $\beta$ only has one eigenvalue, $\lambda$.\\\\
+Assume that $\beta$ has more than 1 eigenvalue. Let $\lambda_1$ and $\lambda_2$ be 2 distinct eigenvalues of $\beta$. Then $\exists v_1,v_2 \in V$ such that $\beta(v_1) = \lambda_1 v_1 \land \beta(v_2) = \lambda_2 v_2$.\\\\ But then $\beta(v_1 + v_2) = \lambda_1 v_1 + \lambda_2 v_2$. Since $v_1$ and $v_2$ are linearly independent and $\lambda_1 \neq \lambda_2, v_1 + v_2$ and $\lambda_1 v_1 + \lambda_2 v_2$ are linearly independent vectors. In other words, $v_1 + v_2$ is not an eigenvector of $\beta,$ which contradicts (a)(i). Thus the assumption is false and $\beta$ only has one eigenvalue. \\\\
+Claim 2: $\lambda \geq 0.$\\\\
+Assume $\lambda < 0.$ First note that if $\lambda < 0,$ the $\beta$ is not the zero operator and so $\alpha$ cannot be the zero operator. $\exists w\in V$ such that $\alpha(w) \neq 0_V.$\\\\
+$\phi(\alpha(w),\alpha(w)) > 0$ since $\phi$ is positive definite.\\\\ Thus $\phi(\beta(w),w) > 0 \to \lambda \phi(w,w) > 0 \to \phi(w,w) < 0$ since $\lambda$ is negative. This is a contradiction as $\phi$ is positive definite so the assumption is false and $\lambda \geq 0.$\\\\
+Obviously $\beta$ is diagonalisable. Thus $\ker(\lambda I_v-\beta) = V$ (Since $\beta$ only has one eigenvalue) so $\lambda I_v - \beta = 0_V.$ We thus conclude that $\beta = \lambda I_v$ for some $\lambda \geq 0$. \\\\
+(b) Consider 2 cases:\\\\
+Case 1: $\beta = 0_V$.\\\\
+Claim: $\ker(\beta) = \ker(\alpha).$\\\\
+Obviously $\ker \alpha \subseteq \ker \beta.$ To prove $\ker \beta \subseteq \ker \alpha:$\\\\
+Let $k \in \ker(\beta).$ Then $\phi(\beta(k),k) = 0 \to \phi(\alpha(k),\alpha(k)) = 0 \to \alpha(k) = 0_V$ (Since $\phi$ is positive definite). Thus $k \in \ker(\alpha)$ so $\ker(\beta)\subseteq\ker(\alpha).$\\\\
+Thus $\beta = 0_V \to \alpha = 0_V$ so simply choose $k = 0$ and any orthogonal matrix $P$ will suffice.\\\\\\ Case 2: $\beta \neq 0$.\\\\ Let $B$ be an orthonormal basis for $V$ with respect to $\phi$. (Since $\phi$ is positive definite, such a basis exists) Then let $A = [\alpha]_B$.\\\\
+$[\alpha^\star]_B = A^T$. $[\beta]_B = \lambda I \to [\alpha^\star]_B [\alpha]_B = \lambda I \to A^TA = \lambda I.$\\\\
+Since $\lambda > 0,\sqrt{\lambda} $ exists so: $(\frac{1}{\sqrt{\lambda}}A^T)(\frac{1}{\sqrt{\lambda}}A) = I \to (\frac{1}{\sqrt{\lambda}}A)^T(\frac{1}{\sqrt{\lambda}}A) = I$. Thus $\frac{1}{\sqrt{\lambda}}A$ is our orthogonal matrix. Choose $B$ to be our basis and $[\alpha]_B = \sqrt{\lambda}(\frac{1}{\sqrt{\lambda}}A).$\\\\
+\subsection*{Question 4}
+(a) To prove existence: \\\\
+Since $\lambda$ is not an eigenvalue of $T, \ \gcd(x-\lambda,m_T(x)) = 1. \ \exists a(x),b(x) \in F[x]$ such that:\begin{center}
+$(x-\lambda)a(x) + b(x)m(x) = 1.$  
+\end{center}\\\\
+Then $(T-\lambda I_V)\circ a(T) + b(T)\circ m(T) = I_V$. \\\\Since $m(T) = 0_V, (T-\lambda I_V)\circ a(T) = I_V.$\\\\
+If $\deg(a(x)) < k,$ then choose $p_\lambda(x)=a(x)$ and the proof is complete.
+If $\deg(a(x)) \geq k,$ perform the euclidean algorithm:
+\begin{center}
+    $\exists q(x),r(x) \in F[x] \text{ such that: } a(x) - q(x)m(x) = r(x).$\\\\$
+    a(T) - q(T)m(T) = r(T) \to a(T) = r(T) \to (T-\lambda I_V)\circ r(T) = I_V.$
+\end{center}\\\\
+Choose $p_\lambda(x) = r(x)$ and the proof is complete.\\\\
+To prove uniqueness:\\\\
+Let $p_\lambda(x),q_\lambda(x)\in F[x]$ be 2 polynomials of degree less than $k$ satisfying:\begin{center}
+    $(T-\lambda I_V)\circ p_\lambda(T) = I_V = (T-\lambda I_V)\circ q_\lambda(T)$.
+\end{center}\\\\
+Since $\lambda$ is not an eigenvalue of $T,T-\lambda I_V$ is invertible. Thus:\begin{center}
+    $p_\lambda(T) = q_\lambda(T) \to p_\lambda(T) - q_\lambda(T) = 0_V.$
+\end{center}\\\\
+Recall that $p_\lambda(x)$ and $q_\lambda(x)$ are polynomials with degree less than $k$. \\Thus $\deg(p_\lambda(x) - q_\lambda(x)) < k.$ By definition of minimial polynomial,\\ $p_\lambda(x)-q_\lambda(x) = 0$ (Since $p_\lambda(T)-q_\lambda(T)=0_V$) so $p_\lambda(x) = q_\lambda(x).$\\\\
+\\\\\\To prove $\deg(p_\lambda(x))=k-1:$\\\\
+Assume $\deg(p_\lambda(x)) < k-1.$ Then $\deg((x-\lambda)p_\lambda(x) - 1) < k.$ Note that  $(x-\lambda)p_\lambda(x)-1 \neq 0.$\\\\
+But $(T-\lambda I_V)p_\lambda(T)-I_V = 0_V,$ which contradicts the fact that the minimal polynomial has degree $k.$ Thus the assumption is false and $\deg(p_\lambda(x)) \geq k-1.$ Since $\deg(p_\lambda(x)) < k, \deg(p_\lambda(x)) = k-1.$\\\\
+(b)(i) Let $f_i(x) =\frac{\prod^k_{j=1}(x-\lambda_j)}{x-\lambda_i}\ \forall 1\leq i \leq k $. Note that each $f_i(x)$ is a polynomial of degree $k-1.$\\\\
+Claim: The set $\{f_1(x),f_2(x),...,f_k(x)\}$ is linearly independent.\\\\
+Proof: Consider the equality:\begin{align*}
+b_1f_1(x) + b_2f_2(x) + ... + b_kf_k(x) &= 0\\
+b_1f_1(\lambda_1) + b_2f_2(\lambda_1) + ... + b_kf_k(\lambda_1) &= 0\\
+b_1f_1(\lambda_1) + 0 + ... + 0 &= 0\\
+b_1f_1(\lambda_1) &= 0.
+\end{align*}
+Since each $\lambda_i$ is distinct, $f_i(\lambda_i) \neq 0$ so $b_1 = 0$.\\\\ Repeat the algorithm for $\lambda_2,\lambda_3,...\lambda_k$ and we get: $b_1=b_2=...=b_k=0$. Hence the homogeneous equation only has the trivial solution and the proof is complete.
+\\\\
+Consider the equality: \begin{align*}
+\sum^k_{i=1} c_ip_{\lambda_i}(x) &= 0\\
+(\prod^k_{j=1}(x-\lambda_j))(\sum^k_{i=1} c_ip_{\lambda_i}(x)) &= 0\\
+(\prod^k_{j=1}(T-\lambda_jI_V))(\sum^k_{i=1} c_ip_{\lambda_i}(T)) &= 0_V\\
+\sum^k_{i=1}c_if_i(T) &= 0_V.
+\end{align*}
+Since each $f_i(x)$ is a polynomial of degree $k-1,\sum^k_{i=1} c_if_i(x)$ is also a polynomial of degree $k-1.$Thus by definition of minimial polynomial,\\ $\sum^k_{i=1} c_if_i(T) = 0 \to \sum^k_{i=1} c_if_i(x) = 0$. Since $\{f_1(x),f_2(x),...,f_k(x)\}$ is a linearly independent set, $c_i = 0 \ \forall \ 1\leq i \leq k.$\\\\ Thus only the trivial solution exists to the homogeneous equation $\sum^k_{i=1} c_ip_{\lambda_i}(x) &= 0$ hence each $p_{\lambda_i}(x)$ is linearly independent in $F[x].$\\\\
+(ii)To prove existence: Let $P_{k-1}$ denote the vector space consisting of the zero polynomial and the polynomials of degree at most $k-1.$ It is easy to check that $\{1,x,x^2,...,x^{k-1}\}$ is a basis for $P_{k-1}$. Thus $\dim(P_{k-1}) = k.$\\\\
+Let S = span$\{p_{\lambda_1}(x),p_{\lambda_2}(x),...,p_{\lambda_k}(x)\}.$ Then obviously $S \subseteq P_{k-1}.$\\ Since $\dim(S) = k = \dim(P_{k-1}),\ S = P_{k-1}$. Thus $\exists c_1,c_2,...,c_k \in \mathbb{F}$ such that:\begin{center}
+$\sum^k_{i=1}c_ip_{\lambda_i}(x) = 1$.\end{center}\\\\
+Then $\sum^k_{i=1}c_ip_{\lambda_i}(T) = I_V$ and the proof is complete.\\\\
+To prove uniqueness: Let $\sum^k_{i=1}c_ip_{\lambda_i}(x)$ and $\sum^k_{i=1}d_ip_{\lambda_i}(x)$ be two polynomials satisfying:\begin{center}
+    $\sum^k_{i=1}c_ip_{\lambda_i}(T) = I_V = \sum^k_{i=1}d_ip_{\lambda_i}(T).$
+\end{center}\\\\
+Then $\sum^k_{i=1}c_ip_{\lambda_i}(T)-\sum^k_{i=1}d_ip_{\lambda_i}(T) = 0_V$. Keep in mind that\\ $\sum^k_{i=1}c_ip_{\lambda_i}(x)-\sum^k_{i=1}d_ip_{\lambda_i}(x)$ is a polynomial of degree less than $k$.\\ Thus by definition of minimal polynomial:\begin{align*}
+\sum^k_{i=1}c_ip_{\lambda_i}(x)-\sum^k_{i=1}d_ip_{\lambda_i}(x) &= 0\\
+\sum^k_{i=1}(c_i-d_i)p_{\lambda_i}(x)&=0.
+\end{align*} 
+By linear independence of $p_{\lambda_1}(x),p_{\lambda_2}(x),...,p_{\lambda_k}(x),\ c_i - d_i = 0 \ \forall \ 1\leq i\leq k$.\\\\
+Thus $\forall \ 1\leq i \leq k,\ c_i = d_i$ so we conclude: $\sum^k_{i=1}c_ip_{\lambda_i}(x)=\sum^k_{i=1}d_ip_{\lambda_i}(x).$
+
+\end{document}

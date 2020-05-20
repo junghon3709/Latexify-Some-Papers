@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proof}{Proof}
+
+\usepackage{enumerate}
+
+\usepackage[left=1.50cm, right=1.50cm, top=3.00cm, bottom=3.00cm]{geometry}
+\author{Dick Jessen William}
+\title{MA1301 -- Introductory Mathematics \\ AY2019/20 SEM 1 Solutions}
+\date{Audited by: Chong Jing Quan}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Question 1}
+	\begin{enumerate}[a.]
+		\item  \begin{align*}
+		\frac{d}{dx} \sin(\ln(x) +x^3+e^{x^2} )^{10} &= 10\sin(\ln(x) +x^3+e^{x^2} )^9 \frac{d}{dx} \sin(\ln(x) +x^3+e^{x^2} ) \\
+		&= 10\sin(\ln(x) +x^3+e^{x^2} )^9 \cos(\ln(x) +x^3+e^{x^2} )\frac{d}{dx} \ln(x) +x^3+e^{x^2} \\
+        &= 10 (\sin(\ln(x) +x^3+e^{x^2} ))^9 \cos(\ln(x) +x^3+e^{x^2} ) (\frac{1}{x}+3x^2+2xe^{x^2}).
+		\end{align*}
+		\item To find the slope, we need to evaluate $\frac{dy}{dx}$ at $(1,1)$. By implicit differentiation, we get that $$3x^2+y^2+2xy\frac{dy}{dx}+4y^3\frac{dy}{dx}  = 0.$$
+		Plugging $x=1$ and $y=1$ gives us $\frac{dy}{dx} = -\frac{2}{3}$. Since the line passes $(1,1)$, we easily infer that $m=-\frac{2}{3}$ and $c=\frac{5}{3}$.
+			\end{enumerate}
+	\section*{Question 2}
+	\begin{enumerate}[a.]
+	\item First, we note that $\frac{dx}{dt} = te^{t^2}$ and $\frac{dy}{dt} = t$. Hence, $\frac{dy}{dx} = e^{-t^2}$. Now, $$\frac{d^2y}{dx^2} = \frac{\frac{d}{dt}\frac{dy}{dx}}{\frac{dx}{dt}} = \frac{-2te^{-t^2}}{te^{t^2}} = -2e^{-2t^2}.$$
+	\item For the base case $n=1$, it is easy to see that the statement is true. Suppose that for $n = k$, $ \sum_{r=1}^k 2+3(r-1) = \frac{k}{2}(4+3(k-1)).$	Then, 
+	\begin{align*}
+	\sum_{r=1}^{k+1} 2+3(r-1) &= (\sum_{r=1}^k 2+3(r-1)) + 2 + 3(k+1-1) \\
+	&= \frac{k}{2}(4+3(k-1)) + 2 + 3k \\
+	&= 2k+\frac{3}{2}k^2-\frac{3}{2}k+2+3k \\
+	&= \frac{3}{2}k^2 +\frac{7}{2}k+2 \\
+	&= \frac{(k+1)}{2}(4+3k) = \frac{(k+1)}{2}(4+3((k+1)-1))  
+	 \end{align*}
+	 Thus, we have verified the induction step. We are done.
+	\end{enumerate}
+	
+	
+	\section*{Question 3} %remark : this question was stolen from https://www.sccollege.edu/Departments/MATH/Documents/Math%20180/03-09-044_Related_Rates.pdf
+	
+ Our goal is to find $\frac{dx}{dt}$ when $x=1$. We have $\tan{\theta} = \frac{x}{3}$. Differentiating w.r.t $t$, we have that $$\sec^2(\theta) \frac{d\theta}{dt} = \frac{1}{3}\frac{dx}{dt}.$$ Hence, $$\frac{dx}{dt} = 3\sec^2(\theta) \frac{d\theta}{dt}.$$ When the light is 1 km away, the length is $\sqrt{10}$ km by Pythagorean theorem. Hence, $\sec{\theta} = \frac{\sqrt{10}}{3}$. Subsstituting, we get our answer is $3 \times \left( \frac{\sqrt{10}}{3} \right)^2 \times 8\pi = \frac{80\pi}{3}.$
+	
+	\section*{Question 4}
+	\begin{enumerate}[a.]
+	    \item 	Note that $f'(x) = \frac{5}{2}x^{\frac{3}{2}} - 3x^\frac{1}{2}$. Use the linear approximation formula, $f(4.05) \approx f(4)+(4.05-4)f'(4) = 17 +(0.05)\times 14 = f(4) + 0.7$. Hence $f(4.05)-f(4.00) \approx 0.7$.
+	    \item First, find we note that the zeroes of $f$ are $\frac{1}{2},2$ and $3$. we will calculate the second derivative of $f$. First we prove a lemma.
+	    
+	    \begin{lemma}
+	    Let $fg$ denote $f(x)g(x)$. Then, for all differentiable functions $a,b,c,d$, $$(abcd)' = (a')bcd+a(b')cd+ab(c')d+abc(d').$$
+	    \end{lemma}
+	    \begin{proof}
+	    Use product rule, $$(abcd)' = (ab)'cd+ab(cd)' = (a'b+ab')cd+ab(c'd+cd') = (a')bcd+a(b')cd+ab(c')d+abc(d').$$
+	    \end{proof}
+	    
+	    Now, using lemma 1, we get that $f''(x) = 2(x-2)^2(2x-6)(e^x+1)^{-1}+2(x-2)(2x-1)(2x-6)(e^x+1)^{-1}+2(2x-1)(x-2)^2(e^x+1)^{-1}-e^x(e^x+1)^{-2}(2x-1)(x-2)^2(2x-6).$ Note that $f''(2) = 0$, $f''(3) > 0$ and $f''(\frac{1}{2}) <0$. Hence, we note that a local minima occurs when $x=3$, a local maxima occurs when $x=\frac{1}{2}$ and a saddle point occurs when $x=2$. %the lemma is basically log differentation. I mess up the signs lol
+	    
+	\end{enumerate}
+ 
+	\section*{Question 5}
+	
+	Let $O = (0,0), A = (x,0)$ and $B=(0,y)$. Since $A,B$ and $(2,\sqrt{32})$ are collinear, then $$\frac{\sqrt{32}-y}{2-0} = \frac{0-y}{x-0},$$ which rearranges to $y = \frac{\sqrt{32}x}{x-2}$. We aim to minimize $x^2+y^2$. Substituting $y$, we find that we want to minimize $x^2+\frac{32x^2}{(x-2)^2}$, with $x>2$. Let $f(x) = x^2+\frac{32x^2}{(x-2)^2} $. Then, $$f'(x) =  \frac{2x(x^3-6x^2+12x-72)}{(x-2)^3} = \frac{2x(x-6)(x^2+12)}{(x-2)^3}.$$ From here, it is easy to check that $x=6$ minimizes $f(x)$, which is equal to 108 when $x=6$. Hence, the minimum length of the ladder is the minimal value of $\sqrt{x^2+y^2}$, which is $\sqrt{108}$.
+	\section*{Question 6}
+	\begin{enumerate}[a.]
+	\item Let $u = \sqrt{x}+1$. Then, $du = \frac{1}{2\sqrt{x}} dx$. Hence, $$ \int \frac{1}{x+\sqrt{x}} dx = \int \frac{2}{u} du = 2 \ln{u} +C = 2 \ln(\sqrt{x}+1)+C.$$
+	
+	\item Let the direction of the vector of the line be $(i,j,k)$. To obtain the direction vector, it suffices to solve the system \begin{align}
+	    i+j-2k &= 0 \\ 
+	    i+2j-k &= 0.
+	\end{align} It is easy to solve that $i=3k$ and $j=-k$, hence the direction vector is $(3,-1,1)$. Hence, the equation is $v = c(3,-1,1)+(0,2,4)$ where $c \in \mathbb{R}$.
+	\end{enumerate}
+	
+	\section*{Question 7}
+	\begin{enumerate}[a.]
+	%NEED PICTURE
+	    \item Firstly, note that when $-1 \leq x \leq 2$, $2-x^2 > -x$. Hence, $f(x) = 2-x^2-(-x) = 2-x^2+x$ by the definition of integral. For $g(x)$ and $h(x)$, we consider the area w.r.t the y-axis. In the range $1 \leq y \leq 2$, it only has the portion of the curve $y = 2-x^2$. Hence, $x = \sqrt{2-y}$. Since there are two halves of the graph that we want to count, $g(y) = 2\sqrt{2-y}$. For the range $-2 \leq y \leq 1$, we find that the curve $y=2-x^2$ is on the right of the line $y=-x$. Hence, $h(y) = \sqrt{2-y}-(-y) = y+\sqrt{2-y}$.
+	    
+	    %not sure about this thing
+	    \item We calculate equation of  the top part and the bottom part of the ellipse. Note that the top part equation is $y = 1+\sqrt{\frac{1-x^2}{4}}$ for $-1 \leq x \leq 1$ and the bottom part of the ellipse is $y = 1-\sqrt{\frac{1-x^2}{4}}$ for $-1 \leq x \leq 1$. Hence, required the volume is $$\pi \int_{-1} ^1 \left(1+\sqrt{\frac{1-x^2}{4}} - \frac{1}{4}\right)^2 - \left(1-\sqrt{\frac{1-x^2}{4}}-\frac{1}{4}\right)^2 dx.$$
+	    Hence, $f(x) =  \left(1+\sqrt{\frac{1-x^2}{4}} - \frac{1}{4}\right)^2 - \left(1-\sqrt{\frac{1-x^2}{4}}-\frac{1}{4}\right)^2.$
+	\end{enumerate}
+	
+\end{document}

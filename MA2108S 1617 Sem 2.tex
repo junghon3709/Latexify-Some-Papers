@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, tikz, graphics, biblatex, geometry, enumitem, float}
+\DeclareMathOperator{\pro}{Proj}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+\usepackage{xcolor}
+
+\newcommand{\grstep}[2][\relax]{%
+   \ensuremath{\mathrel{
+       {\mathop{\longrightarrow}\limits^{#2\mathstrut}_{
+                                     \begin{subarray}{l} #1 \end{subarray}}}}}}
+\newcommand{\swap}{\leftrightarrow}
+\usepackage[colorlinks=true,linkcolor=blue, citecolor=blue, allcolors=blue ]{hyperref}
+\urlstyle{tt}
+
+\title{MA2108S 16/17 Sem 2}
+\author{Yip Jung Hon A0199560R}
+
+\usepackage{lipsum}
+
+\begin{document}
+\maketitle
+
+\subsection*{Question 1}
+We use the AM-GM inequality here, which is the statement that for any $a,b >0$, one has:
+\begin{equation*}
+    \frac{a+b}{2} \geq \sqrt{ab} 
+\end{equation*}
+This can be devired from expanding $(a-b)^2 \geq 0$. Then,
+\begin{equation*}
+    a_{n+1}=\frac{a_n+b_n}{2} \geq \sqrt{a_nb_n} 
+\end{equation*}
+and 
+\begin{equation*}
+    b_{n+1}=\frac{a_nb_n}{(a_n+b_n)/2} \leq \frac{a_nb_n}{\sqrt{a_nb_n}} \leq \sqrt{a_nb_n}
+\end{equation*}
+From this, we instantly see that $a_i \geq b_i$ for all $i$.
+We also note that $a_n, b_n$ satisfies the recurrence,
+\begin{equation}
+    a_nb_n = a_{n+1}b_{n+1} \implies \frac{a_{n+1}}{a_n} = \frac{b_n}{b_{n+1}} \label{eq1}
+\end{equation}
+From $a_i \geq b_i$ for all $i$ and $a_{n+1}=\frac{a_i+b_i}{2}$, $(a_n)$ is monotone decreasing. From (\ref{eq1}), $(b_n)$ is monotone increasing. 
+
+Further, $a_{n+1}=\frac{a_n+b_n}{2}\geq 0$. From the monotone convergence theorem, $(a_n) $ converges to some $l \geq 0$. Since $(b_n)$ is monotone increasing and bounded by $a$, again, $(b_n)$ converges to some $m \geq 0$. To show that $l=m$, suppose that $l \neq m$. Then there is some finite difference $d=|l-m|$. \textbf{The region between $l$ and $m$ thus should not have any terms of $(a_n)$ or $(b_n)$}, from the fact that $(a_n)$ and $(b_n)$ are montone sequences. Set $\epsilon=d$. This will imply that the 'bottom' sequence, $(b_n)$ has an $N_1$ large enough such that $n > N \implies $ $m-\epsilon<b_n < m+ \epsilon$. Since $(b_n)$ is monotone increasing, there are no terms greater than $m$, so the inequality becomes $m-\epsilon < b_n \leq m $. Similarly, the 'top' sequence has $N_2$ large enough so that $l+\epsilon \geq a_n \geq l$. 
+
+Put $N=\max\{N_1, N_2\}$. Then $n > N$ will have,
+\begin{equation*}
+    a_{n+1}=\frac{a_n+b_n}{2} \implies \frac{l+m-\epsilon}{2} < \frac{a_n+b_n}{2} < \frac{l+m+\epsilon}{2}.
+\end{equation*}
+$\frac{l+m}{2}$ will be some value between $l$ and $m$. From the way we chosen $\epsilon$, it is too small to get $\frac{l+m}{2}$ out of the $(l,m)$ interval, so $ \frac{a_n+b_n}{2} \in (l,m)$. More rigorously, WLOG suppose $l>m$. Then $d=l-m$. So $\frac{l+m-\epsilon}{2} < \frac{a_n+b_n}{2} < \frac{l+m+\epsilon}{2} \implies \frac{l+m-(l-m)}{2} < \frac{a_n+b_n}{2} < \frac{l+m+l-m}{2} \implies m < a_{n+1} < l$. So there is some term $a_{n+1}$ strictly between $l$ and $m$, which is a contradiction.
+
+\subsection*{Question 2}
+We need the identity:
+\begin{equation*}
+    a^n - 1 = (a-1)(1+a+a^2+ \cdots a^{n-1})
+\end{equation*}
+We shall abbreviate $\lim_{n \to \infty}$ as $\lim$.
+\begin{align*}
+    \lim \frac{a_n + a_n^2 + \cdots a_n^k - k}{a_n-1} &= \lim \frac{(a_n-1) + (a_n^2-1) + \cdots (a_n^k-1)}{a_n-1} \\
+    &= \lim 1+(a_n+1)+(a_n^2+a_n+1)+ \cdots + (a_n^{k-1} + \cdots +a_n^2+a_n+1) \\
+\intertext{Since the limit of $a_n$ is well-defined and finite, we may use apply the limit laws to distribute limits over the sum.}
+    &= 1+(1+1)+(1+1+1) + \cdots \overbrace{(1+1+ \cdots + 1)}^{k \text{ times}} \\
+    &= \frac{k(k+1)}{2}
+\end{align*}
+
+\subsection*{Question 3}
+There are numerous ways to show that the alternating harmonic series is convergent, but not absolutely. 
+
+\textbf{Way 1: Expansion of $\ln(2)$}
+
+Taking the series expansion of $\ln(2)$ immediately gives the alternating harmonic series.
+\begin{equation*}
+    \ln 2 = 1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots 
+\end{equation*}
+\textbf{Way 2: Alternating Series Test}
+
+Set $a_n=\frac{1}{n}$. $(a_n) \to 0$ and the sequence is monotone decreasing, by alternating series test, $\sum_{n=1}^{\infty} (-1)^{n+1} a_n$ converges.
+
+The harmonic series is a classic example of a series whose terms get smaller and smaller, but still diverges. Set $f(x)=\frac{1}{x}$. Then since $f$ is \textbf{positive, continuous and decreasing}, from the \textbf{Integral Test}, $\int^{\infty}_1 f(x) dx = \ln(x)$ diverges, which implies $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges.
+
+Another more classic proof is \href{https://web.williams.edu/Mathematics/lg5/harmonic.pdf}{here}. More proofs can be found \href{https://www.elcamino.edu/faculty/gfry/191/HarmonicProofs2.pdf}{here}.
+ 
+ \subsection*{Question 4}
+ Since $f$ is continuous on a compact interval, it is uniformly continuous. That is, for every $\epsilon>0$, there exists a $\delta>0$ such that $|x-y|<\delta \implies |f(x)-f(y)|<\epsilon$. We want to show that there exists an $N$ sufficiently large for all $\epsilon$ such that for all $n>N$, 
+ \begin{equation}
+     \left|\frac{1}{n} \sum_{k=1}^n (-1)^k f\left(\frac{k}{n}\right)\right|<\epsilon \label{eq2}
+ \end{equation}
+ We know there exists a $\delta$ such that $|f(x+\delta)-f(x)|<\frac{\epsilon}{2}$ for all $x$. Choose $N_1$ sufficiently big such that $\frac{1}{N_1}<\delta$. Further, set $f(1)=b$ and choose $N_2$ such that $\frac{b}{N_2}<\frac{\epsilon}{2}$. Put $N=\max\{N_1, N_2\}$. If $n>N$ is even, the left hand side of $(\ref{eq2})$ can be expanded to:
+ \begin{align*}
+     \left|\sum_{k=1}^n (-1)^k f\left(\frac{k}{n}\right)\right|&=\left|\frac{f(\frac{2}{n})-f(\frac{1}{n})+f(\frac{4}{n})-f(\frac{3}{n})+\cdots + f(\frac{n}{n})-f(\frac{n-1}{n})}{n} \right| \\
+     &< \frac{\frac{n\epsilon}{2}}{n} < \epsilon
+ \end{align*}
+ Where the last statement comes from $|f(\frac{k}{n})-f(\frac{k-1}{n})|<\frac{\epsilon}{2}$ by the uniform continuity of $f$. By triangle inequality, we may split the sum. 
+ 
+ If $n$ is odd, we have
+  \begin{align*}
+     \left|\sum_{k=1}^n (-1)^k f\left(\frac{k}{n}\right)\right|&=\left|\frac{f(\frac{2}{n})-f(\frac{1}{n})+f(\frac{4}{n})-f(\frac{3}{n})+\cdots + f(\frac{n-1}{n})-f(\frac{n-2}{n})+\textcolor{red}{f(\frac{n}{n})}}{n} \right| 
+     \intertext{The first part of the sum is still bounded by $\frac{\epsilon}{2}$.}
+     &< \frac{\epsilon}{2} + \frac{f(1)}{n}
+     \intertext{However, from the fact that $N\geq N_2$, $ \frac{f(1)}{n}<\frac{\epsilon}{2}$.}
+     &< \epsilon
+\end{align*}
+Thus proving our desired statement $(\ref{eq2})$.
+
+\subsection*{Question 5}
+Note that $\frac{1}{n}\left(f(x_1) + f(x_2) + \cdots f(x_n) \right)$ is simply the mean of $n$ values. Set $L=\min\{f(x_1), f(x_2) \cdots f(x_n)\}$, $M=\max\{f(x_1), f(x_2) \cdots f(x_n)\}$. Since $\mathbb{R}$ is complete, by the intermediate value theorem, $f$ takes on every value between $L$ and $M$, and it will surely take on the value $\frac{1}{n}\left(f(x_1) + f(x_2) + \cdots f(x_n) \right)$, meaning there exists some $x_0 \in \mathbb{R}$ such that $f(x_0)= \frac{1}{n}\left(f(x_1) + f(x_2) + \cdots f(x_n) \right)$.
+
+\subsection*{Question 6}
+We have $g(x)=\sup\{f(y) \in \mathbb{R} : y \in [a,x]\}$.
+
+\textbf{Showing Well-definiteness}
+
+Since the $\sup$ is unique if it exists, it suffices to show that $\sup$ exists. Since $f$ is continuous on a compact set, it is bounded. This means the range of $f$ is bounded, and thus $\{f(y) \in \mathbb{R} : y \in [a,x]\}$ is bounded. Since by completeness of $\mathbb{R}$, every bounded set has a $\sup$, this $\sup$ exists and is unique.
+
+\textbf{Showing continuous}
+
+Given a sequence $(x_n) \to x$, we want to show $(g(x_n)) \to g(x)$, where each $x_n \in [a,b]$. Since $f$ is continuous on a compact interval, it is uniformly continuous. Given some $\frac{\epsilon}{2}$, there exists a $\delta$ such that $|f(x+\delta)-f(x)|<\epsilon$.
+
+From continuity of $f$, we get $(f(x_n)) \to f(x)$ as well. This means that there exists $N$ such that $n>N \implies x_n \in (x - \delta, x+\delta)$. This means that for all $n>N$, $g(x_n)= \sup\{f(y) : y \in [a,x_n]\}$. $g(x)= \sup\{f(y) : y \in [a,x]\}$. If $x_n \geq x$, then the set difference of $\{f(y) : y \in [a,x_n]\}$ and $\{f(y) : y \in [a,x]\}$ is given by $\{f(y) : y \in [x,x_n]\}$, and all terms in this set are obviously within an $\frac{\epsilon}{2}$-radius of $f(x)$. A similar reasoning can be used if $x_n \leq x$. Thus we must have that $|g(x_n)-g(x)|< \epsilon$, showing that $(g(x_n)) \to g(x)$.
+\end{document}

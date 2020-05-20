@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proof}{Proof}
+
+\usepackage{enumerate}
+
+\usepackage[left=3.00cm, right=3.00cm, top=3.00cm, bottom=3.00cm]{geometry}
+\author{Dick Jessen William}
+\title{MA1102R -- Calculus \\ AY2019/20 SEM 2 Solutions}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Question 1}
+	
+	\begin{enumerate}[a.]
+	    \item \begin{enumerate}[i.]
+	     \item Note that $f(-1)<0$ and $f(2)>0$, hence by IVT, there is a root between $-1$ and $2$.
+	    \item First, note that $f'(x) = 3x^2-2x+1 = (3x+1)(x-1)$. Also, $f(\frac{-1}{3})$ and $f(1)$ is larger than 0. This means the interval $[-\frac{1}{3},1]$ and $[1,\infty)$ have no zeroes. Since we have at most one zeroes in $(-\infty,-\frac{1}{3}]$, $f$ have at most one zeroes.
+	    \end{enumerate}
+	    \item
+	    \begin{enumerate}[i.]
+	    \item Suppose there exists two different real numbers $x,y$ so that $g(x)=g(y)$. Then,
+	    \begin{align*}
+	    &\frac{\sqrt{x}}{\sqrt{x}-3} = \frac{\sqrt{y}}{\sqrt{y}-3} \\
+	     &\iff \sqrt{xy}-3\sqrt{x} = \sqrt{xy}-3\sqrt{y} \\
+	     &\iff x = y
+	    \end{align*},a contradiction. Hence, $g$ is one to one.
+	    \item Let $y = \frac{\sqrt{x}}{\sqrt{x}-3}$. Then, $y-1 = \frac{3}{\sqrt{x}-3}$. Hence, $\sqrt{x}-3 = \frac{3}{y-1}$ and $x = \left( 3+\frac{3}{y-1} \right)^2$. We conclude that $g^{-1}(x) = \left( 3+\frac{3}{x-1} \right)^2$
+	    \item The domain of $g^{-1}$ is $\mathbb{R} \backslash \{ 1 \}$. The range is $\mathbb{R}_{\geq 0 } \backslash \{ 9 \}$
+	    \end{enumerate}
+	    \item We use chain rule. Let $u = x$, $du=dx$, $dv = \sec^2{x} dx$ and $v = \tan{x}$. Then, $$\int x \sec^2{x} dx = x(\tan{x}) -\int \tan{x} dx = x\tan{x}-\ln{|\cos{x}|} +C.$$
+	\end{enumerate}
+	\section*{Question 2}
+	\begin{enumerate}[a.]
+	    \item First, recall that the derivate of $\sin^2{x}$ is $\sin{2x}$. By L-Hopital's rule,
+	    \begin{align*}
+	   \lim_{x \rightarrow 0} \left( \frac{1}{\sin^2{x}}-\frac{1}{x^2} \right) &= \lim_{x \rightarrow 0} \left( \frac{x^2-\sin^2{x}}{x^2 \sin^2{x}} \right) \\
+	   &=\lim_{x \rightarrow 0} \left( \frac{2x - \sin{2x}}{2x\sin^2{x}+x^2\sin{2x}}  \right) \\
+	   &= \lim_{x \rightarrow 0 } \left( \frac{2 -2 \cos{2x}}{2\sin^2{x}+4x\sin{2x}+2x^2\cos{2x}} \right)  \\
+	   &= \lim_{x \rightarrow 0 } \left( \frac{4 \sin{2x}}{6\sin{2x}+12x\cos{2x}-4x^2\sin{2x}} \right) \\
+	   &= \lim_{x \rightarrow 0} \left( 
+	   \frac{8 \cos{2x}}{24\cos{2x}-24\sin{2x}-8x\sin{2x}-4x^2\cos{2x}}\right) \\
+	   &= \frac{1}{3}.
+	    \end{align*}
+	    \item Let $\epsilon$ be given. Pick $\delta = \min{1,\frac{4\epsilon}{7}}$. Then, since $|x-1| < 1$, $0<x<2$. Hence, $1+x^2>2$ and $2x^2-x+1 < 7$ (This can be verified by graphing). Now, 
+	    \begin{align*}
+	        \lvert x+\frac{1}{x^2+1}-\frac{3}{2} \rvert 	        &= \lvert \frac{2x^3-3x^2+2x-1}{2(x^2+1)}\rvert \\ 
+	        &= \lvert \frac{(x-1)(2x^2-x+1)}{2(x^2+1)}\rvert \\
+	        &< \frac{4\epsilon}{7} \frac{7}{2 \times 2} = \epsilon.
+	    \end{align*}
+	    Hence, the limit is $\frac{3}{2}$.
+	\end{enumerate}
+	
+	
+    \section*{Problem 3}
+    \begin{enumerate}[a.]
+    
+    \item Note that $\sin{x} = \sin{\pi-x}$. Hence, $f(0) = f(\pi)$ by symetry. We will find $f(0)$. Note that as $\sin{x}$ approaches 0 from the right, $x$ approaches 0 from the right. Hence, by L-hopital, 
+    \begin{align*}
+    f(0) = \lim_{x \rightarrow 0^+} \sin{x}^{\sin{x}} &= \lim_{x \rightarrow 0^+} x^x \\
+    &= \displaystyle{\lim_{x \rightarrow 0^+}} (e \ln{x})^x \\
+    &= e^{\displaystyle{\lim_{x \rightarrow 0^+} x \ln{x}}} \\
+    &= e^{\displaystyle{\lim_{x \rightarrow 0^+} \frac{\ln{x}}{\frac{1}{x}}}} \\
+    &= e^{\displaystyle{\lim_{x \rightarrow 0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}}}} \\
+    &= e^0 = 1.
+    \end{align*}
+    Hence, $f(0)= f(\pi) = 1$.
+    
+    \item We find the derivate of $y = \sin{x}^\sin{x}$. Note that \begin{align*}
+        y &= \sin{x}^\sin{x} \\
+        \ln{y} &= \sin{x} (\ln{\sin{x}}) \\
+        \frac{1}{y} dy &= (\cos{x} \ln{\sin{x}}+ \sin{x}\left( \frac{1}{\sin{x}} \right) \cos{x}) dx \\
+        \frac{dy}{dx} &= y(\cos{x} \ln{\sin{x}}+\cos{x}) \\
+        &= \sin{x}^{\sin{x}} (\cos{x} \ln{\sin{x}}+\cos{x}) \\ 
+        &= \sin{x}^{\sin{x}} \cos{x} (\ln{\sin{x}}+1)
+    \end{align*}
+    Note that $f$ is increasing if $\sin{x}^{\sin{x}} \cos{x} (\ln{\sin{x}}+1) > 0$. Since $\sin{x} > 0$, $\sin{x}^\sin{x} >0$. Also, $\ln{\sin{x}}+1 >0$ if and only if $\ln{\sin{x}} > -1$, which means that $\sin{x} > \frac{1}{e}$. Hence, $x > \arcsin{\frac{1}{e}}$. Finally, $\cos{x} >0$ if $x < \frac{\pi}{2}$. Combining, we get that $f$ is incerasing in the interval $(\arcsin{\frac{1}{e}},\frac{\pi}{2}) \cup (\pi-\arcsin{\frac{1}{e}},\pi)$.
+    \item By similar reasoning, $f$ is decreasing at the interval $(0,\arcsin{\frac{1}{e}}) \cup (\frac{\pi}{2},\pi-\arcsin{\frac{1}{e}})$
+    \item The maximum and minimum occurs when $f' = 0$ or the endpoints. We note that the zeroes are located in $x=0,\frac{\pi}{2},\pi,\arcsin{\frac{1}{e}},\pi-\arcsin{\frac{1}{e}}$. We note that $f(0)=f(\pi)=f(\frac{\pi}{2}) = 1$ and $f(\arcsin{\frac{1}{e}}) = f(\pi - \arcsin{\frac{1}{e}}) < 1$. Hence, the absolute maximum points are $(0,1),(\frac{\pi}{2},1),(\pi,1)$. and the absolute minimum points are $\left( \arcsin{\frac{1}{e}}, {\arcsin{\frac{1}{e}}}^{\arcsin{\frac{1}{e}}} \right), \left( \pi-\arcsin{\frac{1}{e}}, { \left( \pi-\arcsin{\frac{1}{e}} \right) }^{\pi- \arcsin{\frac{1}{e}}} \right)$
+    \end{enumerate}
+    \section*{Problem 4} %not clear enough
+    First, note by AAA criteria that all three similar triangles are similar to the large right triangle. Let the length of the box as  $l$ and the width as $w$. ($l$ denotes the segment that coincides with the long hypotanuse). Then, $5 = l+\frac{3w}{4}+\frac{4w}{3} = l +\frac{25w}{12}$ by similarity. Hence, $l = 5-\frac{25w}{12}$. We want to maximize $lw$, which is equal to $w(5-\frac{25w}{12}) = -\frac{25}{12}w^2+5w = -\frac{1}{12}(5w-6)^2+3$. Hence, the maximum area is 3, which is achieved by $w = \frac{6}{5}$ and $l = \frac{3}{\frac{6}{5}} = \frac{5}{2}$.
+    
+    \section*{Problem 5}
+    
+    \section*{Problem 6}
+    
+    \section*{Problem 7}
+    
+    \section*{Problem 8}
+    
+\end{document}

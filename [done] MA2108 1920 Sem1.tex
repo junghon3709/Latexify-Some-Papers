@@ -24,9 +24,9 @@
     \end{enumerate}
     \item The answer is $\limsup y_n=1$ and $\liminf y_n=-1.$ Note that
     $$\limsup y_n=\limsup \left(\frac{\cos n}{n}+\sin\frac{n\pi}{6}\right)\leq\limsup\left(\frac{\cos n}{n}\right)+\limsup\left(\sin\frac{n\pi}{6}\right)=0+1=1.$$
-    On the other hand, observe that $$\sup\left\{\frac{\cos n}{n}+\sin\left(\frac{n\pi}{6}\right),n\geq k\right\}\geq \sup\left\{\frac{\cos(6n+3)}{6n+3}+\sin\left(\frac{(6n+3)\pi}{6}\right),n\geq k\right\}.$$
-    Since $\displaystyle\lim_{n\to\infty}\left(\frac{\cos(6n+3)}{6n+3}+\sin\left(\frac{(6n+3)\pi}{6}\right)\right)=1,$ it follows that $\limsup y_n\geq1.$ Thus, $\limsup y_n=1.$ The proof is similar for $\liminf y_n=-1.$
-    \item Since for each positive integer $k,$ we have $M_k:=\sup \{a_n, n\geq k\}\geq a_m$ and $m_k:=\inf \{b_n, n\geq k\}\leq b_m$ whenever $m\geq k,$ we have $\dfrac{a_m}{b_m}\leq \dfrac{M_k}{m_k}.$ Since the inequality works for any positive integer $m\geq k,$ we get $$\sup\left\{\dfrac{a_m}{b_m},m\geq k\right\}\leq \dfrac{M_k}{m_k}.$$ Taking limit on both sides gives $$\lim_{k\to\infty}\sup\left\{\dfrac{a_m}{b_m},m\geq k\right\}=\limsup\frac{a_k}{b_k}\leq \lim_{k\to\infty}\dfrac{M_k}{m_k}=\dfrac{\lim_{k\to\infty}M_k}{\lim_{k\to\infty}m_k}=\frac{\limsup a_k}{\liminf b_k}$$ since $(a_n)$ and $(b_n)$ are bounded sequences.
+    On the other hand, observe that $$\sup\left\{\frac{\cos n}{n}+\sin\left(\frac{n\pi}{6}\right),n\geq k\right\}\geq \sup\left\{\frac{\cos(12n+3)}{12n+3}+\sin\left(\frac{(12n+3)\pi}{6}\right),n\geq k\right\}.$$
+    Since $\displaystyle\lim_{n\to\infty}\left(\frac{\cos(12n+3)}{12n+3}+\sin\left(\frac{(12n+3)\pi}{6}\right)\right)=1,$ it follows that $\limsup y_n\geq1.$ Thus, $\limsup y_n=1.$ The proof is similar for $\liminf y_n=-1.$
+    \item For each positive integer $k,$ and $\forall m > k,$ we have $M_k:=\sup \{a_n, n\geq k\}\geq a_m$ and $m_k:=\inf \{b_n, n\geq k\}\leq b_m$. Then whenever $m\geq k,$ we have $\dfrac{a_m}{b_m}\leq \dfrac{M_k}{m_k}.$ Since the inequality works for any positive integer $m\geq k,$ we get $$\sup\left\{\dfrac{a_m}{b_m},m\geq k\right\}\leq \dfrac{M_k}{m_k}.$$ Taking limit on both sides gives $$\lim_{k\to\infty}\sup\left\{\dfrac{a_m}{b_m},m\geq k\right\}=\limsup_{k\to\infty}\frac{a_k}{b_k}\leq \lim_{k\to\infty}\dfrac{M_k}{m_k}=\dfrac{\lim_{k\to\infty}M_k}{\lim_{k\to\infty}m_k}=\frac{\limsup a_k}{\liminf b_k}$$ since $(a_n)$ and $(b_n)$ are bounded sequences.
 \end{enumerate}
 \section*{Question 2}
 \begin{enumerate}[(a)]

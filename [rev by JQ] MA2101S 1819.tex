@@ -1,0 +1,228 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\title{1819SEM2-MA2101S Answers}
+\author{Pan Jing Bin}
+\date{May 2020}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Question 1}(a)(i) Write $A$ and $B$ as: \begin{center}    $A = \begin{pmatrix}
+A_{1,1} & A_{1,2}\\
+A_{2,1} & A_{2,2}
+\end{pmatrix}\ ,\ B = \begin{pmatrix}
+B_{1,1} & B_{1,2}\\
+B_{2,1} & B_{2,2}
+\end{pmatrix}$.
+\end{center}
+Where $A_{1,1},B_{1,1} \in M_{r\times r}(\mathbb{F})$. Then we have:
+\begin{align*}
+& J(r)\in \ker(\alpha) \\
+\iff &\alpha(J(r)) = 0\\
+\iff &AJ(r) - J(r)B = 0\\
+\iff &\begin{pmatrix}
+A_{1,1} & A_{1,2}\\
+A_{2,1} & A_{2,2}
+\end{pmatrix}\begin{pmatrix}
+I_r & 0\\
+0 & 0
+\end{pmatrix} - \begin{pmatrix}
+I_r & 0\\
+0 & 0
+\end{pmatrix} \begin{pmatrix}
+B_{1,1} & B_{1,2}\\
+B_{2,1} & B_{2,2}
+\end{pmatrix} = \begin{pmatrix}
+0 & 0\\
+0 & 0
+\end{pmatrix}\\
+\iff &\begin{pmatrix}
+A_{1,1} & 0\\
+A_{2,1} & 0
+\end{pmatrix} - \begin{pmatrix}
+B_{1,1} & B_{1,2}\\
+0 & 0
+\end{pmatrix} = \begin{pmatrix}
+0 & 0\\
+0 & 0
+\end{pmatrix} \\
+\iff & A_{1,1} = B_{1,1}\ \land \ B_{1,2} = 0_{r\times(n-r)}\ \land \ A_{2,1} = 0_{(m-r)\times r}\\ 
+\iff & A = \begin{pmatrix}
+C & *\\
+0 & *
+\end{pmatrix}\ \land\ B = \begin{pmatrix}
+C & 0\\
+* & * 
+\end{pmatrix} \text{ for some $C\in M_{r\times r}(\mathbb{F})$}.
+\end{align*}\\\\
+(ii) Recall that if $A$ and $B$ are of the form:\begin{center}
+    $A = \begin{pmatrix}
+D & A_{1,2}\\
+0 & A_{2,2}
+\end{pmatrix} \ , \ B = \begin{pmatrix}
+D & 0\\
+B_{2,1} & B_{2,2}
+\end{pmatrix}$.
+\end{center}
+Then $c_A(x) = c_D(x)c_{A_{2,2}}(x)\ \land\ c_B(x) = c_D(x)c_{B_{2,2}}(x).$ Thus $c_D(x)$ is a common factor of degree $r$ of both $c_A(x)$ and $c_B(x).$ (Since $D$ is a block matrix of size $r \times r$)
+\\\\\\\\\\\\\\\\\\
+(b) Let $R$ be the reduced row echelon form of $X$. Note that:\begin{center}
+$X \xrightarrow[\text{Operations}]{\text{Elementary Row}} R \xrightarrow[\text{Operations}]{\text{Elementary Column}} J(r)$.
+\end{center}
+Then $\exists $ invertible matrices $P\in M_{m\times m}(\mathbb{F}),\ Q\in M_{n\times n}(\mathbb{F})$ such that:\begin{center}
+$PXQ = J(r)$. \text{($P$ and $Q$ are simply the product of elementary matrices)}
+\end{center}
+Define $\alpha': M_{m\times n}(\mathbb{F}) \to M_{m\times n} (\mathbb{F})$ by:\begin{center}
+    $\alpha'(X) = PAP^{-1}X - XQ^{-1}BQ$. 
+\end{center}
+$\alpha'(PXQ) = PAP^{-1}(PXQ) - (PXQ)Q^{-1}BQ = PAXQ - PXBQ\\= P(AX-XB)Q = P(0)Q = 0.$ Thus $J(r)\in \ker(\alpha')$.\\\\ By (a)(ii), the characteristic polynomials of $PAP^{-1}$ and $Q^{-1}BQ$ have a common factor of degree r. Since $c_A(x) = c_{PAP^{-1}}(x) \ \land \ c_B(x) = c_{Q^{-1}BQ}(x),$ it follows that the characteristic polynomials of $A$ and $B$ also have a common factor of degree $r$.\\\\
+(c) Assume that $\alpha$ is not injective.\\\\ $\exists\ X \in M_{m\times n}(\mathbb{F})$ such that $X\neq 0_{m\times n}\ \land \ X\in \ker(\alpha).$\\\\ Let rank$(X) = r$. Since $X \neq 0_{m\times n},\ r \geq 1$ so by (b), the characteristic polynomials of $A$ and $B$ have a common factor of degree $r$. This is a contradiction as the characteristic polynomials of $A$ and $B$ are coprime. Thus the assumption is false and $\alpha$ is injective.
+\subsection*{Question 2}
+(a) Since $\gcd(f(x),m(x)) = 1,\ \exists s_1(x), s_2(x) \in F[x]$ such that:\begin{center}
+    $s_1(x)f(x) + s_2(x)m(x) = 1$\\
+    $s_1(\alpha)f(\alpha)(v) + s_2(\alpha) m(\alpha)(v) = v$\\
+    $s_1(\alpha)(u)=v$.
+\end{center}
+Simply choose $g(x) = s_1(x)$ and the proof is complete.\\\\
+(b)(i)
+Let $f_{gcd}(x) = \gcd(p(x),m(x)).$ To prove that $p(x)\ |\ m(x),$ it suffice to prove that $f_{\gcd}(x)=p(x).$\\\\
+ $\exists\ t_1(x), t_2(x) \in F[x]$ such that $t_1(x)p(x) + t_2(x)m(x) = f_{gcd}(x)$. Then:\begin{center}
+     $t_1(\alpha)p(\alpha)(w) + t_2(\alpha)m(\alpha)(w) = f_{gcd}(\alpha)(w)$ \\$
+     t_1(\alpha)p(\alpha)(w) = f_{gcd}(\alpha)(w)$
+ \end{center}
+ $p(\alpha)(w) \in \langle v \rangle_\alpha\to t_1(\alpha)p(\alpha)(w) \in \langle v \rangle_\alpha \to  f_{gcd}(\alpha)(w)\in \langle v \rangle_\alpha.$\\ Then $\deg(f_{\gcd}(x)) \geq \deg(p(x))$ so $f_{\gcd}(x) = p(x).$ (Since $f_{\gcd}(x)\ |\ p(x)$)\\\\
+ (ii) Since $p(x)\ |\ m(x),$ write $m(x) = k(x)p(x)$ for some $k(x) \in F[x]$.\\\\
+ Then $k(\alpha)q(\alpha)(v) = k(\alpha)p(\alpha)(w) = m(\alpha)(w) = 0_V.$ \\\\ Thus $m(x)\ |\ k(x)q(x)$ and so we get: $k(x)p(x)\ |\ k(x)q(x) \to p(x)|q(x).$\\\\
+ (iii) Claim: $p(x)\ |\ h(x).$\\\\
+ Proof: Let $j_{\gcd}(x) = \gcd(p(x),h(x)).$ Similar to b(i), we show that $p(x)\ |\ h(x)$ by showing that $j_{\gcd}(x) = p(x).$
+ $\exists l_1, l_2 \in F[x]$ such that:\begin{center}
+     $l_1(x)p(x) + l_2(x)h(x) = j_{\gcd}(x).$
+ \end{center}
+ Then $l_1(\alpha)p(\alpha)(w) + l_2(\alpha)h(\alpha)(w) = j_{\gcd}(\alpha)(w).$\\Since $l_1(\alpha)p(\alpha)(w) + l_2(\alpha)h(\alpha)(w) \in \langle v \rangle_\alpha,\ j_{\gcd}(\alpha)(w) \in \langle v \rangle_\alpha$.\\Then $\deg(j_{\gcd}(x))\geq \deg(p(x)) $ so $j_{\gcd}(x) = p(x).$ \ (Since $j_{\gcd}(x)|p(x))$\\\\
+ Write $h(x) = n(x)p(x)$ for some $n(x) \in F[x].$ Recall that $p(\alpha)(w) = q(\alpha)(v).$\\\\
+By (b)(ii), $q(x) = p(x)r(x)$ for some $r(x) \in F[x].$ Thus:\begin{align*}
+ h(\alpha)(w) &= n(\alpha)p(\alpha)(w)\\ &= n(\alpha)q(\alpha)(v)\\ &= n(\alpha)p(\alpha)r(\alpha)(v)\\ &= h(\alpha)r(\alpha)(v).
+\end{align*}
+\subsection*{Question 3}
+(a)(i) Let $A,B\in M_{n\times n}(\mathbb{F})$ and let $x,y\in \mathbb{F}.$\\\\
+Then $\text{tr}(xA+yB) = \text{tr}(xA) + \text{tr}(yB) = x\text{tr}(A) + y\text{tr}(B).$\\\\
+Thus tr is a linear functional from $M_{n\times n}(\mathbb{F}$) to $\mathbb{F}$ so tr $\in (M_{n\times n}(\mathbb{F}))^*.$\\\\
+(ii) First note that the $i,j$ entry of $AB$ is:\begin{center}
+$AB_{i,j} = \sum\limits_{k=1}^{n} a_{i,k}b_{k,j}$
+\end{center}
+Then: \begin{align*}
+    \text{tr}(AB) &= \sum\limits_{i=1}^n AB_{i,i}\\ &= \sum\limits_{i=1}^n \sum\limits_{k=1}^n a_{i,k}b_{k,i}\\ &= \sum\limits_{k=1}^n \sum\limits_{i=1}^n b_{k,i}a_{i,k}\\ &= \sum\limits_{k=1}^n BA_{k,k}\\ &= \text{tr}(BA)
+\end{align*}
+(b)(i) Claim 1 : $\forall\ 1\leq i \leq n, 1\leq j \leq n,\ f(E_{i,j}) = 0$ if $i\neq j$.\\\\
+Proof: $f(E_{i,j}E_{j,j}) = f(E_{j,j}E_{i,j}) \to f(E_{i,j}) = f(0_{n\times n}) = 0.$\\\\
+Remark: $f(0_{n\times n}) = 0$ since $f$ is a linear functional.\\\\
+Claim 2: $\forall\ 1\leq i \leq n,\ f(E_{i,i}) = f(E_{1,1}).$\\\\
+Proof: $f(E_{1,i}E_{i,1}) = f(E_{i,1}E_{1,i}) \to f(E_{1,1}) = f(E_{i,i}).$\\\\
+Write $A = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_{i,j}E_{i,j}.$\begin{align*}
+f(A) &= f(\sum\limits_{i=1}^n \sum\limits_{j=1}^n a_{i,j}E_{i,j})\\&=f(\sum\limits_{i=1}^n a_{i,i}E_{i,i})\\&=f(\sum\limits_{i=1}^n a_{i,i}E_{1,1})\\&=\sum\limits_{i=1}^n a_{i,i}f(E_{1,1})\text{\ \ (Since $f$ is a linear functional)}\\&= f(E_{1,1})\sum\limits_{i=1}^n a_{i,i}
+\\&=f(E_{1,1})\text{tr}(A).\end{align*}
+(ii) Claim 1: $\text{span}(\{AB-BA\ |\ A,B\in M_{n\times n}(\mathbb{F})\}) \subseteq \ker(f)$.
+\\\\Proof: Let $D \in \text{span}(\{AB-BA|A,B\in M_{n\times n}(\mathbb{F})\})$.\\ Then $\exists$ $A,B\in M_{n\times n}(\mathbb{F})$ such that $D = AB - BA.$\\tr$(D) = \text{tr}(AB-BA) = \text{tr}(AB) - \text{tr}(BA) = 0.$\\By (b)(i), $f(D) = f(E_{1,1})\text{tr}(D) = 0$ thus $D\in \ker(f).$ \\\\
+Claim 2: $\dim(\ker(f)) = n^2-1.$\\\\
+Proof: Since $f\neq0,\ \ker(f) \neq M_{n\times n}(\mathbb{F}) \to \dim(\ker(f)) < n^2. -(*)$ \\\\
+Let $E_i' = E_{i,i} - E_{i+1,i+1}.$\\
+Note that $\text{tr}(E_{i,j}) = 0$ for $i \neq j$ and $\text{tr}(E_{i}') = 0$ for $1\leq i < n.$\\\\
+Then let $B = \{E_{i,j}\in M_{n\times n} (\mathbb{F})\ |\ i\neq j \}\cup \{E_i' \in M_{n\times n}(\mathbb{F}) \ |\ 1\leq i < n\}.$\\\\
+It is easy to check that $B\subseteq \ker(f)$ since every matrix in $B$ has trace 0. Thus span$(B) \subseteq \ker(f).$  Since $\dim(\text{span}(B)) = n^2 -1,\ \dim(\ker(f)) \geq n^2 - 1.$ Together with (*), we conclude that $\dim(\ker(f)) = n^2 -1.$\\\\
+Claim 3: $\dim(\text{span}(\{AB-BA\ |\ A,B\in M_{n\times n}(\mathbb{F})\})) \geq n^2 -1.$\\\\
+Proof: Using the same set $B$ as in claim 2, choose arbitrary $D \in B$ and consider 2 cases:\\\\
+Case 1: $D \in \{E_{i,j} \in M_{n\times n}(\mathbb{F})\ | \ i \neq j\}.$\\\\
+Then $D = E_{i,j}$ for some $i \neq j.$ Observe that: \begin{center}
+    
+$E_{i,j}E_{j,j} - E_{j,j}E_{i,j} = E_{i,j} - 0 = E_{i,j}$\ \ for $i\neq j.$  \end{center} Thus $D \in \text{span}(\{AB-BA \ | \ A,B\in M_{n\times n} (\mathbb{F})\}).$\\\\
+Case 2: $D\in \{E'_i \in M_{n\times n}(\mathbb{F}) \ | \ 1 \leq i < n \}$.\\\\
+Then $D = E'_{k,k}$ for some $1\leq k < n.$ Write D as:\begin{center}
+    $D = E'_{k,k} = E_{k,k} - E_{k+1,k+1} = E_{k,k+1}E_{k+1,k} - E_{k+1,k}E_{k,k+1}.$
+\end{center}
+Thus $D \in \text{span}(\{AB-BA \ | \ A,B\in M_{n\times n} (\mathbb{F})\}).$\\\\
+We thus conclude that $B \subseteq \text{span}(\{AB-BA \ | \ A,B\in M_{n\times n} (\mathbb{F})\})$ so\\ $\dim(\text{span}(\{AB-BA \ | \ A,B\in M_{n\times n} (\mathbb{F})\})) \geq \dim(\text{span}(B)) = n^2 - 1.$\\\\
+From claim 1, we know that $\text{span}(\{AB-BA \ | \ A,B\in M_{n\times n} (\mathbb{F})\})\subseteq \ker(f).$\\
+From claim 2, we know that $\dim(\ker(f)) = n^2-1.$\\
+From claim 3, we know that $\dim(\text{span}(\{AB-BA \ | \ A,B\in M_{n\times n} (\mathbb{F})\})) \geq n^2 - 1.$\\
+Combining the 3 claims, we have: $\ker(f) = \text{span}(\{AB-BA \ | \ A,B\in M_{n\times n} (\mathbb{F})\}).$
+\subsection*{Question 4}
+(a) To prove $\alpha-\lambda I_V$ is invertible:\\\\ Assume that $\alpha - \lambda I_V$ is not invertible.\\\\Then $\text{nullity}(\alpha - \lambda I_V) > 0.\\ \exists$ non-zero $ v \in V$ such that $(\alpha - \lambda I_V)(v) = 0_V.$ But then $\alpha(v) - \lambda v = 0_V$. \\This implies that $\alpha(v) = \lambda v.$
+which is a contradiction as $\lambda$ is not an eigenvalue of $\alpha.$
+\\\\To prove that $\alpha$ commutes with $(\alpha - \lambda I_V)^{-1}:$\begin{align*}
+\alpha\circ I_V &= I_V \circ \alpha
+\\ \alpha(\alpha -\lambda I_V)^{-1} (\alpha -\lambda I_V) &= (\alpha -\lambda I_V)^{-1}(\alpha -\lambda I_V)\alpha
+\\\alpha(\alpha -\lambda I_V)^{-1} (\alpha -\lambda I_V) &= (\alpha -\lambda I_V)^{-1}\alpha(\alpha -\lambda I_V)\\\alpha(\alpha -\lambda I_V)^{-1} (\alpha -\lambda I_V)(\alpha-\lambda I_V)^{-1} &= (\alpha -\lambda I_V)^{-1}\alpha(\alpha -\lambda I_V)(\alpha-\lambda I_V)^{-1}\\
+\alpha(\alpha -\lambda I_V)^{-1} &= (\alpha-\lambda I_V)^{-1}\alpha.
+\end{align*}\\\\
+(b)(i)\begin{align*}
+\phi(\beta(v),v) &= \phi(v,\beta^\star(v))\\
+&= \phi(v,-\beta(v))\\
+ &= \phi(-\beta(v),v) \text{ - (Since $\mathbb{F} = \mathbb{R}$)}\\
+ &= -\phi(\beta(v),v)
+\end{align*}
+Thus $\phi(\beta(v),v) = 0$\\\\
+(ii) Assume that $\exists \lambda \in \mathbb{R}\ \backslash\ \{0\}$ such that $\lambda$ is an eigenvalue of $\beta.$ Note that $\lambda \neq 0.$\\\\
+$\exists$ nonzero $ w \in V$ such that $\beta(w) = \lambda w.$\\ Then $ \phi(\beta(w),w) = \phi(\lambda w,w) = \lambda \phi(w,w).$\\
+Since $\phi$ is positive definite, $\phi(w,w) > 0.$ $\lambda \neq 0 \ \land \ \phi(w,w)\neq 0\to \phi(\beta(w),w)\neq 0$. This is a contradiction to b(i).\\\\
+(c)\begin{align*}
+\gamma^\star &= [(I_V-\beta)(I_V+\beta)^{-1}]^\star\\
+&= (I_V-\beta)^\star[(I_V+\beta)^{-1}]^\star\\
+&= (I_V-\beta)^\star[(I_V+\beta)^{\star}]^{-1}\\
+&= (I_V^\star-\beta^\star)(I_V^\star+\beta^\star)^{-1}\\
+& = (I_V + \beta)(I_V - \beta)^{-1}
+\end{align*}
+$\gamma^\star\circ\gamma = (I_V + \beta)(I_V-\beta)^{-1}(I_V-\beta)(I_V+\beta)^{-1} = I_V.$ Thus $\gamma^\star = \gamma^{-1}.$\\\\
+(d) Claim: $(I_V+\eta)^{-1}\circ(I_V-\eta) = (I_V-\eta)\circ(I_V+\eta)^{-1}.$\\\\
+Proof:\begin{align*}
+    (I_V+\eta)^{-1}\circ(I_V-\eta) &= (I_V+\eta)^{-1}\circ(I_V-\eta)\circ(I_V+\eta)\circ(I_V+\eta)^{-1}\\
+&= (I_V + \eta)^{-1}\circ(I_V+\eta)\circ(I_V - \eta)\circ(I_V + \eta)^{-1}\\
+&= (I_V-\eta)\circ(I_V+\eta)^{-1}.
+\end{align*}
+Since $-1$ is not an eigenvalue of $\zeta,\ I_V+\zeta$ is invertible.
+\\\\
+To prove existence: Choose $\eta = (I_V-\zeta)\circ(I_V+\zeta)^{-1}$. We first check that $\eta^{\star} = -\eta:$\\\\
+Remark: First note that by (a)(i), $\zeta$ commutes with $(\zeta + I_V)^{-1}.$ (Choose $\lambda = -1)
+$
+\begin{align*}
+    \eta^\star &= [(I_V-\zeta)\circ(I_V + \zeta)^{-1}]^\star\\
+    &= (I_V - \zeta)^\star\circ[(I_V + \zeta)^\star]^{-1} \\
+    &= (I_V^\star - \zeta^\star)\circ(I_V^\star + \zeta^\star)^{-1}\\
+    &= (I_V - \zeta^{-1})\circ(I_V + \zeta^{-1})^{-1}\circ\zeta^{-1}\circ\zeta\\
+    &= (I_V-\zeta^{-1})\circ(\zeta+I_V)^{-1}\circ\zeta\\
+    &= (I_V - \zeta^{-1})\circ\zeta\circ(\zeta+I_V)^{-1}\\
+    &= (\zeta - I_V)\circ(I_V + \zeta)^{-1}\\
+    &= -\eta.
+\end{align*}
+We now check that our choice of $\eta$ satisfies the inequality:
+\begin{align*}
+\eta\circ(I_V + \zeta) &= (I_V-\zeta)\\
+\eta + \eta\circ\zeta &= I_V - \zeta\\
+(I_V + \eta)\circ\zeta &= I_V - \eta\\
+\zeta &= (I_V+\eta)^{-1}\circ(I_V-\eta)\\
+&= (I_V-\eta)\circ(I_V+\eta)^{-1} \text{ as desired.}
+\end{align*}
+To prove uniqueness: Let $\eta_1$ and $\eta_2$ be 2 linear operators satisfying:\begin{center}
+    $(I_V -\eta_1)\circ(I_V+\eta_1)^{-1} = \zeta = (I_V-\eta_2)\circ(I_V + \eta_2)^{-1}$
+\end{center}
+By our claim, $(I_V+\eta_2)^{-1}\circ(I_V-\eta_2)=(I_V-\eta_2)\circ(I_V+\eta_2)^{-1}.$ Then:\begin{align*}
+    (I_V-\eta_1)\circ(I_V+\eta_1)^{-1} &= (I_V+\eta_2)^{-1}\circ(I_V-\eta_2)\\
+    (I_V+\eta_2)\circ(I_V-\eta_1) &= (I_V-\eta_2)\circ(I_V+\eta_1)\\
+    I_V - \eta_1 + \eta_2 - \eta_2\circ\eta_1 &= I_V +\eta_1 - \eta_2 - \eta_2\circ\eta_1\\
+    2\eta_1 &= 2\eta_2\\
+    \eta_1 &= \eta_2
+\end{align*}
+(ii) Recall that $\forall $ linear operators $\alpha $ on finite dimensional vector spaces,\\$\det(\alpha) = \det(\alpha^\star).$\begin{align*}
+\det(\zeta) &= \det((I_V - \eta)\circ(I_V+\eta)^{-1})\\
+&= \det(I_V-\eta)\det((I_V+\eta)^{-1})\\
+&= \frac{\det(I_V + \eta^{\star})}{\det(I_V+\eta)}\\
+&= \frac{\det((I_V^\star + \eta)^\star)}{\det(I_V+\eta)}\\
+&= \frac{\det(I_V+\eta)}{\det(I_V+\eta)}\\
+&= 1.
+\end{align*}
+\end{document}

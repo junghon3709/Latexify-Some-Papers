@@ -21,12 +21,14 @@
 \section*{Question 1}
 \begin{enumerate}[(a)]
     \item \begin{enumerate}[(i)]
-        \item Note that $\displaystyle(n^28^n+n^34^n)^{\frac{1}{3n}}=n^{\frac{2}{3n}}(8^n+n\times4^n)^{\frac{1}{3n}}.$ Since $\displaystyle\lim_{n\to\infty}n^{\frac{2}{3n}}=1,$ it suffices to compute the limit \newline $\displaystyle\lim_{n\to\infty}(8^n+n\times4^n)^{\frac{1}{3n}}.$
+        \item Note that $\displaystyle(n^28^n+n^34^n)^{\frac{1}{3n}}=n^{\frac{2}{3n}}(8^n+n\times4^n)^{\frac{1}{3n}}$ and $\displaystyle\lim_{n\to\infty}n^{\frac{2}{3n}}=1.$ We now wish to compute the limit $\displaystyle\lim_{n\to\infty}(8^n+n\times4^n)^{\frac{1}{3n}}.$
         
         We first show that $2\times8^n>8^n+n\times4^n>8^n$ for all positive integers $n.$ The inequality $8^n+n\times 4^n>8^n$ is obvious. To show that $2\times8^n>8^n+n\times4^n,$ it is equivalent to prove that $8^n>n\times4^n.$ Indeed, the inequality is obvious for $n=1.$ Suppose the inequality holds for $n=k.$ Then $$8^{k+1}=8\times8^k>8(k\times 4^k)>k\times 4^{k+1}$$ and we are done by induction.
         
         Hence, we have $$(2\times8^n)^{\frac{1}{3n}}=2^{\frac{1}{3n}}\times2>(8^n+n\times4^n)^{\frac{1}{3n}}>(8^n)^{\frac{1}{3n}}=2.$$
-        Since $\displaystyle\lim_{n\to\infty}2^{\frac{1}{3n}}=1,$ it follows from squeeze theorem that the required limit is 2.
+        Since $\displaystyle\lim_{n\to\infty}2^{\frac{1}{3n}}=1,$ it follows from squeeze theorem that $\displaystyle\lim_{n\to\infty}(8^n+n\times4^n)^{\frac{1}{3n}}=2.$
+        
+        In conclusion, $\displaystyle\lim_{n\to\infty}(n^28^n+n^34^n)^{\frac{1}{3n}}=1\times2=2.$
         \item We have
         $$\frac{(n+1)^{2n^2}(n-1)^{2n^2}}{(n^2+1)^{2n^2}}=\frac{(n^2-1)^{2n^2}}{(n^2+1)^{2n^2}}=\left(\frac{n^2-1}{n^2+1}\right)^{2n^2}
         =\left(1-\frac{2}{n^2+1}\right)^{2n^2}
@@ -61,47 +63,14 @@
 
 \section*{Question 3}
 \begin{enumerate}[(a)]
-    \item We first show that $x_n>5$ by induction. The case for $n=1$ is clear. Suppose $x_k>5$ for some positive integer $k.$ We want show that $x_{k+1}>5.$ We have $$x_k>5\implies \frac{3}{x_k}<\frac{3}{5}\implies \frac{3}{x_k}+1<\frac{8}{5}\implies\frac{8}{\frac{3}{x_k}+1}=x_{k+1}>5,$$ which completes the induction step. We now want to show that the sequence converges to $5.$ We have $$|x_{n+1}-5|=\left|\frac{8x_n}{x_n+3}-5\right|=\frac{3}{3+x_n}\left|x_n-5\right|<\frac{3}{8}|x_n-5|.$$ Thus, the sequence contracts and converges to 5.
-    \item Define $$f(x)=\begin{cases}
-    1&x\leq 0\\
-    3x+1&0<x\leq1\\
-    -2x+6&1<x\leq2\\
-    7x-12&2<x\leq4\\
-    -2x+24&4<x\leq8\\
-    8&x>8.
-    \end{cases}$$
-    It is easy to see that $f$ is continuous, $f(x)>0$ for all $x\in\mathbb{R}$ and $f(1)\cdot f(8)=f(2)\cdot f(4).$ However, there is no $c\in[1,2]$ so that $(f(2c))^2=f(c)\cdot f(4c)$ since $$(f(2c))^2=f(c)\cdot f(4c)\implies (7c-12)^2=(-2c+6)(-2c+24)\implies c=0\text{ or }c=\frac{12}{5}.$$
-    
-    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
-\begin{axis}[
-x=0.5cm,y=0.5cm,
-axis lines=middle,
-ymajorgrids=true,
-xmajorgrids=true,
-xmin=-10.0,
-xmax=20.0,
-ymin=0.0,
-ymax=18.0,
-xtick={-10.0,-8.0,...,20.0},
-ytick={0.0,2.0,...,18.0},]
-\clip(-10.,0.) rectangle (20.,18.);
-\draw [line width=2.pt,domain=-10.0:0.0] plot(\x,{(-7.502978499992442-0.*\x)/-7.502978499992442});
-\draw [line width=2.pt,domain=8.0:20.0] plot(\x,{(--61.09066910397955-0.*\x)/7.636333637997444});
-\draw [line width=2.pt] (0.,1.)-- (1.,4.);
-\draw [line width=2.pt] (1.,4.)-- (2.,2.);
-\draw [line width=2.pt] (2.,2.)-- (4.,16.);
-\draw [line width=2.pt] (4.,16.)-- (8.,8.);
-\end{axis}
-\end{tikzpicture}
-\begin{center}
-    \textit{Graph of $y=f(x)$}
-\end{center}
+    \item The sequence converges. We first show that $x_n>5$ by induction. The case for $n=1$ is clear. Suppose $x_k>5$ for some positive integer $k.$ We want show that $x_{k+1}>5.$ We have $$x_k>5\implies \frac{3}{x_k}<\frac{3}{5}\implies \frac{3}{x_k}+1<\frac{8}{5}\implies\frac{8}{\frac{3}{x_k}+1}=x_{k+1}>5,$$ which completes the induction step. We now want to show that the sequence converges to $5.$ We have $$|x_{n+1}-5|=\left|\frac{8x_n}{x_n+3}-5\right|=\frac{3}{3+x_n}\left|x_n-5\right|<\frac{3}{8}|x_n-5|.$$ Thus, the sequence contracts and converges to 5.
+    \item Yes, such a $c$ always exists. Suppose such a $c$ does not exist. Then, we either have $(f(2c))^2>f(c)\cdot f(4c)$ or $(f(2c))^2<f(c)\cdot f(4c).$ Suppose it is the former case. Then, we have $$(f(2))^2>f(1)\cdot f(4) \text{ and }(f(4))^2>f(2)\cdot f(8).$$Multiplying both inequalities yield $$(f(2)f(4))^2>f(1)f(2)f(4)f(8)\implies f(2)f(4)>f(1)f(8),$$ which is a contradiction. The proof is similar for the latter case.
 \end{enumerate}
 \section*{Question 4}
 \begin{enumerate}[(a)]
-    \item Suppose $X:=\{x_{g(n)}\}^{\infty}_{n=1}$ and $Y:=\{y_{g(n)}\}^{\infty}_{n=1}$ are two subsequences so that $z=\displaystyle\lim_{n\to\infty}\frac{x_{g(n)}}{y_{g(n)}}.$
+    \item The statement is true. Suppose $X:=\{x_{g(n)}\}^{\infty}_{n=1}$ and $Y:=\{y_{g(n)}\}^{\infty}_{n=1}$ are two subsequences so that $z=\displaystyle\lim_{n\to\infty}\frac{x_{g(n)}}{y_{g(n)}}.$
     
-    Since $X$ and $Y$ are both bounded sequences, by Bolzano-Weierstrass theorem, there exists subsequences $\{x_{f(n)}\}^{\infty}_{n=1}$ and $\{y_{h(n)}\}^{\infty}_{n=1}$ of $X$ and $Y$ respectively so that $\displaystyle\lim_{n\to\infty}x_{f(n)}=x$ and $\displaystyle\lim_{n\to\infty}y_{h(n)}=y.$ In particular, there is no subsequence of $Y$ that converges to 0. Suppose there is one such sequence. Then, for a given $\varepsilon_1>0,$ there exists a positive integer $N$ so that $|y_{k(n)}|<\varepsilon_1$ for all $n\geq N.$ Hence, $\left|\dfrac{x_{k(n)}}{y_{k(n)}}\right|>\dfrac{1}{\varepsilon_1},$ which contradicts the fact that $\left|\dfrac{x_{k(n)}}{y_{k(n)}}\right|$ is bounded. Now, it is easy to check that $\dfrac{x}{y}=z.$
+    Since $X$ and $Y$ are both bounded sequences, by Bolzano-Weierstrass theorem, there exists subsequences $\{x_{f(n)}\}^{\infty}_{n=1}$ and $\{y_{h(n)}\}^{\infty}_{n=1}$ of $X$ and $Y$ respectively so that $\displaystyle\lim_{n\to\infty}x_{f(n)}=x$ and $\displaystyle\lim_{n\to\infty}y_{h(n)}=y.$ In particular, there is no subsequence of $Y$ that converges to 0. Suppose there is one such sequence $\{y_{k(n)}\}^{\infty}_{n=1}$. Then, for a given $\varepsilon_1>0,$ there exists a positive integer $N$ so that $|y_{k(n)}|<\varepsilon_1$ for all $n\geq N.$ Hence, $\left|\dfrac{x_{k(n)}}{y_{k(n)}}\right|>\dfrac{1}{\varepsilon_1},$ which contradicts the fact that $\left|\dfrac{x_{k(n)}}{y_{k(n)}}\right|$ is bounded. Now, it is easy to check that $\dfrac{x}{y}=z.$
     %\item Firstly, note that $f(x) = f(\frac{x+2}{3})$ for all $x$ and denote $g(a) = \frac{a+2}{3}$. Let $f(1) = a$. Suppose there exists $y$ so that $y \neq 1$ and $f(y) \neq a$. WLOG $y>1$. By continuity, there exists $\delta$ such that $|x-1| < \delta \implies |f(x)-f(1)| < \frac{f(a)-f(1)}{2}$. Let $|a-1| = A$. Then, $|g(a)-1| = \frac{A}{3}$ and more generally, $|g^n(a)-1| = \frac{A}{3^n}$, which obviously limits to zero as $n$ approaches infinity. However, by the condition of the problem, $|f(g^n(a))-f(1)|$ is a nonzero constant for all $n$, contradicting the continuity at 1.% Solution added by Jessen
     \item The statement is true. Let $\varepsilon>0$ be given. Then, there exists $\delta_1$ so that $|x-y|<\delta_1\implies |g(x)-g(y)|<\varepsilon.$ On the other hand, since $f$ is continuous on $[0,1],$ $f$ is uniformly continuous on $[0,1].$ Then, there exists $\delta_2$ so that $|x-y|<\delta_2\implies |f(x)-f(y)|<\delta_1.$ Consequently, $|x-y|<\delta_2\implies |h(x)-h(y)|=|g\circ f(x)-g\circ f(y)|<\varepsilon.$
 \end{enumerate}
@@ -116,7 +85,15 @@ ytick={0.0,2.0,...,18.0},]
         
         Suppose the limit $\displaystyle\lim_{x\to3}(x+1)\sin\left(\frac{x}{3-x}\right)$ exists. Then, we see that $\displaystyle\lim_{x\to3}(x+1)\sin\left(\frac{x}{3-x}\right)\cdot\frac{1}{x+1}=\displaystyle\lim_{x\to3}\sin\left(\frac{x}{3-x}\right)$ also exists since $\displaystyle\lim_{x\to3}\frac{1}{x+1}$ exists. This is a contradiction and we are done.
     \end{enumerate}
-    \item We prove that $\displaystyle\lim_{x\to\infty}f(x)=\sup\{f(x):x\in[1,\infty)\}.$
+    \item Yes, such a number always exists. We first prove that $\displaystyle\lim_{x\to\infty}f(x)=\sup\{f(x):x\in[1,\infty)\}.$
+    
+    Let $L:=\sup\{f(x):x\in[1,\infty)\}.$ Then, for each $\varepsilon>0,$ there exists $x_0\geq 1$ so that $f(x_0)>L-\frac{\varepsilon}{2}.$ Since $f$ is continuous, there exists $\delta>0$ (and less than $x_0$) such that $$0<|x-x_0|<\delta\implies f(x_0)-\frac{\varepsilon}{2}<f(x)<f(x_0)+\frac{\varepsilon}{2},$$
+    which implies that $$L-\varepsilon<f(x)\leq L<L+\varepsilon.$$
+    
+    Note that there exists a positive integer $n$ such that $x_0<n\delta.$ Let $M=n(x_0+\delta)$ and $x>M.$ Also, let $k=\left\lfloor\dfrac{x}{x_0}\right\rfloor.$ Then, we have $k\leq \dfrac{x}{x_0}<k+1.$ But since $x>M,$ it follows that $\dfrac{x}{x_0}>n+n\dfrac{\delta}{x_0}>n+1$ and so $k>n.$
+    
+    Since $$-k\delta<0\leq x-kx_0<x_0<n\delta<k\delta,$$
+    we get that $|x-kx_0|<k\delta\implies \left|\dfrac{x}{k}-x_0\right|<\delta.$ As such, we have $$L+\varepsilon>L\geq f(x)=f\left(\frac{kx}{k}\right)\geq f\left(\frac{x}{k}\right)>L-\varepsilon$$ and so $\displaystyle\lim_{n\to\infty}f(x)=L.$ Since $0\leq f(x)\leq 1,$ we conclude that $0\leq L\leq 1.$
 \end{enumerate}
 \section*{Question 6}
 \begin{enumerate}[(a)]
