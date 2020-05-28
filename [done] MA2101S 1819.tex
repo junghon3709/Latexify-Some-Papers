@@ -6,8 +6,8 @@
 \usepackage{mathtools}
 \usepackage{amssymb}
 \title{1819SEM2-MA2101S Answers}
-\author{Pan Jing Bin}
-\date{May 2020}
+\author{Written by: Pan Jing Bin}
+\date{Audited by: Chong Jing Quan}
 
 \begin{document}
 
@@ -114,10 +114,10 @@ By (b)(ii), $q(x) = p(x)r(x)$ for some $r(x) \in F[x].$ Thus:\begin{align*}
 Then $\text{tr}(xA+yB) = \text{tr}(xA) + \text{tr}(yB) = x\text{tr}(A) + y\text{tr}(B).$\\\\
 Thus tr is a linear functional from $M_{n\times n}(\mathbb{F}$) to $\mathbb{F}$ so tr $\in (M_{n\times n}(\mathbb{F}))^*.$\\\\
 (ii) First note that the $i,j$ entry of $AB$ is:\begin{center}
-$AB_{i,j} = \sum\limits_{k=1}^{n} a_{i,k}b_{k,j}$
+$(AB)_{i,j} = \sum\limits_{k=1}^{n} a_{i,k}b_{k,j}$
 \end{center}
 Then: \begin{align*}
-    \text{tr}(AB) &= \sum\limits_{i=1}^n AB_{i,i}\\ &= \sum\limits_{i=1}^n \sum\limits_{k=1}^n a_{i,k}b_{k,i}\\ &= \sum\limits_{k=1}^n \sum\limits_{i=1}^n b_{k,i}a_{i,k}\\ &= \sum\limits_{k=1}^n BA_{k,k}\\ &= \text{tr}(BA)
+    \text{tr}(AB) &= \sum\limits_{i=1}^n (AB)_{i,i}\\ &= \sum\limits_{i=1}^n \sum\limits_{k=1}^n a_{i,k}b_{k,i}\\ &= \sum\limits_{k=1}^n \sum\limits_{i=1}^n b_{k,i}a_{i,k}\\ &= \sum\limits_{k=1}^n (BA)_{k,k}\\ &= \text{tr}(BA)
 \end{align*}
 (b)(i) Claim 1 : $\forall\ 1\leq i \leq n, 1\leq j \leq n,\ f(E_{i,j}) = 0$ if $i\neq j$.\\\\
 Proof: $f(E_{i,j}E_{j,j}) = f(E_{j,j}E_{i,j}) \to f(E_{i,j}) = f(0_{n\times n}) = 0.$\\\\
@@ -127,7 +127,7 @@ Proof: $f(E_{1,i}E_{i,1}) = f(E_{i,1}E_{1,i}) \to f(E_{1,1}) = f(E_{i,i}).$\\\\
 Write $A = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_{i,j}E_{i,j}.$\begin{align*}
 f(A) &= f(\sum\limits_{i=1}^n \sum\limits_{j=1}^n a_{i,j}E_{i,j})\\&=f(\sum\limits_{i=1}^n a_{i,i}E_{i,i})\\&=f(\sum\limits_{i=1}^n a_{i,i}E_{1,1})\\&=\sum\limits_{i=1}^n a_{i,i}f(E_{1,1})\text{\ \ (Since $f$ is a linear functional)}\\&= f(E_{1,1})\sum\limits_{i=1}^n a_{i,i}
 \\&=f(E_{1,1})\text{tr}(A).\end{align*}
-(ii) Claim 1: $\text{span}(\{AB-BA\ |\ A,B\in M_{n\times n}(\mathbb{F})\}) \subseteq \ker(f)$.
+\\\\\\(ii) Claim 1: $\text{span}(\{AB-BA\ |\ A,B\in M_{n\times n}(\mathbb{F})\}) \subseteq \ker(f)$.
 \\\\Proof: Let $D \in \text{span}(\{AB-BA|A,B\in M_{n\times n}(\mathbb{F})\})$.\\ Then $\exists$ $A,B\in M_{n\times n}(\mathbb{F})$ such that $D = AB - BA.$\\tr$(D) = \text{tr}(AB-BA) = \text{tr}(AB) - \text{tr}(BA) = 0.$\\By (b)(i), $f(D) = f(E_{1,1})\text{tr}(D) = 0$ thus $D\in \ker(f).$ \\\\
 Claim 2: $\dim(\ker(f)) = n^2-1.$\\\\
 Proof: Since $f\neq0,\ \ker(f) \neq M_{n\times n}(\mathbb{F}) \to \dim(\ker(f)) < n^2. -(*)$ \\\\
@@ -156,9 +156,9 @@ Combining the 3 claims, we have: $\ker(f) = \text{span}(\{AB-BA \ | \ A,B\in M_{
 which is a contradiction as $\lambda$ is not an eigenvalue of $\alpha.$
 \\\\To prove that $\alpha$ commutes with $(\alpha - \lambda I_V)^{-1}:$\begin{align*}
 \alpha\circ I_V &= I_V \circ \alpha
-\\ \alpha(\alpha -\lambda I_V)^{-1} (\alpha -\lambda I_V) &= (\alpha -\lambda I_V)^{-1}(\alpha -\lambda I_V)\alpha
-\\\alpha(\alpha -\lambda I_V)^{-1} (\alpha -\lambda I_V) &= (\alpha -\lambda I_V)^{-1}\alpha(\alpha -\lambda I_V)\\\alpha(\alpha -\lambda I_V)^{-1} (\alpha -\lambda I_V)(\alpha-\lambda I_V)^{-1} &= (\alpha -\lambda I_V)^{-1}\alpha(\alpha -\lambda I_V)(\alpha-\lambda I_V)^{-1}\\
-\alpha(\alpha -\lambda I_V)^{-1} &= (\alpha-\lambda I_V)^{-1}\alpha.
+\\ \alpha\circ(\alpha -\lambda I_V)^{-1}\circ(\alpha -\lambda I_V) &= (\alpha -\lambda I_V)^{-1}\circ(\alpha -\lambda I_V)\circ\alpha
+\\\alpha\circ(\alpha -\lambda I_V)^{-1}\circ(\alpha -\lambda I_V) &= (\alpha -\lambda I_V)^{-1}\circ\alpha\circ(\alpha -\lambda I_V)\\\alpha\circ(\alpha -\lambda I_V)^{-1}\circ(\alpha -\lambda I_V)\circ(\alpha-\lambda I_V)^{-1} &= (\alpha -\lambda I_V)^{-1}\circ\alpha\circ(\alpha -\lambda I_V)\circ(\alpha-\lambda I_V)^{-1}\\
+\alpha\circ(\alpha -\lambda I_V)^{-1} &= (\alpha-\lambda I_V)^{-1}\circ\alpha.
 \end{align*}\\\\
 (b)(i)\begin{align*}
 \phi(\beta(v),v) &= \phi(v,\beta^\star(v))\\
@@ -170,14 +170,17 @@ Thus $\phi(\beta(v),v) = 0$\\\\
 (ii) Assume that $\exists \lambda \in \mathbb{R}\ \backslash\ \{0\}$ such that $\lambda$ is an eigenvalue of $\beta.$ Note that $\lambda \neq 0.$\\\\
 $\exists$ nonzero $ w \in V$ such that $\beta(w) = \lambda w.$\\ Then $ \phi(\beta(w),w) = \phi(\lambda w,w) = \lambda \phi(w,w).$\\
 Since $\phi$ is positive definite, $\phi(w,w) > 0.$ $\lambda \neq 0 \ \land \ \phi(w,w)\neq 0\to \phi(\beta(w),w)\neq 0$. This is a contradiction to b(i).\\\\
-(c)\begin{align*}
-\gamma^\star &= [(I_V-\beta)(I_V+\beta)^{-1}]^\star\\
-&= (I_V-\beta)^\star[(I_V+\beta)^{-1}]^\star\\
-&= (I_V-\beta)^\star[(I_V+\beta)^{\star}]^{-1}\\
-&= (I_V^\star-\beta^\star)(I_V^\star+\beta^\star)^{-1}\\
-& = (I_V + \beta)(I_V - \beta)^{-1}
+(c) \begin{align*}
+\gamma^\star &= [(I_V-\beta)\circ(I_V+\beta)^{-1}]^\star\\
+&= [(I_V+\beta)^{-1}]^\star\circ(I_V-\beta)^\star\\
+&= [(I_V+\beta)^\star]^{-1}\circ(I_V-\beta)^\star\\
+&= (I_V^\star+\beta^\star)^{-1}\circ(I_V^\star-\beta^\star)\\
+&= (I_V - \beta)^{-1}\circ(I_V + \beta).
 \end{align*}
-$\gamma^\star\circ\gamma = (I_V + \beta)(I_V-\beta)^{-1}(I_V-\beta)(I_V+\beta)^{-1} = I_V.$ Thus $\gamma^\star = \gamma^{-1}.$\\\\
+\begin{align*}
+\gamma^\star\circ\gamma &= (I_V -  \beta)^{-1}\circ(I_V+\beta)\circ(I_V-\beta)\circ(I_V+\beta)^{-1}\\ &= (I_V -  \beta)^{-1}\circ(I_V-\beta)\circ(I_V+\beta)\circ(I_V+\beta)^{-1}\\ &= I_V. 
+\end{align*}
+Thus $\gamma^\star = \gamma^{-1}.$\\\\
 (d) Claim: $(I_V+\eta)^{-1}\circ(I_V-\eta) = (I_V-\eta)\circ(I_V+\eta)^{-1}.$\\\\
 Proof:\begin{align*}
     (I_V+\eta)^{-1}\circ(I_V-\eta) &= (I_V+\eta)^{-1}\circ(I_V-\eta)\circ(I_V+\eta)\circ(I_V+\eta)^{-1}\\
@@ -187,35 +190,38 @@ Proof:\begin{align*}
 Since $-1$ is not an eigenvalue of $\zeta,\ I_V+\zeta$ is invertible.
 \\\\
 To prove existence: Choose $\eta = (I_V-\zeta)\circ(I_V+\zeta)^{-1}$. We first check that $\eta^{\star} = -\eta:$\\\\
-Remark: First note that by (a)(i), $\zeta$ commutes with $(\zeta + I_V)^{-1}.$ (Choose $\lambda = -1)
+Note that by (a)(i), $\zeta$ commutes with $(\zeta + I_V)^{-1}.$ (Choose $\lambda = -1)$\\ By our claim above, $(I_V - \zeta)\circ(I_V + \zeta)^{-1} = \eta = (I_V+\zeta)^{-1}(I_V-\zeta).
 $
 \begin{align*}
     \eta^\star &= [(I_V-\zeta)\circ(I_V + \zeta)^{-1}]^\star\\
-    &= (I_V - \zeta)^\star\circ[(I_V + \zeta)^\star]^{-1} \\
-    &= (I_V^\star - \zeta^\star)\circ(I_V^\star + \zeta^\star)^{-1}\\
-    &= (I_V - \zeta^{-1})\circ(I_V + \zeta^{-1})^{-1}\circ\zeta^{-1}\circ\zeta\\
-    &= (I_V-\zeta^{-1})\circ(\zeta+I_V)^{-1}\circ\zeta\\
-    &= (I_V - \zeta^{-1})\circ\zeta\circ(\zeta+I_V)^{-1}\\
-    &= (\zeta - I_V)\circ(I_V + \zeta)^{-1}\\
-    &= -\eta.
+    &= [(I_V + \zeta)^\star]^{-1}\circ(I_V - \zeta)^\star \\
+    &= (I_V^\star + \zeta^\star)^{-1}\circ(I_V^\star - \zeta^\star)\\
+    &= (I_V + \zeta^{-1})^{-1}\circ(I_V - \zeta^{-1})\\
+    &= \zeta \circ \zeta^{-1}\circ(I_V + \zeta^{-1})^{-1}\circ(I_V - \zeta^{-1})\\
+    &= \zeta \circ (\zeta + I_V)^{-1}\circ(I_V - \zeta^{-1})\\
+    &=(\zeta + I_V)^{-1}\circ \zeta \circ (I_V - \zeta^{-1})\\
+    &= (\zeta + I_V)^{-1}\circ(\zeta - I_V)\\
+    &= - (\zeta + I_V)^{-1}\circ(I_V - \zeta)\\
+    &= - \eta.
 \end{align*}
-We now check that our choice of $\eta$ satisfies the inequality:
+We now check that our choice of $\eta$ satisfies the equality:
 \begin{align*}
+\eta &= (I_V - \zeta)\circ(I_V + \zeta)^{-1}\\
 \eta\circ(I_V + \zeta) &= (I_V-\zeta)\\
 \eta + \eta\circ\zeta &= I_V - \zeta\\
 (I_V + \eta)\circ\zeta &= I_V - \eta\\
 \zeta &= (I_V+\eta)^{-1}\circ(I_V-\eta)\\
 &= (I_V-\eta)\circ(I_V+\eta)^{-1} \text{ as desired.}
-\end{align*}
+\end{align*}\\
 To prove uniqueness: Let $\eta_1$ and $\eta_2$ be 2 linear operators satisfying:\begin{center}
-    $(I_V -\eta_1)\circ(I_V+\eta_1)^{-1} = \zeta = (I_V-\eta_2)\circ(I_V + \eta_2)^{-1}$
+    $(I_V -\eta_1)\circ(I_V+\eta_1)^{-1} = \zeta = (I_V-\eta_2)\circ(I_V + \eta_2)^{-1}$.
 \end{center}
 By our claim, $(I_V+\eta_2)^{-1}\circ(I_V-\eta_2)=(I_V-\eta_2)\circ(I_V+\eta_2)^{-1}.$ Then:\begin{align*}
     (I_V-\eta_1)\circ(I_V+\eta_1)^{-1} &= (I_V+\eta_2)^{-1}\circ(I_V-\eta_2)\\
     (I_V+\eta_2)\circ(I_V-\eta_1) &= (I_V-\eta_2)\circ(I_V+\eta_1)\\
     I_V - \eta_1 + \eta_2 - \eta_2\circ\eta_1 &= I_V +\eta_1 - \eta_2 - \eta_2\circ\eta_1\\
-    2\eta_1 &= 2\eta_2\\
-    \eta_1 &= \eta_2
+    2\eta_2 &= 2\eta_1\\
+    \eta_2 &= \eta_1.
 \end{align*}
 (ii) Recall that $\forall $ linear operators $\alpha $ on finite dimensional vector spaces,\\$\det(\alpha) = \det(\alpha^\star).$\begin{align*}
 \det(\zeta) &= \det((I_V - \eta)\circ(I_V+\eta)^{-1})\\

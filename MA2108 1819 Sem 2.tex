@@ -12,7 +12,9 @@
 \usepackage[parfill]{parskip}
 \usepackage{amsmath, amsthm,amssymb}
 \begin{document}
-    {\LARGE{MA2108 AY18/19 Semester 2 Exam Suggested Solutions}}
+    {\LARGE{MA2108 Exam Suggested Solutions}}
+    
+    {\large{AY18/19 Semester 2}}
     \vspace{0.2in}
     
     Authors: Chong Jing Quan, Pan Jing Bin \hfill Reviewer: ????
@@ -101,6 +103,16 @@
         $$\left|\dfrac{x^2-6}{2x-5}-2\right|=\left|\frac{x^2-4x+4}{2x-5}\right|=
         \left|\frac{(x-2)^2}{2x-5}\right|=|x-2|\left|\frac{x-2}{2x-5}\right|<\frac{1}{2}|x-2|<\frac{1}{2}\times2\varepsilon=\varepsilon.$$
         The result follows.
-        \item WHAT THIS?
+        \item Let $M=f(2)-f(1)>0.$ Split the interval $[1,2]$ into two equal intervals, i.e. $[1,1.5]$ and $[1.5,2].$ Note that we either have $$f(2)-f(1.5)\geq f(1.5)-f(1)\iff f(2)-f(1.5)\geq \frac{M}{2}$$ or $$f(1.5)-f(1)\geq f(2)-f(1.5)\iff f(1.5)-f(1)\geq \frac{M}{2}.$$
+        Pick the subinterval $I_1:=[x_1,y_1]$ so that $f(y_1)-f(x_1)\geq \dfrac{M}{2}$ and $y_1-x_1=\dfrac{1}{2}.$
+        
+        Suppose that we have picked one such interval $I_n:=[x_n,y_n]$ where $f(y_n)-f(x_n)\geq\dfrac{M}{2^n}$ and $y_n-x_n=\dfrac{1}{2^n}$ for some positive integer $n.$ Split $I_n$ into two subintervals of equal length, $I_{n_1}:=[x_{n_1}, y_{n_1}]$ and $I_{n_2}:=[x_{n_2}, y_{n_2}].$ Set $I_{n+1}$ to be the interval $I_{n_k}$ that satisfy the inequality $f(y_{n_k})-f(x_{n_k})\geq\dfrac{M}{2^{n+1}}.$
+        
+        Since $[1,2]\supset I_1\supset I_2\supset\cdots \supset I_n\supset\cdots$ are closed intervals whose length tends to $0,$ by Nested Interval Theorem, there exists a value $a$ so that $a\in\displaystyle\bigcap^{\infty}_{n=1}I_n.$
+        
+        Now, for each $t\in[0,1],$ choose the smallest positive integer $n$ so that $I_n\subseteq (a-t,a+t).$ Then, we must have $I_{n-1}\not\subseteq(a-t,a+t).$ Observe that only one of $a-t$ or $a+t$ is in $I_{n-1}.$ If $a-t\in I_{n-1},$ we have $$a-(a-t)=t\leq y_{n-1}-x_{n-1}=\dfrac{1}{2^{n-1}},$$ and if $a+t\in I_{n-1},$ we have $$(a+t)-a=t\leq y_{n-1}-x_{n-1}=\dfrac{1}{2^{n-1}}.$$ Thus, in either case we have $t\leq\dfrac{1}{2^{n-1}}.$
+        
+        Finally, since $f$ is increasing, we get $$f(a+t)-f(a-t)\geq f(y_n)-f(x_n)\geq \frac{M}{2^n}=\frac{M}{2}\times\frac{1}{2^{n-1}}\geq\frac{M}{2}t.$$
+        Pick $c=\dfrac{M}{2}$ to complete the proof.
 \end{enumerate}
 \end{document}

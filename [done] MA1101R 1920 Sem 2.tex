@@ -1,0 +1,267 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper, left=25.4mm,top=25.4mm, right=25.4mm, bottom=25.4mm}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage{enumerate}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath, amsthm,amssymb}
+\newcommand{\matr}[1]{\mathbf{#1}}
+\newcommand{\spn}{\text{span}}
+\newenvironment{rowequmat}[1]{\left(\array{@{}#1@{}}}{\endarray\right)}
+\usepackage{mathtools}
+\begin{document}
+    {\LARGE{MA1101R Exam Suggested Solutions}}
+    
+    {\large{AY19/20 Semester 2}}
+    \vspace{0.2in}
+    
+    Author: Chong Jing Quan \hfill Reviewer: Yip Jung Hon
+    \par\noindent\rule{\textwidth}{0.4pt}
+\section*{Question 1}
+\begin{enumerate}[(a)]
+    \item For any $\matr w\in\spn\{\matr u_1, \matr u_2\}\cap\spn\{\matr v_1,\matr v_2,\matr v_3\},$ we have $w=a_1\matr{u}_1+a_2\matr{u}_2=b_1\matr{v}_1+b_2\matr{v}_2+b_3\matr{v}_3$ and so $$a_1\matr{u}_1+a_2\matr{u}_2-b_1\matr{v}_1-b_2\matr{v}_2-b_3\matr{v}_3=0.$$
+    Setting up the augmented matrix and row reducing yields
+\begin{eqnarray*}
+\left(\begin{array}{rrrrr}
+1 & 0 & -2 & -1 & -2 \\
+0 & -1 & 3 & -1 & -2 \\
+1 & -2 & 4 & -2 & -3 \\
+-2 & 1 & 1 & 2 & 3 \\
+2 & 0 & -4 & 0 & 2
+\end{array}\right) \xrightarrow[]{RREF} \left(\begin{array}{rrrrr}
+1 & 0 & -2 & 0 & 1 \\
+0 & 1 & -3 & 0 & -1 \\
+0 & 0 & 0 & 1 & 3 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+\end{eqnarray*}
+Thus, a solution to the system is given by $\spn\left\{\left(-1,\,1,\,0,\,-3,\,1\right), \left(2,\,3,\,1,\,0,\,0\right)\right\}$. This represents \textbf{coefficients to the system above, not the vectors themselves}. Set $a_1=-1$, $a_2=1$ and our vector is $\left(-1,\,-1,\,-3,\,3,\,-2\right)$. Put $a_1=2, a_2=3$ and $\left(2,\,-3,\,-4,\,-1,\,4\right)$. The two vector
+\item We aim to solve the system
+\begin{eqnarray*}
+(a_1\matr{v}_1+a_2\matr{v}_2+a_3\matr{v}_3)\cdot \matr{u}_1\ =\ 8a_1+7a_2+7a_3&=&0\\
+(a_1\matr{v}_1+a_2\matr{v}_2+a_3\matr{v}_3)\cdot \matr{u}_2\ =\ 10a_1-7a_2-11a_3&=&0.
+\end{eqnarray*}
+Setting up the augmented matrix and row reducing yields
+\begin{eqnarray*}
+\left(\begin{array}{rrr}
+8 & 7 & 7 \\
+10 & -7 & -11
+\end{array}\right)  \xrightarrow[]{RREF} \left(\begin{array}{rrr}
+1 & 0 & -\frac{2}{9} \\
+0 & 1 & \frac{79}{63}
+\end{array}\right)
+\end{eqnarray*}
+
+Thus, the system has a solution given by $\spn\left\{\begin{pmatrix}14\\-79\\63\end{pmatrix}\right\}.$ Thus, one such vector is given by $14\matr{v}_1-79\matr{v}_2+63\matr{v}_3=(75, 5, -25, -45, -70)$.
+\end{enumerate}
+\section*{Question 2}
+\begin{enumerate}[(a)]
+    \item Using Gram-Schmidt process, we have
+    \begin{eqnarray*}
+    \matr{u}_1&=&(5,2,6,-4)=\matr v_1\\
+    \matr{u}_2&=&(-12,-3,-12,6)-\frac{(-12,-3,-12,6)\cdot(5,2,6,-4)}{5^2+2^2+6^2+(-4)^2}(5,2,6,-4)\\
+    &=& \matr v_2 - 2\matr u_1 \\
+    &=&(-2,1,0,-2)\\
+    \matr{u}_3&=&(2a+3,8a+3,-3a+6,2a-6)-\frac{(2a+3,8a+3,-3a+6,2a-6)\cdot(5,2,6,-4)}{5^2+2^2+6^2+(-4)^2}(5,2,6,-4)\\
+    &-&\frac{(2a+3,8a+3,-3a+6,2a-6)\cdot(-2,1,0,-2)}{(-2)^2+1^2+0^2+(-2)^2}(-2,1,0,-2)\\
+    &=& \matr v_3 - \matr u_1 - \matr u_2 \\
+    &=&(2a,8a,-3a,2a)
+    \end{eqnarray*}
+    Provided $a \neq 0$, the required orthonormal basis $T =\{\matr w_1, \matr w_2, \matr w_3\}$ has $\matr w_1 = \left(\frac{5}{9},\,\frac{2}{9},\,\frac{2}{3},\,\frac{-4}{9}\right), \matr w_2 \left(-\frac{2}{3},\,\frac{1}{3},\,0,\,-\frac{2}{3}\right)$ and $\matr w_3 = \left(\frac{2}{9},\,\frac{8}{9},\,\frac{1}{3},\,\frac{2}{9}\right)$. If $a=0$, then $T =\{\matr w_1, \matr w_2\}$ will do.
+    
+    \item Note that if $\matr{v}_1,\matr{v}_2$ and $\matr{v}_3$ are linearly dependent, then the length of $\matr{u}_3$ must be 0, which can only happen when $a=0.$ Thus, for $a=0,$ the required orthogonal basis is $\{\matr{u}_1,\matr{u}_2\},$ while for $a\neq0,$ the orthogonal basis is $\{\matr{u}_1,\matr{u}_2,\matr{u}_3\}.$ Hence the possible values for the dimension is  $\dim(V)=2$ or $\dim(V)=3.$
+    \item Firstly, from (a), we have \begin{eqnarray*}
+    \matr{u}_1&=&\matr{v}_1\\
+    \matr{u}_2&=&2\matr{v}_1+\matr{v}_2\\
+    \matr{u}_3&=&\matr{v}_1-\matr{v}_2+\matr{v}_3.
+    \end{eqnarray*}
+    For the orthonormal basis,
+    \begin{eqnarray*}
+    \matr{w}_1&=&\frac{1}{9}\matr{v}_1\\
+    \matr{w}_2&=&\frac{1}{3}(2\matr{v}_1+\matr{v}_2)\\
+    \matr{w}_3&=&\frac{1}{9a}(\matr{v}_1-\matr{v}_2+\matr{v}_3).
+    \end{eqnarray*}
+    Hence, the transition matrix \textbf{from $T$ to $S$} is given by 
+    \begin{equation*}
+        \matr P_{S \to T} = \left(\begin{array}{rrr}
+        \frac{1}{9} & \frac{2}{3} & \frac{1}{9 \, a} \\
+        0 & \frac{1}{3} & -\frac{1}{9 \, a} \\
+        0 & 0 & \frac{1}{9 \, a}
+        \end{array}\right)
+    \end{equation*}
+    To find the transition matrix from $S$ to $T,$ we only need to find the inverse of the matrix above. 
+    \begin{equation*}
+        \matr P_{T \to S} = \left(\begin{array}{rrr}
+        9 & -18 & -27 \\
+        0 & 3 & 3 \\
+        0 & 0 & 9 \, a
+        \end{array}\right)
+    \end{equation*}
+    \item 
+    \subsubsection*{Way 1}
+    We first find the projection of $(4,7,-9,-5)$ onto $V:=\spn\{(5,2,6,-4),(-12,-3,-12,6),(5,11,3,-4)\}.$ Using the orthogonal basis found in part (a), we have \begin{eqnarray*}
+    \text{Proj}_V((4,7,-9,-5))&=&\frac{(5,2,6,-4)\cdot(4,7,-9,-5)}{5^2+2^2+6^2+(-4)^2}(5,2,6,-4)+\frac{(-2,1,0,-2)\cdot(4,7,-9,-5)}{(-2)^2+1^2+0^2+(-2)^2}(-2,1,0,-2)\\
+    &+&\frac{(2,8,-3,2)\cdot(4,7,-9,-5)}{2^2+8^2+(-3)^2+2^2}(2,8,-3,2)\\
+    &=&(0,9,-3,0).
+    \end{eqnarray*}
+    Now, we aim to solve the system $$\begin{pmatrix}5&-12&5\\2&-3&11\\6&-12&3\\-4&6&-4\end{pmatrix}\matr{x}=\begin{pmatrix}0\\9\\-3\\0\end{pmatrix}.$$
+    Observe that $-(5,2,6,-4)+(5,11,3,-4)=(0,9,-3,0),$ so a least square solution is given by $\matr{x}=\begin{pmatrix}-1\\0\\1\end{pmatrix}.$
+    \subsubsection*{Way 2}
+    Solving for $\matr A^T \matr A x =\matr A^T b$, we get the augmented matrix,
+    \begin{equation*}
+        \left(\begin{array}{rrr|r}
+        81 & -162 & 81 & 0 \\
+        -162 & 333 & -153 & 9 \\
+        81 & -153 & 171 & 90
+        \end{array}\right) \xrightarrow[]{RREF}\left(\begin{array}{rrr|r}
+1 & 0 & 0 & -1 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1
+\end{array}\right)
+    \end{equation*}
+\end{enumerate}
+\section*{Question 3}
+\begin{enumerate}[(a)]
+    \item We have
+    $$
+    \begin{pmatrix}
+    1&-2&1&3\\1&-1&0&4\\1&0&-1&5
+    \end{pmatrix}\xrightarrow[-R_1+R_3]{-R_1+R_3}
+    \begin{pmatrix}
+    1&-2&1&3\\0&1&-1&1\\0&2&-2&2
+    \end{pmatrix}\xrightarrow[-R_2+R_3]{-R_2+R_1}
+    \begin{pmatrix}
+    1&0&-1&5\\0&1&-1&1\\0&0&0&0
+    \end{pmatrix}.
+    $$
+    Hence, a basis for the row space is given by $\{(1,0,-1,5),(0,1,-1,1)\}.$
+    
+    On the other hand, a basis for the null space is given by $\{(1,1,1,0)^T, (-5,-1,0,1)^T\}.$
+    \item For any matrix $\matr{A},$ denote the row space and null space of $\matr{A}$ by $R(\matr{A})$ and $N(\matr{A})$ respectively. For any subspace $W,$ define $$W^{\perp}=\{\matr{v}\in\mathbb{R}^n:\matr{v}\cdot\matr{u}=0\ \forall\  \matr{u}\in W\}.$$
+    
+    We first show that $(R(\matr{A}))^{\perp}=N(\matr{A}).$ Indeed, we have
+    \begin{eqnarray*}
+    \matr{u}\in N(\matr{A}) &\iff& \matr{A}\matr{u}=\matr{0}\\
+    &\iff& \text {for any row $\matr{a}$ of $\matr{A}$, $\matr{a}\cdot\matr{u}=0.$}\\
+    &\iff& \matr{u}\in (R(\matr{A}))^{\perp}.
+    \end{eqnarray*}
+    
+    Observe that the column space of $\matr{A}^T$ is equal to the row space of $\matr{A}.$ Thus, we have $$N(\matr{B})=R(\matr{A})\implies R(\matr{B})=(N(\matr{B}))^{\perp}=(R(\matr{A}))^{\perp}=N(\matr{A}).$$ Hence, it suffices to pick the matrix $\matr{B}=\begin{pmatrix}-5&-1&0&1\\1&1&1&0\end{pmatrix}.$
+    
+    For completeness sake, we verify that the matrix $\begin{pmatrix}-5&-1&0&1\\1&1&1&0\end{pmatrix}$ works. Indeed, we have
+    $$\begin{pmatrix}-5&-1&0&1\\1&1&1&0\end{pmatrix}\begin{pmatrix}1\\0\\-1\\5\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}\text{ and }\begin{pmatrix}-5&-1&0&1\\1&1&1&0\end{pmatrix}\begin{pmatrix}0\\1\\-1\\1\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}.$$
+    The proof is complete.
+\end{enumerate}
+\section*{Question 4}
+\begin{enumerate}[(a)]
+    \item We first find the characteristic polynomial of $\matr{A}.$ We have
+    \begin{eqnarray*}
+    \det(\matr{A}-x\matr{I}_3)&=&\begin{pmatrix}\frac{5}{2}-x&1&-2\\1&1-x&-1\\2&1&-\frac{3}{2}-x\end{pmatrix}\\
+    &=&\left(\frac{5}{2}-x\right)\left((1-x)\left(-\frac{3}{2}-x\right)-(-1)\times1\right)-1\left(1\left(-\frac{3}{2}-x\right)-(-1)\times2\right)\\
+    &+&(-2)(1\times1-2(1-x))\\
+    &=&-x^3+2x^2-\frac{5}{4}x+\frac{1}{4}\\
+    &=&-\frac{1}{4}(2x-1)^2(x-1).
+    \end{eqnarray*}
+    By right, the characteristic polynomial have $1$ as the coefficient of the highest term. The characteristic polynomial of $\matr A$ is $c(x) = \frac{1}{4}(2x-1)^2(x-1)$.
+    Thus, the eigenvalues of $\matr{A}$ are $\dfrac{1}{2}$ and $1.$
+    A matrix which has the same characteristic polynomial is
+    \begin{equation}
+    \left(\begin{array}{rrr}
+    x-\frac{1}{2} & 0 & 0 \\
+    0 & x-\frac{1}{2} & 0 \\
+    0 & 0 & x-1
+    \end{array}\right)
+    \end{equation}
+    \item To find the eigenspace $E_1,$ we solve the system
+    \begin{eqnarray*}
+    \begin{rowequmat}{ccc|c}
+     \frac{3}{2} &  1 & -2 & 0 \\
+     1 &  0 & -1 & 0 \\
+     2 & 1 & -\frac{5}{2} & 0
+    \end{rowequmat}\xrightarrow[2R_3]{2R_1}\begin{rowequmat}{ccc|c}
+     3 & 2 & -4 & 0 \\
+     1 & 0 & -1 & 0 \\
+     4 & 2 & -5 & 0
+    \end{rowequmat}\xrightarrow[-R_1+R_3]{-R_2+R_3}\begin{rowequmat}{ccc|c}
+     3 & 2 & -4 & 0 \\
+     1 & 0 & -1 & 0 \\
+     0 & 0 & 0 & 0
+    \end{rowequmat}
+    \xrightarrow{-3R_2+R_1}\begin{rowequmat}{ccc|c}
+     0 & 2 & -1 & 0 \\
+     1 & 0 & -1 & 0 \\
+     0 & 0 & 0 & 0
+    \end{rowequmat}.
+    \end{eqnarray*}
+    It follows that $E_1=\spn\left\{\begin{pmatrix}2\\1\\2\end{pmatrix}\right\}.$
+    \item As for the eigenspace $E_{\frac{1}{2}},$ we have
+    $$\begin{rowequmat}{ccc|c}
+     2 &  1 & -2 & 0 \\
+     1 &  \frac{1}{2} & -1 & 0 \\
+     2 &  1 & -2 & 0
+    \end{rowequmat}\xrightarrow[-R_1+R_3]{-\frac{1}{2}R_1+R_2}\begin{rowequmat}{ccc|c}
+     2 & 1 & -2 & 0 \\
+     0 & 0 & 0 & 0 \\
+     0 & 0 & 0 & 0
+    \end{rowequmat}.$$
+    Hence, we have $E_{\frac{1}{2}}=\spn\left\{\begin{pmatrix}1\\0\\1\end{pmatrix},\begin{pmatrix}-1\\2\\0\end{pmatrix}\right\}$
+    \item We have $$\begin{pmatrix}2&1&-1\\1&0&2\\2&1&0\end{pmatrix}^{-1}\matr{A}\begin{pmatrix}2&1&-1\\1&0&2\\2&1&0\end{pmatrix}=\begin{pmatrix}1&0&0\\0&\frac{1}{2}&0\\0&0&\frac{1}{2}\end{pmatrix}=:D.$$
+    Then, $$\lim_{n\to\infty}D^n=\begin{pmatrix}1&0&0\\0&0&0\\0&0&0\end{pmatrix}.$$
+    
+    Since $$\matr{A}=\begin{pmatrix}2&1&-1\\1&0&2\\2&1&0\end{pmatrix}\begin{pmatrix}1&0&0\\0&\frac{1}{2}&0\\0&0&\frac{1}{2}\end{pmatrix}\begin{pmatrix}2&1&-1\\1&0&2\\2&1&0\end{pmatrix}^{-1},$$ we have
+    $$\lim_{n\to\infty}\matr{A}^n=\lim_{n\to\infty}(\matr{PDP}^{-1})^n=\lim_{n\to\infty}\matr{P}\matr{D}^n\matr{P}^{-1}=\matr{P}\left(\lim_{n\to\infty}\matr{D}^n\right)\matr{P}^{-1}=P\begin{pmatrix}1&0&0\\0&0&0\\0&0&0\end{pmatrix}P^{-1}=\begin{pmatrix}4&2&-4\\2&1&-2\\4&2&-4\end{pmatrix}.$$
+\end{enumerate}
+\section*{Question 5}
+\begin{enumerate}[(a)]
+    \item Clearly, $\matr{0}\in V.$
+    
+    For $\matr{a}=\begin{pmatrix}a_1\\a_2\\a_3\\0\end{pmatrix},\matr{b}=\begin{pmatrix}b_1\\b_2\\b_3\\0\end{pmatrix}\in V$ and a scalar $c\in\mathbb{R}$ we have $$c\matr{a}+\matr{b}=c\begin{pmatrix}a_1\\a_2\\a_3\\0\end{pmatrix}+\begin{pmatrix}b_1\\b_2\\b_3\\0\end{pmatrix}=\begin{pmatrix}ca_1\\ca_2\\ca_3\\0\end{pmatrix}+\begin{pmatrix}b_1\\b_2\\b_3\\0\end{pmatrix}=\begin{pmatrix}ca_1+b_1\\ca_2+b_2\\ca_3+b_3\\0\end{pmatrix}\in V.$$
+    Thus, $V$ is a subspace of $\mathbb{R}^4.$
+    
+    A basis for $V$ is given by $\left\{\begin{pmatrix}1\\0\\0\\0\end{pmatrix},\begin{pmatrix}0\\1\\0\\0\end{pmatrix},\begin{pmatrix}0\\0\\1\\0\end{pmatrix}\right\}.$
+    \item $\matr{A}=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\\0&0&0\end{pmatrix}.$
+    \item $\text{rank}(\matr{A})=3,$ $\text{nullity}(\matr{A})=3-\text{rank}(\matr{A})=3-3=0.$
+    \item Take $\matr{B}=\matr{A}^T.$ The matrix $\matr{B}$ is not unique. In fact, for any $\matr{u}\in\mathbb{R}^3,$ the matrix $(\matr{I}_3\ \matr{u})$ satisfies the relation. For instance, take $\matr u = \left(-1,\,0,\,1\right)$. Put $\matr B= \left(\begin{array}{rrrr}
+    1 & 0 & 0 & -1 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 1
+    \end{array}\right)$. Then $\matr B \matr A = \matr I_3$.
+    \item Note that $4=\text{rank}(\matr{I}_4)=\text{rank}(\matr{AD})\leq\text{rank}(\matr{A})=3,$ which is a contradiction.
+\end{enumerate}
+\section*{Question 6}
+\begin{enumerate}[(a)]
+    \item Note that we have $$c_\textbf{A}(x)=\det(\matr{I_3}-x\matr A)=\begin{pmatrix}x-2&a&b\\0&x-c&d\\0&0&x-e\end{pmatrix}=(x-2)(x-c)(x-e)$$ and so $x=2$ is an eigenvalue of $\matr{A}.$ In particular, $e_1=(1,0,0)^T$ is an eigenvector associated with 2.
+    \item 
+    \subsubsection*{Way 1:}
+    By Vieta's formula, the product of roots of the polynomial is $-18.$ It follows that $\dfrac{-18}{2\times9}=-1$ is a root of the polynomial too.
+    \subsubsection*{Way 2:}
+    $c(x)=(x-2)(x-c)(x-e)$. Either $c$ or $e$ must be $9$. WLOG, put $e=9$. To get $18$ as the constant term, $c=-1$, which means that $-1$ is a root of $c(x)$.
+    
+    Since the characteristic polynomial has three distinct roots, the dimension of the union of the eigenspaces must be $\geq 3$. Since the union of the eigenspaces cannot exceed $\dim = 3$, this forces the dimension of the union of the eigenspaces to be 3 and $\matr{A}$ must be diagonalizable.
+\end{enumerate}
+\section*{Question 7}
+\begin{enumerate}[(a)]
+    \item Since $S$ is an orthonormal basis of $V,$ it follows from triangle inequality that \begin{eqnarray*}
+    ||\matr{v}||&=&||c_1\matr{u}_1+c_2\matr{u}_2+\cdots+c_k\matr{u}_k||\\
+    &\leq&|c_1|\ ||\matr{u}_1||+|c_2|\ ||\matr{u}_2||+\cdots|c_k|\ ||\matr{u}_k||\\
+    &=&|c_1|+|c_2|+\cdots+|c_k|.
+    \end{eqnarray*}
+    \item Write $$||v||=||c_1\matr{u}_1+c_2\matr{u}_2+\cdots+c_k\matr{u}_k||=\sqrt{c_1^2+c^2_2+\cdots+c_k^2}.$$
+    Then, it follows that $||v||^2=c_1^2+c_2^2+\cdots+c_k^2$ and so for each positive integer $1\leq i\leq k,$ we have $c_i^2\leq ||v||^2,$ which implies that $|c_i|\leq ||v||\leq 1.$ Hence, $|c_i|\leq 1.$
+    \setcounter{enumi}{3}
+    \item We will prove the result from part (d) only because the proof for part (c) is similar. From part (b), we have
+    \begin{eqnarray*}
+    ||\matr{Av}||&=&||\matr{A}(c_1\matr{u}_1+c_2\matr{u}_2+\cdots+c_k\matr{u}_k)||\\
+    &\leq&|c_1|\ ||\matr{Au}_1||+|c_2|\ ||\matr{Au}_2||+\cdots+|c_k|\ ||\matr{Au}_k||\\
+    &\leq&||\matr{v}||\left(||\matr{Au}_1+||\matr{Au}_2||+\cdots+||\matr{Au}_k||\right)\\
+    &=&M||\matr{v}||.
+    \end{eqnarray*}
+    Setting $||v|| \leq 1$ gives the result for (c).
+\end{enumerate}
+\end{document}
