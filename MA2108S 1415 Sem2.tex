@@ -5,6 +5,7 @@
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0em}
 \usepackage{xcolor}
+\usepackage{mathrsfs}
 
 \newcommand{\grstep}[2][\relax]{%
    \ensuremath{\mathrel{
@@ -49,7 +50,7 @@ Since the function is monotone increasing, $0 \leq f(b) -f(a)$. However, $f(b) \
 Suppose for contradiction that $\lim x_n \neq b$. That means that there exist some $\epsilon>0$ such that for all $N$ proposed, there exists $n>N$ such that $|x_n -b|\geq \epsilon$. This implies there are infinitely many points $|x_n -b|\geq \epsilon$. Since $x_n \leq b$, $|x_n -b|\geq \epsilon \implies x_n-b<-\epsilon$. Construct a subsequence $(y_n)$ of $(x_n)$ consisting of all terms $x_n-b<-\epsilon$. Then $\gamma(y_n) < \gamma(b)$, since $\gamma$ is strictly increasing and each $y_n$ is bounded by $b-\epsilon$. There is a positive difference between each $\gamma(y_n)$ and $\gamma(b)$, which means $\gamma(y_n)$ does not converge to $\gamma(b)$. Yet, this is a contradiction since $\gamma(y_n)$ is a subsequence of $\gamma(x_n)$.
 
 \subsection*{Question 3}
-We want to show the convergence of $$\sum_{n=0}^{\infty} \left(1+\frac{1}{2}+\frac{1}{3} + \cdots + \frac{1}{n}\right) \frac{\sin(\frac{n\pi}{2})}{n}$$.
+We want to show the convergence of $$\sum_{n=0}^{\infty} \left(1+\frac{1}{2}+\frac{1}{3} + \cdots + \frac{1}{n}\right) \frac{\sin(\frac{n\pi}{2})}{n}.$$
 First, $\sin(\frac{n\pi}{2})=1$ if $n$ mod 4 = 1, $\sin(\frac{n\pi}{2})=-1$ if $n$ mod 4 = 3, $\sin(\frac{n\pi}{2})=0$ if $n$ mod 4 = 0,2. The sum simplifies to:
 \begin{equation*}
     \sum_{\text{$n$ odd}}^{\infty} \left(1+\frac{1}{2}+\frac{1}{3} + \cdots + \frac{1}{n}\right) \frac{\phi(n)}{n}
@@ -66,24 +67,96 @@ This can be done by moving terms to the left,
 \end{align*}
 The last statement is obviously true, since $\frac{1}{n(n+1)}> \frac{1}{(n+1)^2}$ and $\left( 1+\frac{1}{2}+ \cdots + \frac{1}{n}\right)>1$. Applying the Alternating Series Test shows convergence.
 
-Since $\sum_{n=1}^\infty a_n$ converges, put $\sum_{n=1}^\infty a_n=b$. Then $(\sum_{n=1}^\infty a_n)^2=b^2$. From $a_n = a_{n+1}^2 + a_{n+2}^2 + \cdots$, 
+% Since $\sum_{n=1}^\infty a_n$ converges, put $\sum_{n=1}^\infty a_n=b$. Then $(\sum_{n=1}^\infty a_n)^2=b^2$. From $a_n = a_{n+1}^2 + a_{n+2}^2 + \cdots$, 
 
-\begin{alignat}{5} \nonumber
-  &a_1&&= a_2^2 &&+ a_3^2 &&+ a_4^2 &&+ a_5^2  \cdots  \\ \label{eq2}
-  &a_2&&= 0 &&+ a_3^2 &&+ a_4^2 &&+ a_5^2\cdots \\ \nonumber
-  &a_3&&= 0 &&+ 0 &&+ a_4^2 &&+ a_5^2\cdots \\ \nonumber
-  &a_4&&= 0 &&+ 0 &&+ 0 &&+ a_5^2\cdots \\ \nonumber
-  & \ && \ && \ && \vdots && \  \nonumber
-\end{alignat}
-$b$ is the sum of all the non-zero terms here. However, a small modification can be made to the above: 
-\begin{alignat*}{5}
-  & && a_2^2 &&+ a_3^2 &&+ a_4^2 &&+ a_5^2  \cdots  \\
-  & && \textcolor{red}{a_2^2} &&+ a_3^2 &&+ a_4^2 &&+ a_5^2\cdots \\
-  & && \textcolor{red}{a_3^2} &&+ \textcolor{red}{a_3^2} &&+ a_4^2 &&+ a_5^2\cdots \\
-  & && \textcolor{red}{a_4^2} &&+ \textcolor{red}{a_4^2} &&+ \textcolor{red}{a_4^2} &&+ a_5^2\cdots \\
-  & \ && \ && \ && \vdots && \ 
-\end{alignat*}
-We may sub the red terms down the column (or diagonal) to see that what we have here is simply $2b$. The sum of all terms above converges to $2b$ and is absolutely convergent, meaning that one can rearrange the terms. $2b=2a_2^2 + 4a_3^2 + 6a_4^2 + 8a_5^2 + \cdots$. Setting the top row to $a_1$ in (\ref{eq2}) gives $b=a_1 + a_3^2 + 2a_4^2 + 3a_5^2+\cdots$.
+% \begin{alignat}{5} \nonumber
+%   &a_1&&= a_2^2 &&+ a_3^2 &&+ a_4^2 &&+ a_5^2  \cdots  \\ \label{eq2}
+%   &a_2&&= 0 &&+ a_3^2 &&+ a_4^2 &&+ a_5^2\cdots \\ \nonumber
+%   &a_3&&= 0 &&+ 0 &&+ a_4^2 &&+ a_5^2\cdots \\ \nonumber
+%   &a_4&&= 0 &&+ 0 &&+ 0 &&+ a_5^2\cdots \\ \nonumber
+%   & \ && \ && \ && \vdots && \  \nonumber
+% \end{alignat}
+% $b$ is the sum of all the non-zero terms here. However, a small modification can be made to the above: 
+% \begin{alignat*}{5}
+%   & && a_2^2 &&+ a_3^2 &&+ a_4^2 &&+ a_5^2  \cdots  \\
+%   & && \textcolor{red}{a_2^2} &&+ a_3^2 &&+ a_4^2 &&+ a_5^2\cdots \\
+%   & && \textcolor{red}{a_3^2} &&+ \textcolor{red}{a_3^2} &&+ a_4^2 &&+ a_5^2\cdots \\
+%   & && \textcolor{red}{a_4^2} &&+ \textcolor{red}{a_4^2} &&+ \textcolor{red}{a_4^2} &&+ a_5^2\cdots \\
+%   & \ && \ && \ && \vdots && \ 
+% \end{alignat*}
+% We may sub the red terms down the column (or diagonal) to see that what we have here is simply $2b$. The sum of all terms above converges to $2b$ and is absolutely convergent, meaning that one can rearrange the terms. $2b=2a_2^2 + 4a_3^2 + 6a_4^2 + 8a_5^2 + \cdots$. Setting the top row to $a_1$ in (\ref{eq2}) gives $b=a_1 + a_3^2 + 2a_4^2 + 3a_5^2+\cdots$.
 
 \subsection*{Question 4}
+Note that 
+\begin{equation*}
+    \min\{f(x_1), \cdots f(x_n)\} \leq \sum_{k=1}^n \lambda_k f(x_k) \leq \max\{f(x_1), \cdots f(x_n)\}.
+\end{equation*}
+Since $[a,b]$ is connected, the range of $f$ is connected as well as $f$ is continuous. By extreme value theorem, $f$ takes on every value between $\min\{f(x_1), \cdots f(x_n)\} $ and $\max\{f(x_1), \cdots f(x_n)\}$. So there exists an $x_0 \in [a,b]$ such that $f(x_0) = \sum_{k=1}^n \lambda_k f(x_k)$.
+
+Put 
+\begin{equation*}
+    f(x) = \frac{2^{x^2} + 3^{x^2}}{2^x+3^x}.
+\end{equation*}
+
+\begin{align}
+\nonumber
+    \lim_{x \to 0} f(x)^{1/x} &= \exp\left\{\lim_{x \to 0} \frac{\ln f(x)}{x} \right\}\\
+    &= \exp\left\{\lim_{x \to 0} \frac{f'(x)}{f(x)} \right\} \label{eq2}
+\end{align}
+\begin{equation*}
+    \frac{d}{dx}\left(\frac{2^{x^2}+3^{x^2}}{2^x+3^x}\right)=\frac{\left(\ln \left(2\right)\cdot \:2^{x^2+1}x+2\ln \left(3\right)\cdot \:3^{x^2}x\right)\left(2^x+3^x\right)-\left(2^x\ln \left(2\right)+3^x\ln \left(3\right)\right)\left(2^{x^2}+3^{x^2}\right)}{\left(2^x+3^x\right)^2}
+\end{equation*}
+\begin{equation*}
+    \frac{f'(x)}{f(x)}= \frac{\left(\ln \left(2\right)\cdot \:2^{x^2+1}x+2\ln \left(3\right)\cdot \:3^{x^2}x\right)\left(2^x+3^x\right)-\left(\ln \left(2\right)\cdot \:2^x+\ln \left(3\right)\cdot \:3^x\right)\left(2^{x^2}+3^{x^2}\right)}{\left(2^x+3^x\right)\left(2^{x^2}+3^{x^2}\right)}
+\end{equation*}
+Take the limit as $x \to 0$ gives:
+\begin{equation*}
+    \frac{f'(x)}{f(x)}= \frac{0-2(\ln2 + \ln3)}{2^2 }
+\end{equation*}
+Subbing in pack into (\ref{eq2}), we have hat the limit goes to $\exp\left\{\frac{-(\ln 2 + \ln3)}{2}\right\}$.
+
+\subsection*{Question 5}
+We want to prove that $f(x)=\cos(rx)$ for some $r \in \mathbb{R}$ or $f(x)=0$, and these are the only functions that satisfies the properties:
+\begin{itemize}
+    \item $f(x+y)+f(x-y)=2f(x)f(y)$ for $x,y \in \mathbb{R}$.
+    \item $|f| \leq 1$.
+\end{itemize}
+Assume $f$ is not the zero function first, then there exists a point $a$ such that $0 < f(a) \leq 1$, and there will be a point $0 \leq \theta < \pi$ such that $f(a) = \cos(\theta)$. Set $r=\frac{a}{\theta},r \in \mathbb{R}$. We can use strong induction. Suppose $f(ka)=\cos(k\theta)$ for $1 \leq k \leq m-1$. We want to show $f(ma)=\cos(m\theta)$. Set $x=(m-1)a, y=a$. 
+\begin{align*}
+    f(ma)  + f((m-2)a) &= 2f((m-1)a)f(a) \\
+    f(ma) + \cos((m-2)\theta) &= 2\cos((m-1)\theta)\cos(\theta) \\
+    f(ma) &= 2\cos((m-1)\theta)\cos(\theta) - \cos((m-2)\theta) 
+\end{align*}
+However, factor formula tells us that $\cos(m\theta) + \cos((m-2)\theta) = 2\cos((m-1)\theta)\cos(\theta)$, which gives us $f(ma) = \cos(m\theta)$. One may replace $m$ with $-k$ to see that $f(ma) = \cos(m\theta)$ holds for all $m \in \mathbb{Z}$, not just for positive $m$. 
+
+Further, we want to show $f(\frac{a}{2^n}) = \cos(\frac{\theta}{2^n})$. Assume true for $k=m-1$, set $x=y=\frac{a}{2^n}$. One has:
+\begin{align*}
+    f\left(\frac{a}{2^n} + \frac{a}{2^n}\right) &= 2f\left(\frac{a}{2^n}\right)f\left(\frac{a}{2^n}\right) - f(0)
+\end{align*}
+Let's see what our options for $f(0)$ can be. Set $x=0, y=0$. One has:
+\begin{equation*}
+    f(0) + f(0) = 2[f(0)]^2 \implies f(0)=0 \text{ or } f(0)=1.
+\end{equation*}
+As we shall see shortly, $f(0)=0$ means that $f$ is the zero function. Let's assume $f(0)=1$ and proceed first.
+\begin{align*}
+    \cos\left(\frac{\theta}{2^{n-1}}\right) &= 2f\left(\frac{a}{2^n}\right)^2 - 1
+\end{align*}
+However, the double angle formula gives us $\cos x = 2\cos^2\left(\frac{x}{2}\right) - 1$. Replacing $x= \frac{\theta}{2^{n-1}}$ gives $f(\frac{a}{2^n}) = \cos(\frac{\theta}{2^n})$.
+
+If $f(0)=0$, for $y \in \mathbb{R}$, setting $x=0$, one has $f(y)+f(y)=0 \implies f(y)=-f(y)=0$ for all $y \in \mathbb{R}$, which means that $f$ is the zero function. 
+
+Consider the set $\mathscr{G} = \{\frac{m}{2^n}, m \in \mathbb{Z}, n \in \mathbb{N}\}$. $\mathscr{G}$ is a dense set in $\mathbb{R}$. This is because $\mathbb{Q}$ is dense in $\mathbb{R}$, so given some real number $r$, there exists a rational number $\frac{p}{q}$ such that $|r-\frac{p}{q}|<\epsilon/2$. This means that $r \in (\frac{p}{q} - \frac{\epsilon}{2}, \frac{p}{q} + \frac{\epsilon}{2})$. The width of this interval is $\epsilon$. One may choose $n$ sufficiently big such that $\frac{1}{2^n}<\epsilon$. So the sequence $\frac{1}{2^n}, \frac{2}{2^n}, \frac{3}{2^n} \cdots$ will not 'skip' over the $(\frac{p}{q} - \frac{\epsilon}{2}, \frac{p}{q} + \frac{\epsilon}{2})$ interval, meaning there is some element of $\mathscr{G}$ also within $(\frac{p}{q} - \frac{\epsilon}{2}, \frac{p}{q} + \frac{\epsilon}{2})$, which is within an $\epsilon$ distance from $r$, so $\mathscr{G}$ is dense in $\mathbb{R}$.
+
+Write $\theta = ka$, for $k \in \mathbb{R}$. We know that $f(a) = \cos(ka)$ for all $a \in \mathscr{G}$. Since $f$ agrees with $\cos(ka)$ on a dense set, it $f(a) = \cos(ka)$ for all $a \in \mathbb{R}$. This comes from the continuity of $f$. Take a point $r \in \mathbb{R}$. Since $\mathscr{G}$ is dense, there exists a sequence in $(g_n) \to r$, where each $g_n \in \mathscr{G}$. Continuity of $f$ gives us $(f(g_n)) \to f(r)$, which is $\lim_{a \to r} \cos(ka)$. Since $\cos(ka)$ is continuous, $\lim_{x \to r} \cos(ka)=\cos(kr)=f(r)$, and we are done.
+
+Set the limit of $\frac{\sum_{i=1}^n a_i}{n}$ to be $L$. Then note,
+\begin{equation*}
+    \frac{a_1+\cdots+a_n}n = \frac{a_1+\cdots+a_{n-1}}{n-1}\cdot\left(1-\frac{1}{n}\right)+\frac{a_n}n
+\end{equation*}
+For any sequence, if $(x_n)$ converges to $L$, then so does $x_{n-1}$. This means that the sequence $\frac{a_1+\cdots+a_{n-1}}{n-1}$ converges to $L$. Taking limits on both sides:
+\begin{align*}
+    &\lim_{n \to \infty}\frac{a_1+\cdots+a_n}n = \lim_{n \to \infty}\frac{a_1+\cdots+a_{n-1}}{n-1}\cdot\left(1-\frac{1}{n}\right)+\frac{a_n}n \\
+    &L = L(1) + \lim_{n \to \infty} \frac{a_n}{n} \\
+    &\lim_{n \to \infty} \frac{a_n}{n} = 0.
+\end{align*}
 \end{document}
