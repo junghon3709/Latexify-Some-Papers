@@ -14,6 +14,7 @@
 
 \title{MA2101 18/19 Sem 2}
 \author{Yip Jung Hon A0199560R}
+\date{Audited by: Pan Jing Bin}
 
 \usepackage{lipsum}
 
@@ -217,4 +218,30 @@ Clearly, $E_{\lambda}(T) \supseteq \ker (T|_{W_1}- \lambda I) \oplus \ker(T|_{W_
 
 
 This gives us that $T|_{W_1}(w_1)=\lambda w_1$. $w_1$ is an eigenvector associated with $\lambda$ for $T|_{W_1}$. The same can be said for $w_2$. So $w_i \in \ker(T|_{W_i}-\lambda I)$ for $i=1,2$. Hence every vector $v \in E_{\lambda}(T)$ can be written as a direct sum of $\ker(T|_{W_1}-\lambda I)$ and $\ker(T|_{W_2}-\lambda I)$.
+
+\section*{Comments by Jing Bin}
+General: You need to separate your answer into parts. Show which portion of your solution is for (i), which portion is for part(ii), etc.
+\subsection*{Question 1} For a 15 mark question, you need to expand on the details. While some of the steps you skipped seem trivial to us, keep in mind this is the normal module final paper.\\\\
+Here are some guiding questions to help you fill the gaps:\\\\ Why is $R(T) \leq \dim(V)?$ Maybe you can mention the fact that rank$(T) = n$ to help you in your explanation.\\\\ Why is $\dim(V) = n?$ You need to explain that $\dim(V)$ is derived from the basis. (Not everybody is an eyeball master)\\\\ Why is it a contradiction if $\sum^n_{i = 1} c_iT(u_i) = 0$ has non-trivial solutions? You need to explain why: $T$ is injective $\to T$ maps basis to basis.\\\\
+There is a small typo in your sum. It should be $\sum^n_{i=1}$ and not $\sum^n_{i=i}$
+\subsection*{Question 2}
+Include fullstops for your matrix equations.
+\subsection*{Question 3}
+Use `Jordan block associated with eigenvalue $1$' instead of `Jordan block with $1$'s down the diagonal'.
+\subsection*{Question 4}
+Small typo: Basis for $E_2$ instead of Basis for $E_0.$\\\\
+Elaborate on what you mean by: 'By brute force'. Why are the Jordan blocks $J_2(0)$ and $J_1(2)$ instead of $J_1(0)$ and $J_2(2)$? If you derived your answer from factorising the characteristic polynomial, you need to show it.\\\\
+The correct basis should be $\{1 - x - x^2, 1, x^2\}$. The basis is derived from $Q,$ not $Q^{-1}.$
+\subsection*{Question 5}
+For (ii), Explain where did you get $\frac{1}{\sqrt{2}}$ and $\sqrt{\frac{3}{2}}$ from.\\\\ For the projection, there is no need to calculate using $q(x),$ since it makes the calculation very tedious.(Note that no calculator is allowed for this paper) Instead, a better way is to simply calculate the projection of $5x^3$ onto $\mathcal{P}_2(\mathbb{R})$. Make use of the fact that the projection of $-1 + 3x - 15x^2$ onto $\mathcal{P}_2(\mathbb{R})$ is just $-1 + 3x - 15x^2$ itself.
+\subsection*{Question 6}
+The question wanted a formula for $T^*,$ meaning something of the form: $T((x,y,z)) = ...$.\\\\
+Also mention the basis that you use for your matrix. Remember to justify why your basis is orthonormal.
+\\\\For part(ii), you can consider adding in that $\langle S^*(w),u \rangle = 0\ \forall\ u \in W \to S^*(w) \in W^\perp \to W^\perp$ is $S^*$-invariant.
+\subsection*{Question 7}
+For your explanation on why $\ker(T|_{W_1} - \lambda I_{W_1}) + \ker(T|_{W_2} - \lambda I_{W_2})$ is a direct sum, i think it can be shortened to this:\\\\
+Let $x \in \ker(T|_{W_1} - \lambda I_{W_1}) \land x \in \ker(T|_{W_2} - \lambda I_{W_2})$. Then $x \in W_1 \land x \in W_2.$ Since $W_1 + W_2$ is a direct sum, $W_1 \cap W_2 = \{0_V\}$ so $x = 0_V.$\\\\
+You need to explain why $\ker(T|_{W_1} - \lambda I_{W_1}) \oplus \ker(T|_{W_2} - \lambda I_{W_2}) \subseteq E_{\lambda}(T).$ (Trivial to you but not that trivial to others lol)\\\\
+You need to explain why is it that $T(v) = \lambda v \to T|_{W_i}(w_i) = \lambda w_i.$
 \end{document}
+

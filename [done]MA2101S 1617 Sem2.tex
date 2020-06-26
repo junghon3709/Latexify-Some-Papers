@@ -1,0 +1,223 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{1617SEM2-MA2101S Answers}
+\author{Written by: Pan Jing Bin}
+\date{Audited by: Chong Jing Quan}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Question 1}
+(a) Fix $t \in \mathbb{F}$. Let $g,h \in \mathbb{F}^\mathbb{F}$ and $a,b\in \mathbb{F}.$\\\\
+Then $\epsilon_t(ag + bh) = (ag + bh)(t) = ag(t) + bh(t) = a\epsilon_t(g) + b\epsilon_t(h).$\\\\
+Thus $\epsilon_t$ is a linear functional from $\mathbb{F}^\mathbb{F}$ to $\mathbb{F}$ so $\epsilon_t\in (\mathbb{F}^\mathbb{F})^*$.\\\\
+(b) Assume, for the sake of contradiction, that $\{\epsilon_t : t\in \mathbb{F}\}$ is linearly dependent.\\\\
+$\exists$ distinct$ \ t_1, t_2, ..., t_n \in \mathbb{F},\ a_1, a_2, ... ,a_n \in \mathbb{F}\setminus \{0\}$ such that :\begin{center}
+    $a_1\epsilon_{t_1} + a_2\epsilon_{t_2} + ... + a_n\epsilon_{t_n} = 0_V$.
+\end{center}
+Define $f: \mathbb{F} \to \mathbb{F}$ as follows: \[f(x) = \begin{cases}
+1 & \text{if }x = t_1 \\  0 & \text{otherwise.}
+\end{cases}
+\]Obviously $f \in \mathbb{F}^\mathbb{F}$.\begin{align*}
+    a_1\epsilon_{t_1}(f) + a_2\epsilon_{t_2}(f) + ... + a_n\epsilon_{t_n}(f) &= 0_V \\
+    a_1f(t_1) + a_2f(t_2) + ... + a_nf(t_n) &= 0  \\
+    a_1 + 0 + ... + 0 &= 0 \\
+    a_1 &= 0.
+\end{align*}
+This is a contradiction as $a_1 \in \mathbb{F}\setminus\{0\}$ thus the assumption is false and $\{\epsilon_t : t \in \mathbb{F}\}$ is an linearly independent set.\\\\
+(c)(i) Let $a,b \in \mathbb{F}.$ To prove $\epsilon_t|_{P_n} \in (P_n)^*:$\\\\Fix $t \in \mathbb{F}$. Recall in (a) that $\epsilon_t(ag + bh) = a\epsilon_t(g) + b\epsilon_t(h)\ \ \forall g,h\in \mathbb{F}^\mathbb{F}.$\\\\
+Since $P_n \subseteq \mathbb{F}^\mathbb{F},$ it follows that:\begin{center}
+$\epsilon_t(ag + bh) = a\epsilon_t(g) + b\epsilon_t(h)\ \ \forall g,h\in P_n.$    
+\end{center}
+Thus $\epsilon_t|_{P_n}$ is a linear functional from $P_n$ to $\mathbb{F}$ so $\epsilon_t|_{P_n} \in (P_n)^*.$\\\\
+To prove $\{\epsilon_t|_{P_n} : t\in T\}$ is linearly independent :\\\\
+Let T = $\{t_1,t_2,...,t_n\}$ and consider the homogeneous equation: \begin{center}
+     $c_1\epsilon_{t_1} + c_2\epsilon_{t_2} + ... + c_n\epsilon_{t_n} = 0_V.$
+\end{center}
+For each $t_i \in T$, define $p_i:\mathbb{F} \to \mathbb{F} $ as follows:\begin{center}
+    $p_i(x) = (x - t_1)(x - t_2) ... (x - t_{i-1})(x - t_{i+1})...(x - t_n).$
+\end{center}
+Note that for each $p_i$,  $\deg(p_i) = n-1$ and so $p_i\in P_n.$\begin{align*}
+    c_1\epsilon_{t_1}(p_1) + c_2\epsilon_{t_2}(p_1) + ... + c_n\epsilon_{t_n}(p_1) &= 0\\
+    c_1p_1(t_1) + c_2p_1(t_2) + ... + c_1p_1(t_n) &= 0 \\
+    c_1p_1(t_1) + 0 + ... + 0 &= 0\\
+    c_1p_1(t_1) &= 0.
+\end{align*}
+Note that $p_1(t_1) \neq 0 $ since each $t_i$ is distinct. Thus we must have $c_1 = 0.$ Repeating the algorithm for $t_2, t_3,...,t_n,$ we get: $c_1 = c_2 = ... = c_n = 0.$ Thus only the trivial solution exists so $\{\epsilon_t|_{P_n} : t \in T\}$ is a linearly independent set. \\\\
+(c)(ii) To prove existence:\\\\
+Claim : $\{\epsilon_{t_i}|_{P_n} : 1 \leq i \leq n\}$ is a basis for $(P_n)^*.$\\\\
+Proof:
+Since $P_n$ is finite-dimensional, $\dim((P_n)^*) = \dim(P_n) = n. - (1)$\\\\
+By (c)(i), $\{\epsilon_{t_i}|_{P_n} : 1 \leq i \leq n\}$ is linearly independent and since $\{\epsilon_{t_i}|_{P_n} : 1 \leq i \leq n\}$ contains $n$ elements, $\dim(\text{span}\{\epsilon_{t_i}|_{P_n} : 1 \leq i \leq n\}) = n. - (2)$\\\\
+By (c)(i), each $\epsilon_{t_i}|_{P_n} \in (P_n)^*$ so span$\{\epsilon_{t_i}|_{P_n} : 1\leq i \leq n\} \subseteq (P_n)^*. - (3)$\\\\
+Combining (1), (2) and (3), we conclude that $\{\epsilon_{t_i}|_{P_n} : 1 \leq i \leq n\}$ is a\\basis for $(P_n)^*.$\\\\
+Since $\Phi \in (\mathbb{F}^\mathbb{F})^*,\ \Phi|_{P_n} \in (P_n)^*.$\\\\
+By our claim, $\exists \lambda_1, \lambda_2, ... , \lambda_n$ such that:\begin{center}
+    $$\Phi|_{P_n} = \sum^n_{i=1} \lambda_i\epsilon_{t_i}|_{P_n}. $$\\
+    $$\Phi(p(x)) = \sum^n_{i=1} \lambda_i\epsilon_{t_i}(p(x))\ \ \forall p(x) \in P_n. $$\\
+    $$\Phi(p(x)) = \sum^n_{i=1} \lambda_ip(t_i) \ \ \forall p(x) \in P_n. $$ 
+\end{center}
+To prove uniqueness:\\\\
+Let $\lambda_1,\lambda_2,...,\lambda_2\in\mathbb{F}$ and $\mu_1,\mu_2,...,\mu_n\in\mathbb{F}$ such that:\begin{align*}
+    \sum^n_{i=1} \mu_ip(t_i) &= \Phi(p(x)) = \sum^n_{i=1} \lambda_ip(t_i) \ \ \forall p(x) \in P_n.  \\
+    \sum^n_{i=1} \mu_i\epsilon_{t_i}(p) &= \sum^n_{i=1} \lambda_i\epsilon_{t_i}(p) \ \ \forall p(x) \in P_n.\\    \sum^n_{i=1} \mu_i\epsilon_{t_i}|_{P_n} &= \sum^n_{i=1} \lambda_i\epsilon_{t_i}|_{P_n}.\ \  \text{ (Since equality holds $\forall p(x) \in P_n$)} \\
+    \sum^n_{i=1} (\mu_i-\lambda_i)\epsilon_{t_i}|_{P_n} &= 0_V. 
+\end{align*}
+By linear independence of $\{\epsilon_{t_i}|_{P_n} : 1 \leq i \leq n\}$, $\mu_i = \lambda_i \ \forall\ 1 \leq i \leq n$.\\\\
+Thus the solution is unique.
+\subsection*{Question 2}
+(a) To prove `if':\begin{align*}
+\alpha\circ\beta &= \alpha\circ p(\alpha)\\ &= \alpha\circ(c_n\alpha^n + c_{n-1}\alpha^{n-1} + ... + c_0I_V) \\ &= c_n\alpha^{n+1} + c_{n-1}\alpha^{n} + ... + c_0\alpha \\
+&= (c_n\alpha^{n} + c_{n-1}\alpha^{n-1} + ... + c_0I_V)\circ\alpha\\
+&= p(\alpha)\circ\alpha\\
+&= \beta \circ \alpha.
+\end{align*}
+To prove `only if':\\\\
+Since $V$ is $\alpha$-cyclic, $\exists v \in V$ such that the set $\{v,\alpha(v),\alpha^2(v),...\}$ is a basis for V. (V may be infinite dimensional here)\\\\
+Then $\beta(v) = d_0v + d_1\alpha(v) + ... + d_k\alpha^k(v)$ for some $d_0, d_1,..., d_k \in \mathbb{F}.$\\\\
+Claim: $\beta = d_0I_V + d_1\alpha + ... + d_k\alpha^k.$\\\\
+Proof: Since $\{v,\alpha(v),\alpha^2(v),...\} $ is a basis for V, it suffices to prove that:\begin{center}
+$\beta(w) = d_0w + d_1\alpha(w) + ... + d_k\alpha^k(w)\ \ \forall w \in \{v,\alpha(v),\alpha^2(v),...\} $
+\end{center}
+Choose arbitrary $\alpha^j(v) \in \{v,\alpha(v),\alpha^2(v),...\}$.\begin{align*}
+    \beta(\alpha^j(v)) &= \alpha^j\circ\beta(v) \\
+    &= \alpha^j(d_0v + d_1\alpha(v) + ... + d_k\alpha^k(v))\\
+    &= d_o\alpha^j(v) + d_1\alpha^{j+1}(v) + ... + d_k\alpha^{j+k}(v)\\
+    &= d_o\alpha^j(v) + d_1\alpha(\alpha^j(v)) + ... + d_k\alpha^{k}(\alpha^j(v)).
+\end{align*}
+Choose $p(x) = d_0 + d_1x + ... + d_kx^k$ and we are done.\\\\
+(b) To prove `if':\begin{center}
+    $\beta = q(\alpha)$. \\
+    $\beta|_U = q(\alpha)|_U\ \land\ \beta|_W = q(\alpha)|_W$.\\
+    $\beta|_U = q(\alpha|_U)\ \land\ \beta|_W = q(\alpha|_W)$.\\
+\end{center}
+Simply choose $q_U = q_W = q$ and we are done.\\\\
+To prove `only if':\\\\
+Since $\gcd(m_U(x),m_W(x)) = 1, \exists c(x),d(x) \in F[x]$ such that :\begin{center}
+    $c(x)m_U(x) + d(x)m_W(x) = 1.$
+\end{center}
+Then $\forall u\in U:$\begin{align*}
+c(\alpha)m_U(\alpha)(u) &= c(\alpha|_U)m_U(\alpha|_U)(u).\\ &= 0_V.\\
+d(\alpha)m_W(\alpha)(u) &= u - c(\alpha)m_U(\alpha)(u)\\ &= u.
+\end{align*}
+Similarly, $\forall w\in W:$\begin{align*}
+d(\alpha)m_W(\alpha)(w) &= d(\alpha|_W)m_W(\alpha|_W)(w)\\ &= 0_V.\\
+c(\alpha)m_U(\alpha)(w) &= w - d(\alpha)m_W(\alpha)(w)\\ &= w.
+\end{align*}
+Let $v \in V.$ Write $v = u + w$ for $u\in U, w\in W.$\begin{align*}
+    &[q_W(\alpha)c(\alpha)m_U(\alpha) + q_U(\alpha)d(\alpha)m_W(\alpha)](v) \\
+    =\ &q_W(\alpha)c(\alpha)m_U(\alpha)(u+w) + q_U(\alpha)d(\alpha)m_W(\alpha)(u+w)\\=\ &q_W(\alpha)(w) +q_U(\alpha)(u)\\
+    =\ &q_W(\alpha|_W)(w) +q_U(\alpha|_U)(u)\\=\ &\beta|_W(w) + \beta|_U(u)\\
+    =\ &\beta(w) + \beta(u)\\
+    =\ &\beta(v).
+\end{align*}
+Since the choice of $v$ is arbitrary, $\beta = q_W(\alpha)c(\alpha)m_U(\alpha) + q_U(\alpha)d(\alpha)m_W(\alpha)$. Choose $q(x) = q_W(x)c(x)m_U(x) + q_U(x)d(x)m_W(x)$ and the proof is complete.
+\subsection*{Question 3}
+To prove (a) $\to$ (b) :\\\\ Since $\alpha$ is normal, $\alpha$ is unitarily diagonalizable. $\exists$ an orthonormal basis B with respect to $\phi$ such that $[\alpha]_B$ is diagonal.\begin{center}$[\alpha]_B=\begin{pmatrix}\lambda_1 & 0 & 0 & ... & 0 \\ 0 & \lambda_2 & 0 & ... & 0 \\ 0 & 0 & \lambda_3 & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & \lambda_n
+\end{pmatrix}$\end{center}
+Each $\lambda_j \in \mathbb{C}$ so we can write $\lambda_j = a_j + ib_j$ for $a_j,b_j \in \mathbb{R}.$ In other words:\begin{center}
+ $[\alpha]_B=\begin{pmatrix}a_1 & 0 & 0 & ... & 0 \\ 0 & a_2 & 0 & ... & 0 \\ 0 & 0 & a_3 & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & a_n
+\end{pmatrix} + i\begin{pmatrix}b_1 & 0 & 0 & ... & 0 \\ 0 & b_2 & 0 & ... & 0 \\ 0 & 0 & b_3 & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & b_n
+\end{pmatrix}$     
+\end{center}
+Choose $\alpha_1, \alpha_2$ such that:\begin{center}
+ $[\alpha_1]_B=\begin{pmatrix}a_1 & 0 & 0 & ... & 0 \\ 0 & a_2 & 0 & ... & 0 \\ 0 & 0 & a_3 & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & a_n
+\end{pmatrix}\ ,\ [\alpha_2]_B =  \begin{pmatrix}b_1 & 0 & 0 & ... & 0 \\ 0 & b_2 & 0 & ... & 0 \\ 0 & 0 & b_3 & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & b_n
+\end{pmatrix}$  
+\end{center}
+It is clear that $\alpha = \alpha_1 + i\alpha_2$.\\\\ Since $[\alpha_1]_B,[\alpha_2]_B$ only have entries in $\mathbb{R}, \alpha_1,\alpha_2$ are orthogonally diagonalisable and thus are self-adjoint(Remember that B is an orthonormal basis).\\\\ Obviously $\alpha_1\circ\alpha_2 = \alpha_2\circ\alpha_1$ since $[\alpha_1]_B[\alpha_2]_B = [\alpha_2]_B[\alpha_1]_B$. (Multiplication of diagonal matrices are commutative)\\\\
+To prove (b) $\to$ (c):\\\\
+Since $\alpha_1$ and $\alpha_2$ are self-adjoint, $\alpha_1$ and $\alpha_2$ are (unitarily) diagonalisable.\\ Together with the fact that $\alpha_1 \circ \alpha_2 = \alpha_2 \circ \alpha_1,$ we conclude that $\alpha_1$ and $\alpha_2$ are simultaneously diagonalisable. \\\\
+$\exists $ basis $B'$ such that $[\alpha_1]_{B'},[\alpha_2]_{B'}$ are diagonal matrices. Since\\ $[\alpha]_{B'} = [\alpha_1]_{B'} + i[\alpha_2]_{B'},\ [\alpha]_{B'}$ is also diagonal. Thus $\alpha$ is diagonalisable.\\\\
+Write $V = E_{\lambda_1} \oplus E_{\lambda_2} \oplus ... \oplus E_{\lambda_n}, $ where each $E_{\lambda_i}$ is the eigenspace of $\alpha$ associated with eigenvalue $\lambda_i$.\\\\
+Choose arbitrary $E_{\lambda_j}\in \{E_{\lambda_1},E_{\lambda_2},...,E_{\lambda_n}\}$ and let $D$ be an orthonormal basis for $E_{\lambda_j}$\begin{center} $[\alpha|_{E_{\lambda_j}}]_{D} = \begin{pmatrix} \lambda_j & 0 & ... & 0 \\
+0 & \lambda_j & .. & 0\\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & ... & \lambda_j
+\end{pmatrix}$ , $[\alpha^\star|_{E_{\lambda_j}}]_{D} = [\alpha|_{E_{\lambda_j}}]_{D}^\star = \begin{pmatrix} \overline{\lambda_j} & 0 & ... & 0 \\
+0 & \overline{\lambda_j} & .. & 0\\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & ... & \overline{\lambda_j}
+\end{pmatrix}$
+\end{center}
+Then $[\alpha^\star|_{E_{\lambda_j}}]_D = \frac{\overline{\lambda_j}}{\lambda_j}[\alpha|_{E_{\lambda_j}}]_D$. By considering the polynomial $g_j(x) = \frac{\overline{\lambda_j}}{\lambda_j}x,$ we\\ conclude that $\exists g_j(x) \in \mathbb{C}[x]$ such that $\alpha^\star|_{E_{\lambda_j}} = g_j(\alpha|_{E_{\lambda_j}})$.\\\\
+Since the choice of $E_{\lambda_j}$ is arbitrary, $\forall E_{\lambda_j} \in \{E_{\lambda_1}, E_{\lambda_2},...,E_{\lambda_n}\},\\ \exists g_j(x) \in \mathbb{C}[x]$ such that $\alpha^\star|_{E_{\lambda_j}} = g_j(\alpha|_{E_{\lambda_j}})$.\\\\
+Using the fact that $V = E_{\lambda_1} \oplus E_{\lambda_2} \oplus ... \oplus E_{\lambda_n}$ and Question 2 (b), $\exists g(x) \in \mathbb{C}[x]$ such that $\alpha^\star = g(\alpha).$\\\\
+Remark: If $\lambda_k = 0$ for some $1\leq k\leq n,$ then $\alpha^\star|_{E_{\lambda_k}} = \alpha|_{E_{\lambda_k}} = 0_V.$ Choosing $g(x) = 0,$ the proof still holds.\\\\
+To prove (c) $\to$ (a) :
+\begin{align*}
+\alpha\circ\alpha^\star &= \alpha\circ g(\alpha)\\ &= \alpha\circ(c_n\alpha^n + c_{n-1}\alpha^{n-1} + ... + c_0I_V) \\ &= c_n\alpha^{n+1} + c_{n-1}\alpha^{n} + ... + c_0\alpha \\
+&= (c_n\alpha^{n} + c_{n-1}\alpha^{n-1} + ... + c_0I_V)\circ\alpha\\
+&= g(\alpha)\circ\alpha\\
+&= \alpha^\star \circ \alpha.
+\end{align*}
+Thus $\alpha$ is normal.
+\subsection*{Question 4}
+(a)(i) 
+Claim: $\forall$ linear operators of the form $f(\alpha|_U)$ for some $f(x) \in F[x]$, $\\ f(\alpha|_U)(v) = 0_V \to f(\alpha|_U) = 0_V$.\\\\
+Proof: One basis of $U$ is of the form $\{v,\alpha(v),...\}.$\\\\
+$\forall\ \alpha^j(v) \in \{v,\alpha(v),...\}:$
+\begin{center} $f(\alpha|_U)(\alpha^j(v)) = f(\alpha|_U)(\alpha^j|_U(v)) = (\alpha^j|_U)f(\alpha|_U)(v) = 0_V.$ 
+\end{center}
+Since $(x - \lambda)^k \in F[x]$ and $(\alpha|_U - \lambda I_V)^k(v) = 0_V, (\alpha|_U - \lambda I_V)^k = 0_V$\\\\
+Thus $m_{\alpha|_U}(x) \ | \ (x-\lambda)^k.$\\\\
+$m_{\alpha|_U}(x)$ is of the form : $(x - \lambda)^j$ for $1 \leq j \leq k$. We now prove that $j = k.$ Assume, for the sake of contradiction, that $j < k.$ 
+Then $k - 1 - j \geq 0$ so $(\alpha|_U - \lambda I_V)^{k-1-j}$ exists.\begin{align*}
+m_{\alpha|_U}(\alpha|_U)(v) = 0_V &\to (\alpha|_U - \lambda I_V)^j(v) = 0_V\\ &\to (\alpha|_U-\lambda I_V)^{k-1-j}(\alpha|_U - \lambda I_V)^j(v) = 0_V\\ &\to (\alpha - \lambda I_V)^{k-1}(v) = 0_V.
+\end{align*}
+ This is a contradiction as $v \not \in \ker((\alpha - \lambda I_V)^{k-1})$. Thus the assumption is false and we conclude that $m_{\alpha|_U}(x) = (x-\lambda)^k.$\\\\
+ (ii) Proof that $v \in \ker((\beta - p(\lambda)(I_V))^k)$ : \begin{align*}
+ p(\lambda) - p(\lambda) = 0 &\to x = \lambda \text{ is a root of the polynomial: } p(x) - p(\lambda) \\ &\to (x - \lambda) \ | \ (p(x) - p(\lambda)) \\ &\to (x - \lambda)^k \ | \ (p(x) - p(\lambda))^k\\ &\to m_{\alpha|_U}(x) \ |\ (p(x) - p(\lambda))^k \\ &\to (p(\alpha) - p(\lambda)(I_V))^k(v) = 0_V \\ &\to v \in \ker((\beta - p(\lambda)(I_V))^k).
+ \end{align*}
+Proof that $v \not \in \ker((\beta - p(\lambda)(I_V))^{k-1}):$\\\\
+Assume, for the sake of contradiction, that $v \in \ker((\beta - p(\lambda)(I_V))^{k-1})$.\\\\
+Then $(p(\alpha) - p(\lambda)(I_V))^{k-1}(v) = 0_V.$ Since $(p(x) - p(\lambda))^{k-1} \in F[x],$\\ by our claim in (a)(i), $(p(\alpha) - p(\lambda)(I_V))^{k-1} = 0_V.$\\\\
+Thus $m_{\alpha|_U}(x) \ |\ (p(x)-p(\lambda))^{k-1} \to (x - \lambda)^k \ | \ (p(x) - p(\lambda))^{k-1}.$\\\\ By the pigeonhole principle, $(x-\lambda)^2\ | \ (p(x) - p(\lambda))$. \\\\ Let $g(x) = p(x) - p(\lambda)$. But then:\begin{align*}
+g'(x) &= p'(x) - p(\lambda)' \\ &= p'(x). \text{ (Note that here, $p(\lambda)$ is a constant)}
+\end{align*}
+$(x - \lambda)^2 \ | \ g(x) \to  g'(\lambda) = 0 \to p'(\lambda) = 0.$
+This contradicts the given condition that $p'(\lambda) \neq 0.$ Thus the assumption is false and we conclude that $v \not \in \ker((\beta - p(\lambda)(I_V))^{k-1})$.\\\\
+(iii) Let $U'$ denote the $\beta$-cyclic subspace of $V$ generated by v.\\\\Using the same argument as (a)(i), $m_{\beta|_{U'}}(x) = (x - p(\lambda))^k.$\\\\We first prove that $\dim(U) = \dim(U').$\\\\ Since $U$ is $\alpha$-cyclic, $c_{\alpha|_U}(x) = m_{\alpha|_U}(x) = (x - \lambda)^k.$ \\Similarly, $c_{\beta|_{U'}}(x) = m_{\beta|_{U'}}(x) = (x - p(\lambda))^k.$\\
+Notice that $\deg(c_{\alpha|_U}(x)) = \deg(c_{\beta|_{U'}}(x))$ so $\dim(U) = \dim(U').$\\\\We then prove that $U' \subseteq U.$\\\\
+Choose arbitrary $w \in U'.$
+Since $U'$ is $\beta$-cyclic, $\exists k(x) \in F[x]$ such that\\ $w = k(\beta)(v).$ Then $w = k( p(\alpha))(v)$. In other words, $\exists k'(x) \in F[x]$ such that $w = k'(\alpha).$ Thus $w \in U$ so $U' \subseteq U.$\\\\
+Since $U' \subseteq U $ and $\dim(U') = \dim(U),$ we conclude that $U' = U.$\\\\
+(b) Since $\alpha$ has a Jordan canonical form.
+$V$ can be decomposed as follows:\begin{center}
+    $V = W_1 \oplus W_2 \oplus ... \oplus W_t$.
+\end{center}
+For each $W_i,\ \exists $ a basis $B_i $ of $W_i$ such that\begin{center}
+  $[\alpha|_{W_i}]_{B_i} = \begin{pmatrix}
+    \lambda_i & 1 & 0 & ... & 0 \\
+    0 & \lambda_i & 1 & ... & 0 \\ 0 & 0 & \lambda_i & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & \lambda_i
+\end{pmatrix}$  
+\end{center} with $B_i = \{(\alpha - \lambda_i (I_V))^{n_i-1}(v),(\alpha - \lambda_i (I_V))^{n_i-2}(v),...,v\}$ for some $v \in W_i.$\\\\
+Here, $v \in \ker((\alpha - \lambda_i (I_V))^{n_i}) \backslash \ker((\alpha - \lambda_i (I_V))^{n_i-1}).$
+\\\\
+Let $R_\alpha$ and $R_\beta$ denote the $\alpha$-cyclic and $\beta$-cyclic subspace of V generated by $v$.\\\\
+Claim: $R_\alpha = \text{span}(B_i)$\\\\
+Proof: Since every vector in $B_i$ is of the form $(\alpha-\lambda_i (I_V))^j(v)$ for $0 \leq j < n_i$ and $(x-\lambda_i)^j \in F[x],$ it trivially follows that $\text{span}(B_i) \subseteq R_\alpha.$   \\\\We have proven in (a)(iii) that for $v \in \ker((\alpha - \lambda_i (I_V))^{n_i}) \backslash \ker((\alpha - \lambda_i (I_V))^{n_i-1}),$ the $\alpha$-cyclic subspace of $V$ generated by $v, R_\alpha,$ has dimension $n_i.$\\ Thus $\dim(R_\alpha) = n_i = |B_i| = \dim(\text{span}(B_i)).$ (Since $B_i$ is a basis) so we conclude that $R_\alpha = \text{span}(B_i).$\\\\
+By (a)(ii), $v \in \ker((\beta - p(\lambda_i) (I_V))^{n_i}) \backslash \ker((\beta - p(\lambda_i) (I_V))^{n_i-1}).$\\\\ Define $C_i = \{(\beta - p(\lambda_i) (I_V))^{n_i-1}(v),(\beta - p(\lambda_i) (I_V))^{n_i-2}(v),...,v\}$.\\\\ Using a similar argument as above, span$(C_i) = R_\beta.$\\ By (a)(iii), $R_\alpha = R_\beta$ and so we get the following equality:\begin{center}
+    $W_i = \text{span}(B_i)= R_\alpha = R_\beta = \text{span}(C_i).$
+\end{center}
+Thus $C_i$ is another ordered basis for $W_i.$ It is easy to check that:\begin{center}
+$[\beta|_{W_i}]_{C_i} = \begin{pmatrix}
+    p(\lambda_i) & 1 & 0 & ... & 0 \\
+    0 & p(\lambda_i) & 1 & ... & 0 \\ 0 & 0 & p(\lambda_i) & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & p(\lambda_i)
+\end{pmatrix}$  
+\end{center}
+Repeat the algorithm for $W_1, W_2,...,W_t$ to get basis $C_1,C_2,...,C_t$ respectively. Let $C = C_1 \cup C_2 \cup ... \cup C_t$ be an ordered basis for $V$. Finally we get:
+\begin{center}
+$[\beta]_{C}= \begin{pmatrix}
+    J_{n_1}(p(\lambda_1)) & 0 & 0 & ... & 0 \\
+    0 & J_{n_2}(p(\lambda_2)) & 0 & ... & 0 \\ 0 & 0 & J_{n_3}(p(\lambda_3)) & ... & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & ... & J_{n_t}(p(\lambda_t))
+\end{pmatrix}$
+\end{center}
+as desired.
+\end{document}
+
